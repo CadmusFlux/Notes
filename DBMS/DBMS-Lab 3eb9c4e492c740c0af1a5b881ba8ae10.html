@@ -1,0 +1,768 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>DBMS-Lab</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="45574007-dfca-461a-a90e-f0a080852ec6" class="page sans"><header><h1 class="page-title">DBMS-Lab</h1></header><div class="page-body"><ul id="3a89e34d-c817-4577-8614-abeadd77b626" class="toggle"><li><details open=""><summary><strong>Aggregation function</strong></summary><p id="2abeffca-e74b-48ec-b00e-e2534a1cb6f4" class="">Aggregate functions perform operation on set of values a return a single value.</p><p id="f47c8a83-1db3-4a06-b80f-8e8998154d6d" class="">Except for COUNT , agg func ignore NULL values.</p><p id="7f72dc22-a3e0-443a-82fc-753545ee7f4a" class="">Types: </p><ol id="52916659-e907-4f33-922f-e6a167188098" class="numbered-list" start="1"><li>Count() : Returns number of tuples present.</li></ol><ol id="c476e154-b54e-427f-b274-0e7305842f20" class="numbered-list" start="2"><li>Sum() : Total of all the values.</li></ol><ol id="5deae04d-382c-4648-8787-8ae60a89b390" class="numbered-list" start="3"><li>Avg() : Average of all the values.</li></ol><ol id="a94a2258-c5f9-4eb6-acbd-4356d1ffb671" class="numbered-list" start="4"><li>Min() : smallest value present in all tuples.</li></ol><ol id="54b92e15-c92d-434f-b444-7538aed13045" class="numbered-list" start="5"><li>Max() : Largest value present in all tuples.</li></ol></details></li></ul><ul id="c00b5b31-8f04-4a5d-b57e-547465f04ac0" class="toggle"><li><details open=""><summary><strong>Alter </strong>- used to add/drop/rename/modify properties and values of table .</summary><pre id="1e46f0e5-f7db-4069-8bb7-bccfdee31c44" class="code"><code>ALTER TABLE table_name RENAME TO new_table_name
+ALTER TABLE table_name ADD (column_name datatype constraint)
+ALTER TABLE table_name DROP COLUMN column_name</code></pre></details></li></ul><ul id="69cc1582-3e8e-4efc-99ec-2c82404184dd" class="toggle"><li><details open=""><summary><strong>Alias</strong></summary><p id="7ee42413-7433-4191-9977-8f14f576445b" class="">An alias is created with the <mark class="highlight-blue">AS</mark> keyword. You can create alias without <mark class="highlight-blue">AS</mark> keyword too.</p><p id="110b6314-91d7-4271-a1ad-e9364fe16c32" class="">SQL aliases are used to give a table, or a column in a table, a temporary name.</p><p id="84fd8139-9566-49b1-84a0-683bc86e89f2" class="">Aliases are often used to make column names more readable.</p><pre id="98e2ceda-17eb-40ab-9688-cacf6fb516fc" class="code"><code>SELECT alias_name.column_name(s)
+FROM table_name AS alias_name;
+
+OR
+
+FROM table_name alias_name;</code></pre></details></li></ul><ul id="138ea67e-ca42-46f4-ab84-ec7f6f15ad6e" class="toggle"><li><details open=""><summary> <strong>AND/OR/NOR/NOT </strong>MongoDB</summary><p id="36d3acb3-b799-4213-9df2-1f2d2be0582a" class="">And:  Document satisfying both condition will be returned.<div class="indented"><pre id="37d92b72-d130-46a5-8d06-1456b8c64aff" class="code"><code>db.collection.find({$and:[{&quot;qty&quot;:{$lt:5}},{&quot;qty&quot;:{$gt:2}}]})</code></pre></div></p><p id="25ab9f61-79d3-4e03-b4be-1ebc447368c3" class="">OR : Document satisfying atleast one condition will be returned.<div class="indented"><pre id="5e3762c1-0a96-493c-9808-5ed74d600caf" class="code"><code>db.collection.find{$or:[{&quot;color&quot;:{$eq:&quot;blue&quot;}},{&quot;color&quot;:{$eq:&quot;red&quot;}}]}</code></pre></div></p><p id="0a28aa87-9594-47e5-95f2-20d301889145" class="">NOR : Document not satisfying any condition will be returned.</p><p id="aba755fc-5731-4432-8400-575ea93531a7" class="">NOT : Document not satisfying the query will be returned.</p></details></li></ul><ul id="09655bf2-0de6-4776-8fe7-eff23b3daa6c" class="toggle"><li><details open=""><summary><strong>Comparison</strong> MongoDB</summary><p id="6c55490d-ff63-454a-8754-2ab7654dca79" class="">$eq,$ne</p><p id="ed17d4b0-49c4-44a9-8929-5c5db7c521e8" class="">$lt,$lte,$gt,$gte</p><p id="572b4f52-40d6-4814-958e-6bf90c4deb41" class="">$in,$nin</p></details></li></ul><ul id="0654d0fb-1159-4e41-a45e-1fd334e84794" class="toggle"><li><details open=""><summary><strong>Candidate key</strong></summary><p id="a3d47239-8c74-401f-9fc9-965d8c4830ab" class="">Candidate keys are those super keys that don&#x27;t have redundant attributes among them.</p><p id="0a16b61d-0ce9-4fc8-a18f-6d8bb0ca5edf" class="">For e.g if super_key = {id, (id,name)} then (id,name ) is a redundant superkey as id itself is capable of uniquely identifying the tuples.</p></details></li></ul><ul id="cda27b3a-bbc0-4fac-a61f-9272becbe09e" class="toggle"><li><details open=""><summary><strong>Cursor</strong></summary><p id="9e70487e-3b2c-422d-9a73-c8bb7f934367" class="">A cursor is a control structure which is used to traverse and perform operations row-by-row on a SQL result.</p><p id="16752d00-6a70-4322-8278-7a76a7a910c8" class="">A cursor is a pointer to this context area.A cursor holds the rows (one or more) returned by a SQL statement.</p><ul id="68899eec-8115-41d9-bdea-47ebb3b4a1ad" class="bulleted-list"><li>Implicit cursors : Implicit cursors are automatically created by Oracle whenever an SQL statement is executed, when there is no explicit cursor for the statement </li></ul><p id="7eca445d-b71f-42cd-9eba-df3a3f060806" class="">There are two types of cursors −</p><ul id="74a19a3e-a614-49d3-856a-7d3bf76edb0f" class="bulleted-list"><li>Explicit cursors:Explicit cursors are programmer-defined cursors for gaining more control over the context area.An explicit cursor should be defined in the declaration section of the PL/SQL Block.</li></ul><pre id="f83cb7e9-7d1b-4a75-8cef-1a1cd8d73866" class="code"><code>CURSOR c_customers IS 
+   SELECT id, name, address FROM customers;</code></pre></details></li></ul><ul id="12723b81-5800-412c-b2c4-0946bec87ab4" class="toggle"><li><details open=""><summary><strong>CHAR v/s VAR-CHAR</strong></summary><p id="cd813589-deb2-4376-be6e-df592b596a4e" class="">CHAR <div class="indented"><p id="667b194a-3c70-43f4-b66e-3642539d582a" class="">char stores string character of specified fixed length.</p><p id="0c6545c5-5d2f-4552-9d96-460249f4e9a8" class="">If length of the string entered is less than the length specified than the input string is padded with blank spaces to match specified length.</p><p id="e97200e6-18d6-4211-a63d-40e15a244cca" class="">Length is fixed (n)</p></div></p><p id="b8131cae-a70f-4f19-9f46-c2d6220ee060" class="">Var_char:<div class="indented"><p id="d3b5bbe0-45c0-42eb-836c-0ba693a90680" class="">Var-char is also used for storing string but here the length specified is the maximum length.</p><p id="4ff144b8-80ba-42dd-8bc7-65f4a3ae927c" class="">So if the input string is less than the specified length then the string will be stored as it is no extra spaces are added.</p><p id="5090ce83-84ab-4248-b287-5c61a97e2f5e" class="">Length is equal to the length of input string</p></div></p></details></li></ul><ul id="66b6b5e2-cf66-4be5-ae6e-eec6f5e05e0a" class="toggle"><li><details open=""><summary><strong>Delete </strong>v/s<strong> Truncate </strong>v/s<strong> Drop</strong></summary><p id="db9a7e15-64fc-4620-a152-e82647d5ef74" class="">Delete is DML , it can delete single or multiple rows from table based on the condition specified.</p><p id="428adc3e-028a-40d9-bbd8-95db8bd43618" class="">Truncate is DDL , it will drop all the tuples present in the table without deleting the table.</p><p id="d8a4118e-ac5d-4c62-95c2-f880a9aa79fb" class="">Drop is DDL , it can delete any database object  such as table,view,trigger. </p></details></li></ul><ul id="64630a35-742d-43cf-b5bc-5648e2e5f756" class="toggle"><li><details open=""><summary><strong>Comparison Operator</strong></summary><p id="261bbc6c-cf69-4630-9aa7-4586a7f1fec7" class="">Comparison operators are mathematical operations which compare two values:</p><p id="b12b6ba8-591b-4e5e-9c44-3ee5e0b7804e" class="">The result of a comparison operation can be TRUE, FALSE,UNKNOWN</p><p id="4b5fa935-2fc0-43fe-a333-00fdb592008c" class="">=  :- equal to operator</p><p id="1932e4f6-12a0-4a61-9610-2abc8afb4033" class="">&gt;  : greater than</p><p id="6684c9f7-c8e5-488a-9b3d-8940ceb664fb" class="">&lt;  : Less than</p><p id="32c3598b-daa9-41fd-b9be-fde4265ed2ae" class="">≥  : greater than equal to</p><p id="7cc8c84c-8908-45c0-875e-4113e136ae79" class="">≤  : less than equal to</p><p id="fbc62cf8-30a5-4035-9d57-e09692cd7358" class="">&lt;&gt; : Not equal to</p></details></li></ul><ul id="48c6c11e-f707-4cd6-9580-c616edc5cdfc" class="toggle"><li><details open=""><summary><strong>Capitalization</strong> syntax</summary><p id="f01d4b19-efb6-4a8e-b944-cd66f921bed1" class="">Uppercase is compulsory if query is UNIX based : Linux or macOS</p></details></li></ul><ul id="fae690d5-dd2f-44f1-a179-3d916364d50d" class="toggle"><li><details open=""><summary><strong>Constraints</strong> - constraints are used to restrict or specify which type of data is allowed in column.</summary><ul id="f181ccd7-d895-4a3a-befe-e2701d7fd071" class="bulleted-list"><li>NOT NULL -  ensures that NULL values are not present</li></ul><ul id="d90fbf08-da32-4d9a-a546-320294f20f09" class="bulleted-list"><li>UNIQUE - ensures that all values are distinct. No repetition.</li></ul><ul id="7cc3c663-e8e8-480d-a636-4e5f962cdf85" class="bulleted-list"><li>PRIMARY KEY - Combination of unique and not null . Uniqely identifies tuples.</li></ul><ul id="a5260a5e-be65-4ed0-92d6-4daffc8100aa" class="bulleted-list"><li>FOREIGN KEY - restricts values that would destroy link between tables</li></ul><ul id="b633a698-baf4-4ca1-98f4-7eaee3198184" class="bulleted-list"><li>DEFAULT - Sets a default value for a column if no value is specified</li></ul><ul id="2c63d903-bd07-4fb1-a88d-4f45b2276c81" class="bulleted-list"><li>CREATE INDEX - Used to create and retrieve data from the database very quickly</li></ul></details></li></ul><ul id="e0366cf7-d75d-4462-af78-da7ec10b210a" class="toggle"><li><details open=""><summary><strong>Conditional Statements in PL/SQl.</strong></summary><ul id="8ac4decf-0a40-4533-9b17-0416de89245e" class="bulleted-list"><li>IF-THEN</li></ul><ul id="1a3e911f-4587-4f9e-8899-a027137403c3" class="bulleted-list"><li>IF-THEN-ELSE</li></ul><ul id="1eb9ae3e-9303-43bd-93b6-6a83a3cea862" class="bulleted-list"><li>IF-THEN-ELSIF</li></ul><ul id="e9710880-4363-45a0-86eb-8030ca61f51e" class="bulleted-list"><li>NESTED-IF</li></ul><ul id="4db064c1-c9bb-4f96-b7bd-b3dc25336725" class="bulleted-list"><li>CASE</li></ul><ul id="b961635a-aae7-4f2b-91ca-7a78ee83049e" class="bulleted-list"><li>SEARCHED CASE</li></ul></details></li></ul><ul id="f8b2dac7-c5db-4f2c-bc7d-4446c5a4b840" class="toggle"><li><details open=""><summary><strong>Consistency Mongo-db</strong></summary><p id="fd3172ba-8c9c-4055-99b3-3ee9bf6527f2" class="">reading from secondary memory is optional.</p><figure id="3eb9c4e4-92c7-40c0-af1a-5b881ba8ae10" class="image"><a href="DBMS-Lab%203eb9c4e492c740c0af1a5b881ba8ae10/Untitled.png"><img style="width:781px" src="DBMS-Lab%203eb9c4e492c740c0af1a5b881ba8ae10/Untitled.png"/></a></figure></details></li></ul><ul id="f9e3c8a9-09b1-4604-b829-1e65b5d7b307" class="toggle"><li><details open=""><summary><strong>CRUD (SQL) </strong>- CREATE , READ , UPDATE ,DELETE</summary><p id="b0dad31a-6d23-40b3-a475-a77921791fd5" class="">Create :  To create a table <div class="indented"><pre id="e336bd80-c261-4d46-8ee7-31ac6f131017" class="code"><code>CREATE TABLE table_name (column1 datatype,
+			 column2 datatype,
+			 column3 datatype);</code></pre></div></p><p id="58bf627f-9661-45ee-aefe-f4c27b264aa9" class="">Read : To retrieve content from db<div class="indented"><pre id="1cfcd5b7-4b9c-4b93-8369-75deb65ecfba" class="code"><code>Select *
+From table_name</code></pre></div></p><p id="bb4e9c9a-8005-495e-a5b9-0b01b4710f3f" class="">Update: to modify/add/delete content in table<div class="indented"><pre id="1cbc954f-45d1-4ced-9049-80ba67da446e" class="code"><code>ALTER TABLE table_name RENAME TO new_table_name
+ALTER TABLE table_name ADD (column_name datatype constraint)
+ALTER TABLE table_name DROP COLUMN column_name</code></pre></div></p><p id="3823b7e5-0606-4dbc-ac13-61af63b8a1e1" class="">Delete OR Drop<div class="indented"><pre id="8e449555-a702-4f6a-8b65-d9b9b968eb5b" class="code"><code>Delete from table_name
+where column = some_value
+
+DROP TABLE table_name;</code></pre></div></p></details></li></ul><ul id="9e220adf-ba4c-41fc-bbfc-ad19b6a82836" class="toggle"><li><details open=""><summary><strong>CRUD (MongoDB) </strong>- CREATE , READ , UPDATE ,DELETE</summary><p id="36613e92-b796-45d1-be35-53f9b3818647" class="">Create :  To create a collectio<div class="indented"><pre id="586bc452-beb8-4f17-955a-ef2faf609df1" class="code"><code>db.collection_name.insertOne( {&quot;one&quot;:1,&quot;second&quot;:2})
+
+db.collection_name.insertMany({&quot;one&quot;:1,&quot;second&quot;:2},
+			      {&quot;one&quot;:1,&quot;second&quot;:2},
+			      {&quot;one&quot;:1,&quot;second&quot;:2})</code></pre></div></p><p id="a6659bf2-22e8-4f45-bf9d-d6a79ae0e74e" class="">Read : To retrieve content from db<div class="indented"><pre id="bd908050-752e-425e-81e2-54c2d0f2bba2" class="code"><code>db.collection.find({property:value}).limit(n)</code></pre></div></p><p id="ff78ac6f-7b6c-4e6f-a73b-27e87b16a165" class="">Update: to modify/add/delete content in table<div class="indented"><pre id="4ef165a0-cd75-4bcd-9523-c707d388bd07" class="code"><code>db.collection.updateOne(
+		{&quot;age&quot;:{@lt:18}}
+		$set:{&quot;status&quot; : reject})
+db.collection.updateMany()
+db.collection.replaceOne()</code></pre></div></p><p id="f31a523d-44cb-410e-9b80-0b519e2cfd9b" class="">Delete <div class="indented"><pre id="0dce2e7a-81fd-47cd-a6cf-b874ddfc0a4a" class="code"><code>db.collection.deleteOne()
+db.collection.deleteMany()</code></pre></div></p></details></li></ul><ul id="c855c5b1-f649-48fd-9a9f-9a976bcd99da" class="toggle"><li><details open=""><summary><strong>Database</strong></summary><p id="8ed93487-5f32-427d-96de-827ea0485982" class="">Database is a set of data in a stored computer that is structured in such a way which makes the data easily accessible</p><p id="e5c3f19f-d0f3-42ea-9676-32cdbd1ead3c" class="">
+</p></details></li></ul><ul id="05baac60-ee4e-4bed-a82b-29cc06065385" class="toggle"><li><details open=""><summary><strong>DELETE </strong>- delete tuples present in a table of db</summary><pre id="bc444e6b-8fcf-4bd1-bf82-23171c45531e" class="code"><code>DELETE FROM table_name
+WHERE [condition];</code></pre></details></li></ul><ul id="62831a40-5534-4e8a-a00c-45dac3a75e48" class="toggle"><li><details open=""><summary><strong>DDL </strong>-<strong> </strong>Data Definiton language</summary><ul id="00c0a58a-1922-4fff-b294-e48aa033554e" class="bulleted-list"><li>CREATE: Create table</li></ul><ul id="c6514e73-ba8c-4a99-a01c-7b3c5b73e0bc" class="bulleted-list"><li>DROP  : completely delete table / database objects</li></ul><ul id="4ae4d0e5-7a28-4e6e-834b-eaf1b78384dd" class="bulleted-list"><li>ALTER :  </li></ul><ul id="d2c4a58c-4610-4e97-be4c-664296d06aa7" class="bulleted-list"><li>TRUNCATE</li></ul><ul id="a9eef72d-c543-497c-8e0b-31eb399dd9d0" class="bulleted-list"><li>COMMENT </li></ul><ul id="1719e979-6419-4e34-a8b6-8405e4b7f086" class="bulleted-list"><li>RENAME</li></ul></details></li></ul><ul id="27a0a449-acd6-4a39-9ec3-8ad5cb60b29e" class="toggle"><li><details open=""><summary><strong>DML </strong>- Data Manipulation language</summary><ul id="a7bc297e-596e-43e0-aa85-370e64890b57" class="bulleted-list"><li>SELECT</li></ul><ul id="d141d053-e0a4-4f2e-b680-ed7205c3c410" class="bulleted-list"><li>INSERT</li></ul><ul id="7941c4b8-da1f-47d5-bf19-32dd6d2552c9" class="bulleted-list"><li>UPDATE </li></ul><ul id="5362ab0a-e957-455f-a09b-6249b977d241" class="bulleted-list"><li>DELETE</li></ul><ul id="693fb50b-f092-4838-8ac7-d568c3e9a725" class="bulleted-list"><li>MERGE</li></ul><ul id="9f52a248-50a4-49af-9c6b-975e2953a6ff" class="bulleted-list"><li>LOCK TABLE</li></ul></details></li></ul><ul id="0686e6f0-3d01-48fc-88b7-a54b855cf3e7" class="toggle"><li><details open=""><summary><strong>DCL  </strong>-<strong> </strong>Data Control Language</summary><ul id="bf465f51-8866-4849-8398-a8a0adc2c49e" class="bulleted-list"><li>GRANT </li></ul><ul id="ee996f11-80db-46ac-9efe-142c7123d32b" class="bulleted-list"><li>REVOKE</li></ul></details></li></ul><ul id="85c9c08e-ee13-4fc8-ab99-81a3c8253b15" class="toggle"><li><details open=""><summary><strong>Exceptions</strong></summary><p id="ae2812a4-df05-46ce-8fb2-d3c5c4529706" class="">Exceptions are error that are raises during execution which disrupts the flow of program.</p><p id="d8c0cbef-be0b-46c8-9563-f36a5dcfb6fc" class="">Types of executions:<div class="indented"><ol id="add14866-cef8-49ab-ac75-58d1c5d3d4a7" class="numbered-list" start="1"><li>User-defined</li></ol><ol id="8bb99363-f428-456d-bba4-c95f3d1c1258" class="numbered-list" start="2"><li>System-defined</li></ol></div></p></details></li></ul><ul id="7641ae63-a46f-46a3-accb-6425805d6f13" class="toggle"><li><details open=""><summary><strong>Foreign Key</strong></summary><p id="6f0e7164-dc80-4f7b-bd43-7e2e0ed81e16" class="">Foreign Key refers to primary key of another table.</p><p id="747c4e20-85eb-4e94-876d-741cbefbbfba" class="">Basically it doesn&#x27;t have to be unique but the attribute it is pointing to must be unique.</p></details></li></ul><ul id="6706cde2-c900-4440-8a1a-011956c32371" class="toggle"><li><details open=""><summary><strong>For Update</strong></summary><p id="4d4ce6be-b8d3-4d16-832a-48ae109a05cf" class="">to update or delete the record which was last set in the cursor</p><p id="7d93ae24-09a1-4666-af46-31b767da2d12" class="">delete/update name</p><p id="bea77eb3-1dd7-476f-b966-5c92b25e9b82" class=""><strong>where currentof cursorname</strong></p></details></li></ul><ul id="efc1e2fc-1e0e-40ae-9d64-829e73e5d783" class="toggle"><li><details open=""><summary><strong>Group by</strong> </summary><p id="03c4f6c4-c580-43d1-9004-186355b87ac7" class="">The GROUP BY statement groups rows that have the same values into summary rows, like &quot;find the number of customers in each country&quot;.</p><pre id="10fcd7b0-0f56-4950-9bab-ddcf88eaf7e9" class="code"><code>SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+ORDER BY column_name(s);</code></pre></details></li></ul><ul id="02c6b8d3-cb3e-4187-801a-d94adadae146" class="toggle"><li><details open=""><summary><strong>Having Clause</strong></summary><p id="0dc41412-7c79-46a8-91ad-a6caa9ad8be9" class="">The HAVING clause was added to SQL because the WHERE keyword cannot be used with aggregate functions.</p><pre id="8986972f-b969-49e2-ade4-f08cfa21d1c0" class="code"><code>SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+HAVING condition
+ORDER BY column_name(s);
+
+
+eg: SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+HAVING COUNT(CustomerID) &gt; 5;</code></pre></details></li></ul><ul id="07ee2eff-adc7-406a-af18-dac884ce9ca9" class="toggle"><li><details open=""><summary><strong>Iterative(loop) construct in PL/SQl.</strong></summary><p id="3d49ce8c-7db1-4c1f-9195-767eaf5ee7ec" class="">Iterative statements are used when we want to repeat execution of one or more statement for specified number of times.</p><ol id="7a4ec91a-7ca3-46a9-8364-fd3e23fe1903" class="numbered-list" start="1"><li>Simple//Basic loop : <ol id="d2f03325-3ae5-437b-8039-c78c258815d1" class="numbered-list" start="1"><li>it is used when a set of statements are supposed to be executed atleast once before terminating. This exit controlled loop.</li></ol><pre id="9efaa7d4-9e00-4e45-9f56-5b3c134e8b19" class="code"><code>LOOP 
+   statements;
+   EXIT; 
+   {or EXIT WHEN condition;}
+END LOOP;</code></pre></li></ol><ol id="909da221-d11e-48c6-96ab-0a7e51832738" class="numbered-list" start="2"><li>While loop : <ol id="9cb2712b-1f6d-471e-ab09-3f5750d65891" class="numbered-list" start="1"><li>This is used when set of statements are to be executed while the condition specified is true.</li></ol><pre id="d67bf738-9b17-4678-81b7-4b9be785534a" class="code"><code>WHILE &lt;condition&gt; 
+ LOOP statements; 
+END LOOP;</code></pre></li></ol><ol id="346c1478-5bc7-4472-b51f-11fee8abe0fc" class="numbered-list" start="3"><li>For loop  : <ol id="360d7b05-dcdd-4af4-8e10-f52edc400261" class="numbered-list" start="1"><li>This is used when set of statements are to be executed  for a specific amount of times.</li></ol><pre id="f072f95a-f744-4f26-92eb-49c156f415ef" class="code"><code>FOR counter IN val1..val2 
+  LOOP statements; 
+END LOOP;</code></pre></li></ol></details></li></ul><ul id="fe4388c9-1a3e-48be-86ab-2d63858b23b5" class="toggle"><li><details open=""><summary><strong>INSERT </strong>- used to insert new records/fields in table of db</summary><pre id="37e71860-8b09-44fd-9ec7-a6a0d49d948d" class="code"><code>Insert Into table_name(column1,column2,column3...)
+Values (value1,value2,value3....);</code></pre><p id="a238d05a-483c-4f07-94b3-dbcedcba059c" class="">The above syntax is used to insert values into specific columns. You can skip the column part if you want to Insert values in all the columns . But in this case order should be maintained.</p></details></li></ul><ul id="d40d1a55-74ca-4d22-9c5c-e907cf75e363" class="toggle"><li><details open=""><summary><strong>Join</strong></summary><ol id="04c8291f-013f-4cd6-a8de-0116baba572b" class="numbered-list" start="1"><li>Join operation is to fetch data from two or more tables .</li></ol><ol id="48e264e8-473a-4a68-ae4e-71faf23e84e4" class="numbered-list" start="2"><li>The join operation merges the tables based on common rows/attributes.</li></ol><pre id="fff886f1-1e80-4bc8-9997-b47049b05499" class="code"><code>SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN/LEFT JOIN/RIGHT JOIN/FULL JOIN Customers ON Orders.CustomerID=Customers.CustomerID;</code></pre><ol id="e1b2028f-4b89-467c-a88a-46e5061686f6" class="numbered-list" start="1"><li>There are various type of join:<ol id="b2e1a9a9-9cb3-498b-ace2-816893762a9c" class="numbered-list" start="1"><li><strong>Natural JOIN : </strong>selects common attribute implicitly and displays only common column 
+                        once.</li></ol><ol id="a57c897c-8647-4f12-8c43-1043273d794d" class="numbered-list" start="2"><li><strong>Inner join  : </strong>selects specified common attribute and displace common column multiple
+                    times.</li></ol><ol id="9b131dad-c8f9-48ad-a5f8-f111290325bc" class="numbered-list" start="3"><li><strong>Left (outer) Join</strong></li></ol><ol id="b826c99f-4f34-4a68-a985-651800d60c41" class="numbered-list" start="4"><li><strong>Right (Outer) Join</strong></li></ol><ol id="1e990d36-b8e6-4ead-994f-9458745067cf" class="numbered-list" start="5"><li><strong>Full (Outer) Join</strong></li></ol><ol id="41bf10f5-43f1-460e-b931-21d64a926d9e" class="numbered-list" start="6"><li><strong>Self Join : </strong>Join same tables with different aliases</li></ol><figure id="1bb55f94-7f8d-40c4-bd07-f0f1d4f5ca76" class="image"><a href="DBMS-Lab%203eb9c4e492c740c0af1a5b881ba8ae10/Untitled%201.png"><img style="width:336px" src="DBMS-Lab%203eb9c4e492c740c0af1a5b881ba8ae10/Untitled%201.png"/></a></figure><p id="0626c256-9078-4d2c-8a12-9d5689d858e3" class="">
+</p></li></ol></details></li></ul><ul id="eac7c991-6c47-4ef4-930b-882a943848e5" class="toggle"><li><details open=""><summary><strong>JSON( Java-script Object Notation ): </strong>lightweight format for storing and transporting data</summary><p id="0bae34fa-8554-42e5-b686-437e68a978c2" class="">JSON example can be created by object and array. Each object can have different data such as text, number, boolean etc.</p><p id="912c9c24-7a4c-46e7-9764-75ab666d52de" class="">A JSON object contains data in the form of key/value pair. </p><p id="49d126be-f16e-4e8c-8cc4-4c05eec2d667" class="">The keys are strings and the values are the JSON types. Keys and values are separated by colon. Each entry (key/value pair) is separated by comma.</p><p id="4fc7659c-135f-4fd9-9875-b0c57d08a63b" class="">Keys must be strings, and values must be a valid JSON data type (string, number, object, array, boolean or null)</p><pre id="4578c98c-c2bf-45b7-ae77-3fc64c096f63" class="code"><code>{  
+    &quot;employee&quot;: {  
+        &quot;name&quot;:       &quot;sonoo&quot;,   
+        &quot;salary&quot;:      56000,   
+        &quot;married&quot;:    true  
+    }  
+}</code></pre><p id="22a1315d-ed4c-474a-9aef-79741fdef720" class="">
+</p></details></li></ul><ul id="24f3a51a-96f6-49a8-97d1-6ef465f3248c" class="toggle"><li><details open=""><summary><strong>Logical Operator</strong></summary><p id="79a7bb21-dc50-4eaf-b1f2-bb1f9b303370" class="">
+</p><div id="360a3a46-049e-4a06-9a2d-c1621846060b" class="collection-content"><h4 class="collection-title"></h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>ALL</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>TRUE if all of the subquery values meet the condition</th></tr></thead><tbody><tr id="845e1000-0d47-4841-9605-283baa1136a9"><td class="cell-title"><a href="https://www.notion.so/AND-845e10000d4748419605283baa1136a9">AND</a></td><td class="cell-\HFS">TRUE if all the conditions separated by AND is TRUE</td></tr><tr id="177c8580-0350-4957-ac1b-fccc4775779a"><td class="cell-title"><a href="https://www.notion.so/ANY-177c858003504957ac1bfccc4775779a">ANY</a></td><td class="cell-\HFS">TRUE if any of the subquery values meet the condition</td></tr><tr id="9e538183-be4a-4ed2-8efa-1470c385fe21"><td class="cell-title"><a href="https://www.notion.so/BETWEEN-9e538183be4a4ed28efa1470c385fe21">BETWEEN</a></td><td class="cell-\HFS">TRUE if the operand is within the range of comparisons</td></tr><tr id="e79c951c-9fb1-4a97-b51c-474b1c4a37ce"><td class="cell-title"><a href="https://www.notion.so/EXISTS-e79c951c9fb14a97b51c474b1c4a37ce">EXISTS</a></td><td class="cell-\HFS">TRUE if the subquery returns one or more records</td></tr><tr id="022ee704-91e3-4c52-b615-9a91cbfdaa60"><td class="cell-title"><a href="https://www.notion.so/IN-022ee70491e34c52b6159a91cbfdaa60">IN</a></td><td class="cell-\HFS">TRUE if the operand is equal to one of a list of expressions</td></tr><tr id="29a3e9ea-b956-4a99-9869-9d60510f6526"><td class="cell-title"><a href="https://www.notion.so/LIKE-29a3e9eab9564a9998699d60510f6526">LIKE</a></td><td class="cell-\HFS">TRUE if the operand matches a pattern</td></tr><tr id="47b491db-f88a-4c0d-9de8-2b19adca49df"><td class="cell-title"><a href="https://www.notion.so/NOT-47b491dbf88a4c0d9de82b19adca49df">NOT</a></td><td class="cell-\HFS">Displays a record if the condition(s) is NOT TRUE</td></tr><tr id="b466512a-2029-4b20-a72a-1b83223fb027"><td class="cell-title"><a href="https://www.notion.so/OR-b466512a20294b20a72a1b83223fb027">OR</a></td><td class="cell-\HFS">TRUE if any of the conditions separated by OR is TRUE</td></tr><tr id="2abc9ab8-9a91-4f94-8f53-f464f3bd61d2"><td class="cell-title"><a href="https://www.notion.so/SOME-2abc9ab89a914f948f53f464f3bd61d2">SOME</a></td><td class="cell-\HFS">TRUE if any of the subquery values meet the condition</td></tr></tbody></table></div></details></li></ul><ul id="5ddee129-f82f-4028-87ae-3b8160588f63" class="toggle"><li><details open=""><summary><strong>MySQL v/s SQL</strong></summary><p id="8248373a-8707-4c2f-842f-23aa4d80e721" class="">SQL is a query language while MYSQL is a database software</p></details></li></ul><ul id="16dbc363-8239-4e6b-be5b-de5612067874" class="toggle"><li><details open=""><summary><strong>Pretty()</strong> - Makes output of mongo query results easy to read.</summary><ul id="bec040f8-21e8-4341-9025-d1642c79cf9f" class="bulleted-list"><li> The pretty() method specifies the cursor object to display the Mongo query results
+ in an easy-to-read attractive format.</li></ul><pre id="fad80cb7-adc8-4c8a-a191-0365e5d53113" class="code"><code>db.collection_name.find(&lt;query_string&gt;).pretty()</code></pre><p id="492b3e3d-bd83-4a78-ab68-e99adc5d0820" class="">
+</p><figure id="ed89c53d-8160-4a52-bfd0-cc46ecad653f" class="image"><a href="DBMS-Lab%203eb9c4e492c740c0af1a5b881ba8ae10/Untitled%202.png"><img style="width:875px" src="DBMS-Lab%203eb9c4e492c740c0af1a5b881ba8ae10/Untitled%202.png"/></a></figure><p id="d2811c3f-f93b-4330-a8d1-72b3c10ee474" class="">
+</p><figure id="ac2bc6ae-d2c5-4559-bfde-e64ee2b0333d" class="image"><a href="DBMS-Lab%203eb9c4e492c740c0af1a5b881ba8ae10/Untitled%203.png"><img style="width:132px" src="DBMS-Lab%203eb9c4e492c740c0af1a5b881ba8ae10/Untitled%203.png"/></a></figure><p id="cb401ca4-214e-463a-bf84-5230ef6551a2" class="">
+</p></details></li></ul><ul id="84937cf1-179a-499b-8f30-fe29a1537062" class="toggle"><li><details open=""><summary>trigger</summary><pre id="1acdeb32-43da-48a5-8f12-7579dceb9e33" class="code"><code>create trigger trigger-name
+before/after DML OR DDL tablename/column name
+for each row
+when
+	condition
+begin 
+end
+
+it is a stored program that is fired automatically whenever
+ a certain event occurs. THis event can be DML statement DDL statement or logon/logout.
+
+Trigger componenets
+	1) trigger event  :DML/DDL
+	2) trigger constraitn : when
+	3) trigger statement : execution blockwe</code></pre><pre id="5c23861c-9182-4fcf-b0e0-96649916e8da" class="code"><code>create package packagename AS
+begin 
+end
+
+create function functionname(parameter)
+return datatype is/as
+begin 
+end
+
+create procedure procedurename(parameter in/out/inout)
+is
+begin end
+
+cursor cursor_name is
+	sql statement
+	for update;
+
+open cursorname
+fetch cursorname into columns
+close cursorname
+
+excname exception
+
+raie exceptionname
+
+when exceptionname then
+	statement
+
+%found
+%notfound
+%isopen
+%rowcount</code></pre></details></li></ul><ul id="0bc1a31f-4d3d-4c72-9df1-525f9a598b04" class="toggle"><li><details open=""><summary><strong>Mongo-DB</strong></summary><ul id="038c8c54-fa2e-47b1-aaef-25c67ab17b60" class="bulleted-list"><li>MongoDB is an open source NoSQL , document oriented  database management program:<ol id="7834102c-832c-4ee7-844a-1f494d47a505" class="numbered-list" start="1"><li>A collection is equivalent to tables/relation in Mysql</li></ol><ol id="d976a751-8eba-4fa5-a033-3614282d1f63" class="numbered-list" start="2"><li>A  document is equivalent to tuples/rows in Mysql</li></ol></li></ul><ul id="7fb5fd7a-0b22-482c-895d-f2921f12905f" class="bulleted-list"><li><strong>Create database</strong>: use DATABASE_NAME</li></ul><ul id="4d7bf61c-38d0-4aa7-9c18-6b93aca0621b" class="bulleted-list"><li><strong>Delete function</strong>: db.collection.remove()</li></ul><ul id="2e385e92-23ac-4a31-a5c1-37391215ab5a" class="bulleted-list"><li><strong>Find function </strong>: db.collection.find(),</li></ul><ul id="ce5a1d89-3c76-4f8b-b23e-719309cbeaaf" class="bulleted-list"><li>A<strong>ggregation function</strong> :db.collection.aggregate(pipeline, options)</li></ul><ul id="c791a9c4-5936-4dba-8964-8d046d6df77a" class="bulleted-list"><li><strong>Skip method</strong> : $skip takes a positive integer that specifies the maximum number of documents to skip.</li></ul><ul id="31443382-c72c-4ca8-9464-dc176b97d0f1" class="bulleted-list"><li><strong>Limit method</strong>: $limit takes a positive integer that specifies the maximum number of documents to pass along.</li></ul><ul id="75c48d2a-3d83-4b7c-ba85-693a9c73bb1f" class="bulleted-list"><li><strong>Sort method</strong>: Sorts all input documents and returns them to the pipeline in sorted order.</li></ul><ul id="552fbecd-07e9-4ed6-91c2-c112c48b45d7" class="bulleted-list"><li><strong>Distinct </strong>: db.collection.distinct(field, query, options)</li></ul></details></li></ul><ul id="368dfc82-fc01-4e26-ab7d-d5003695031b" class="toggle"><li><details open=""><summary><strong>Model </strong>- it is the application of schema. schema is like blueprint , Model is it&#x27;s implementation.</summary><p id="e86ed896-f4fb-4b2d-a321-650b026b59f3" class="">
+</p></details></li></ul><ul id="205c69d1-9f91-45c5-a1f3-ff2a25960f07" class="toggle"><li><details open=""><summary><strong>Map-reduce - db.collection.mapReduce()</strong></summary><ul id="8a63ca55-3757-4944-854a-27728b362cd3" class="bulleted-list"><li>Map-reduce is a data processing paradigm for condensing large volumes of data into useful aggregated results.</li></ul><ul id="fff35625-a4cc-45d5-b264-b6001032a6d9" class="bulleted-list"><li>this operation applies map phase to input documents(returned by query). the map function returns key value pair. the keys that have multiple values are further aggregated to condense the result.</li></ul></details></li></ul><ul id="db1562ca-6c69-409b-b2f4-a9c0db79a382" class="toggle"><li><details open=""><summary><strong>Nested Query</strong></summary><p id="101db772-e43b-488a-8eef-06623d92a788" class="">A subquery/nested query is  a query within another sql query.</p><p id="f2c83518-a130-4599-ad10-e214436ed9e2" class="">The result of the subquery is passed to main query which uses it as a condition to further restrict the results.</p><p id="5262aa30-92da-435d-a775-1c5335cadf09" class="">example  : check if salary of employee is highest.</p></details></li></ul><ul id="4e30f884-55b6-4704-8e3f-806effb5a966" class="toggle"><li><details open=""><summary><strong>NoSQL </strong>- it is non-relational DBMS that doesn&#x27;t require schema .</summary><ul id="5fc45c04-0150-43f4-94d6-b4c2e479764b" class="bulleted-list"><li>It is document based as opposed to table based in SQL</li></ul><ul id="d4049297-444a-4817-ad78-fd39ac456085" class="bulleted-list"><li>It uses JSON document model to store data. It has key-value pairs for storing data.</li></ul><ul id="ccbb9e65-3569-4d7e-ba84-6d58a796ff3c" class="bulleted-list"><li>In sql we use tuples for new entry whereas here we use new document.</li></ul><ul id="4c3edb9e-c535-41fd-b073-94d4ab849d7c" class="bulleted-list"><li>As it doesn&#x27;t have any schema , each new element can have different property or definitions.</li></ul><ul id="0345b6b2-9689-4bff-af7a-d2e4175497ef" class="bulleted-list"><li>No need to normalize as everything is key-value paired and can be nested.</li></ul><pre id="75faaad6-b2f8-4757-9469-8632ffe396d2" class="code"><code>{
+	&quot;property1&quot;:data
+	&quot;property2&quot;:data
+	&quot;property3&quot;:data
+}
+</code></pre></details></li></ul><ul id="7d4864bf-9a84-441f-95c5-76c20ffb3d48" class="toggle"><li><details open=""><summary><strong>Order by</strong></summary><ol id="e95c651e-5888-4ff0-99a7-cd254ed38378" class="numbered-list" start="1"><li>Order by clause is used to display the fetched tuples in sorted order. The default order is ascending.</li></ol><ol id="5899f134-fa56-41eb-937f-8120ebbde349" class="numbered-list" start="2"><li>If two attributes are passed then the first attribute gets priority. On the second iteration of sorting second attribute is used.</li></ol><ol id="b5fe22dc-4f4d-4db3-939e-1e9671bda3cc" class="numbered-list" start="3"><li>. If desc order is preferred it should be specified by using DESC keyword.</li></ol><pre id="2051caae-2426-4d3b-9c98-8f54fec297dc" class="code"><code>select *
+from table1 t1
+order by t1.name desc</code></pre></details></li></ul><ul id="d22b13f9-a0d1-451c-a49b-e02bb41190f1" class="toggle"><li><details open=""><summary><strong>PL/SQL </strong>- Procedural Language / Structured Query Language</summary><p id="e0d0ca1c-a80c-4835-8e71-e953eade0218" class="">It is a combination of SQL with features of procedural language.</p><p id="f4d5dbf2-b64e-4582-b848-76c6a6f6013e" class="">It was developed by oracle in the 1990s to enhance the capabilities of sql.</p><pre id="09756aa3-e17d-4548-a119-a13921b9eddf" class="code"><code>Declare
+	declare variables,cursors,subprograms
+BEGIN
+	excetubale statements
+Exception(optional)
+	exception handling
+END;
+</code></pre></details></li></ul><ul id="409d2f66-227f-4481-a22f-ffd3bd50fac7" class="toggle"><li><details open=""><summary><strong>Primary Key</strong></summary><p id="97df7fc1-a17f-473d-a175-6c0d93e6623f" class="">Primary key is a key chosen from the candidate key by the Database administrator.</p><p id="e4940d69-ea9b-4a53-bc58-908b8e4beff9" class="">It should Uniquely identify every tuple in the relation.</p><p id="fa00644d-f457-4d63-a0d6-903890475abd" class="">It should have no NULL values or repeated entries.</p></details></li></ul><ul id="639e3e0a-ba27-4877-9fa7-0b1c7a8f7e0a" class="toggle"><li><details open=""><summary><strong>RDBMS</strong> - Relational Data-Base Management System</summary><ol id="09fcd174-14e3-43e0-9f91-f40b55ae2b19" class="numbered-list" start="1"><li>RDBMS is a type of database that uses a collection of tables to represent both data and the relationship among those data.</li></ol><ol id="568aa6ab-8c7c-4a35-b25e-a57a6c98f818" class="numbered-list" start="2"><li> It stores data in row and column format.</li></ol><ol id="15c3402d-faee-4119-9ec7-af915bedf068" class="numbered-list" start="3"><li>Table = relation , Rows = tuples/fields , Columns = Attributes</li></ol></details></li></ul><ul id="2439e736-5a30-4f9b-a4a5-31165e8b3376" class="toggle"><li><details open=""><summary><strong>SQL v/s PL/SQL</strong></summary><p id="066534ee-0a2d-4f01-88f7-9e9c631b6379" class="">
+</p><div id="c624b579-2dd9-43c1-becb-fcda12b5faaa" class="collection-content"><h4 class="collection-title"></h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber"><path d="M4.46191,0 C3.8667,0 3.38428,0.482422 3.38428,1.07751 L3.38428,3.38425 L1.07764,3.38425 C0.482422,3.38425 0,3.86667 0,4.46179 C0,5.05688 0.482422,5.53931 1.07764,5.53931 L3.38428,5.53931 L3.38428,8.46063 L1.07764,8.46063 C0.482422,8.46063 0,8.94308 0,9.53818 C0,10.1333 0.482422,10.6157 1.07764,10.6157 L3.38428,10.6157 L3.38428,12.9224 C3.38428,13.5175 3.8667,13.9999 4.46191,13.9999 C5.05664,13.9999 5.53906,13.5175 5.53906,12.9224 L5.53906,10.6157 L8.46045,10.6157 L8.46045,12.9224 C8.46045,13.5175 8.94287,13.9999 9.53809,13.9999 C10.1333,13.9999 10.6157,13.5175 10.6157,12.9224 L10.6157,10.6157 L12.9224,10.6157 C13.5176,10.6157 14,10.1333 14,9.53818 C14,8.94308 13.5176,8.46063 12.9224,8.46063 L10.6157,8.46063 L10.6157,5.53931 L12.9224,5.53931 C13.5176,5.53931 14,5.05688 14,4.46179 C14,3.86667 13.5176,3.38425 12.9224,3.38425 L10.6157,3.38425 L10.6157,1.07751 C10.6157,0.482422 10.1333,0 9.53809,0 C8.94287,0 8.46045,0.482422 8.46045,1.07751 L8.46045,3.38425 L5.53906,3.38425 L5.53906,1.07751 C5.53906,0.482422 5.05664,0 4.46191,0 Z M5.53906,8.46063 L5.53906,5.53931 L8.46045,5.53931 L8.46045,8.46063 L5.53906,8.46063 Z"></path></svg></span>Sr. No.</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Key</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>SQL</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>PL/SQL</th></tr></thead><tbody><tr id="1fe1861f-1cef-48a7-8da4-14f88b0c2f1d"><td class="cell-`i|S">1</td><td class="cell-title"><a href="https://www.notion.so/Definition-1fe1861f1cef48a78da414f88b0c2f1d">Definition</a></td><td class="cell-~FPM">SQL, is Structural Query Language for database.</td><td class="cell-mZs=">PL/SQL is a programming language using SQL for a database.</td></tr><tr id="b3f7fbc5-5caa-4a80-9224-357346b47ba1"><td class="cell-`i|S">2</td><td class="cell-title"><a href="https://www.notion.so/Variables-b3f7fbc55caa4a809224357346b47ba1">Variables</a></td><td class="cell-~FPM">SQL has no variables.</td><td class="cell-mZs=">PL/SQL has variables, data types etc.</td></tr><tr id="01da5f18-3727-43ae-903d-1b224193a410"><td class="cell-`i|S">3</td><td class="cell-title"><a href="https://www.notion.so/Control-Structures-01da5f18372743ae903d1b224193a410">Control Structures</a></td><td class="cell-~FPM">SQL has no FOR loop, if control and similar structures.</td><td class="cell-mZs=">PL/SQL has FOR loop, while loop, if controls and other similar structures.</td></tr><tr id="ef2ffcdd-75d4-4131-8eec-72072fc90f81"><td class="cell-`i|S">4</td><td class="cell-title"><a href="https://www.notion.so/Operations-ef2ffcdd75d441318eec72072fc90f81">Operations</a></td><td class="cell-~FPM">SQL can execute a single operation at a time.</td><td class="cell-mZs=">PL/SQL can perform multiple operation at a time.</td></tr><tr id="ed4ae21a-82e6-43bf-9fe9-b38ffe049a20"><td class="cell-`i|S">5</td><td class="cell-title"><a href="https://www.notion.so/Language-Type-ed4ae21a82e643bf9fe9b38ffe049a20">Language Type</a></td><td class="cell-~FPM">SQL is a declarative language.</td><td class="cell-mZs=">PL/SQL is a procedural language.</td></tr><tr id="a321531c-acdc-495c-b812-f4b07973580c"><td class="cell-`i|S">6</td><td class="cell-title"><a href="https://www.notion.so/Embedded-a321531cacdc495cb812f4b07973580c">Embedded</a></td><td class="cell-~FPM">SQL can be embedded in a PL/SQL block.</td><td class="cell-mZs=">PL/SQL can also be embedded in SQL code.</td></tr><tr id="c2504054-5a58-4ea0-958e-dab611d5fa5a"><td class="cell-`i|S">6</td><td class="cell-title"><a href="https://www.notion.so/Interaction-c25040545a584ea0958edab611d5fa5a">Interaction</a></td><td class="cell-~FPM">SQL directly interacts with database server.</td><td class="cell-mZs=">PL/SQL does not directly interacts with database server.</td></tr><tr id="c2744548-6b7a-448d-b18d-5d6f99b17495"><td class="cell-`i|S">7</td><td class="cell-title"><a href="https://www.notion.so/Orientation-c27445486b7a448db18d5d6f99b17495">Orientation</a></td><td class="cell-~FPM">SQL is data oriented language.</td><td class="cell-mZs=">PL/SQL is application oriented language.</td></tr><tr id="c9d9f914-e0ab-4d34-b418-e110356cd76b"><td class="cell-`i|S">8</td><td class="cell-title"><a href="https://www.notion.so/Objective-c9d9f914e0ab4d34b418e110356cd76b">Objective</a></td><td class="cell-~FPM">SQL is used to write queries, create and execute DDL and DML statments.</td><td class="cell-mZs=">PL/SQL is used to write program blocks, functions, procedures, triggers and packages.</td></tr></tbody></table></div><p id="4fbe4c4a-5419-4311-9b54-4694747f6887" class="">
+</p></details></li></ul><ul id="8ec029f4-90bd-438e-8eb4-7a0ccd8766d3" class="toggle"><li><details open=""><summary><strong>Super Key</strong></summary><p id="001a6490-3bbf-4acc-a25b-cb3ba245849b" class="">Super Keys are those <strong>attributes</strong> or <strong>group of attribute</strong>s that can uniquely identify tuples(rows).</p></details></li></ul><ul id="f3716770-d2e8-4bc6-922a-2e40dbe1bf51" class="toggle"><li><details open=""><summary><strong>Special Operator</strong></summary><p id="a1705a88-77bb-49c0-bfbb-64148d52c070" class="">
+</p></details></li></ul><ul id="3879b2f3-b106-407d-9cb2-8b3febe94813" class="toggle"><li><details open=""><summary><strong>Schema</strong></summary><p id="1d75eab6-68b2-46fe-9204-d851ee5f08d7" class="">Schema define how database should be structured like what is datatype of column, which column should be unique , tables are normalized etc.</p></details></li></ul><ul id="07d6275b-f34b-49fb-b021-75532d1ccd1e" class="toggle"><li><details open=""><summary><strong>Sort</strong> MongoDB</summary><p id="bec53602-c544-4255-8b2f-a2931d5dca83" class="">sort returns the documents queried in specified order.</p><pre id="eb212696-2cd5-4c90-b4a2-9f47bfd9815b" class="code"><code>db.collections.aggregate(
+	{$sort : {&#x27;property&#x27;:1(asc) or -1(desc)}}
+)</code></pre></details></li></ul><ul id="ab1e1424-3a57-4d08-9463-9005cfaf4756" class="toggle"><li><details open=""><summary><strong>SELECT - </strong>used to retrieve data from a table in database</summary><pre id="750df871-4ecb-4e1b-b424-37b9af937f0b" class="code"><code>select column1
+from table_name</code></pre></details></li></ul><ul id="75b56382-0ca7-4c11-9d85-2d3f30cae9c7" class="toggle"><li><details open=""><summary><strong>SQL</strong> - Structured Query Language</summary><p id="2075ac06-81f2-4a2f-b2e0-fcd80e5f336d" class="">It is used for managing data in a RDBMS (Relational data management system)</p></details></li></ul><ul id="c1abc552-987e-4eab-86f2-6b897fc6aee4" class="toggle"><li><details open=""><summary><strong>TCL</strong> - Transaction Control Language</summary><ul id="7167c0d3-db76-475b-b48d-74364a110834" class="bulleted-list"><li>COMMIT</li></ul><ul id="b1719e5d-f0c3-4313-bdcc-9b2105d76775" class="bulleted-list"><li>ROLLBACK</li></ul><ul id="82306608-096b-45f5-a72d-b11a49e47ce6" class="bulleted-list"><li>SAVE-POINT</li></ul><ul id="2cc77469-1334-4bec-9741-408ef19e226a" class="bulleted-list"><li>SET-TRANSACTION</li></ul></details></li></ul><ul id="c03d3972-db7b-4e1a-a38b-e43aa47f8247" class="toggle"><li><details open=""><summary><strong>Trigger</strong> </summary><p id="b613347c-7427-4ab7-93f9-25e327f9259d" class="">Triggers are stored programs, which are automatically executed or fired when some events occur</p></details></li></ul><ul id="4339ecad-677f-4c64-91f3-b8472f7ab078" class="toggle"><li><details open=""><summary><strong>UPDATE </strong>-<strong> </strong>used to modify the values present in table in a db</summary><pre id="a2b565c8-6637-4632-ad22-2645d32745b0" class="code"><code>UPDATE tablename
+SET colum1 = value1 , column2 = value2
+where condition
+</code></pre></details></li></ul><ul id="97912453-ff38-4c92-a5e0-4c3b34776aef" class="toggle"><li><details open=""><summary><strong>View </strong>-<strong> </strong>a view is a virtual table based on the result-set of an SQL statement</summary><p id="9817507b-79a5-4a85-9c33-edc3a070212d" class="">A view is created with the CREATE VIEW statement.</p><pre id="37169881-457c-4f89-a2aa-f0f2a698a297" class="code"><code>CREATE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;</code></pre></details></li></ul><ul id="1a64a756-f145-42b7-ba9d-56c543cb1dbd" class="toggle"><li><details open=""><summary><strong>Query</strong></summary><p id="11ea0133-e641-4d17-a14e-d0dfd3b28eb8" class="">Query means asking or requesting some information</p></details></li></ul><p id="72b14b7e-487e-4fca-8a9f-6fef19850ca6" class="">
+</p></div></article></body></html>
