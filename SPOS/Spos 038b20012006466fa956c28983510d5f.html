@@ -1,0 +1,674 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Spos</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="db4b3437-138d-40b2-a8a5-1aec73593a02" class="page sans"><header><h1 class="page-title">Spos</h1></header><div class="page-body"><ul id="bcb724c7-c2f3-46af-8784-32efc3df3cda" class="toggle"><li><details open=""><summary><strong>Assembler  : </strong>converts [ low-level / assembly ] to [ machine / object code ] </summary><p id="81a16249-eacf-4f97-8c5b-b1f4d024e580" class="">Assembler converts low-level program [Assembly] to machine-code [ Ascii codes]</p></details></li></ul><ul id="d1b388fd-22aa-476e-bf23-0dbd7cbabce1" class="toggle"><li><details open=""><summary><strong>Assembler directives :</strong> Pseudo - Opcode</summary><p id="ac5c7dc2-8d11-44bc-8b11-8876e97fb499" class="">START &lt;const&gt;
+END
+LTORG
+ORIGIN &lt;const&gt;</p></details></li></ul><ul id="b53320c0-4222-4885-8238-60eb289f35eb" class="toggle"><li><details open=""><summary><strong>Assembly language</strong></summary><p id="ae4db4b2-be6c-450b-ae34-c29bf49a895c" class="">Assembly language, sometimes abbreviated asm, is any low-level programming language in which there is a very strong correspondence between the instructions in the language and the architecture&#x27;s machine code instruction</p></details></li></ul><ul id="0682eb93-360e-47c1-8b1c-10b938fc47a9" class="toggle"><li><details open=""><summary><strong>Assembly directive</strong></summary><p id="a3b5d77e-8ea3-4408-a861-fa65f12d0b2e" class="">An assembler directive is a message to the assembler that tells the assembler something it needs to know in order to carry out the assembly process; </p><p id="fd5dd146-c312-4f47-bb66-104f5a2d691e" class="">For example, an assemble directive tess the assembler where a program is to be located in memory.</p></details></li></ul><ul id="c0f7ba41-12e1-4a04-8f54-709ccb4ce7b3" class="toggle"><li><details open=""><summary><strong>Belady&#x27;s Anomaly</strong></summary><p id="43b79deb-f7dd-4a7f-bede-9520166e5956" class="">Bélády&#x27;s anomaly is the phenomenon in which increasing the number of page frames results in an increase in the number of page faults.</p><p id="b6888b8a-e5b7-449e-9232-dd7f75f3243e" class="">explanation :<div class="indented"><p id="a65a41aa-682c-422e-99ca-ccc997275efa" class="">pages are loaded into main memory from secondary using paging . Main memory has limited space. Each page requires a frame . When all frames are taken and page fault occurs then , correct referenced should be brought in the main memory but as all frames are full. Frames should be removed. Hence we use FIFO to remove the oldest page. Which will increase page fault when that page is required but we have removed it.</p></div></p></details></li></ul><ul id="2f600339-f600-484f-9a55-dc21f18995bd" class="toggle"><li><details open=""><summary><strong>Banker&#x27;s Algorithm</strong></summary><p id="3d533538-4268-476c-a965-c6b056afce46" class="">Inventor  : Edsger Djikstra&#x27;s </p></details></li></ul><ul id="b4802463-a315-471f-bb77-b8bc06259cd6" class="toggle"><li><details open=""><summary><strong>Data Structure (Assembler)</strong></summary><p id="6408eaab-093b-4bbc-83fe-be5f07b19c85" class=""><strong> Pass 2 :-</strong></p><ol id="591f88c7-9501-4179-a98e-29b62efa808b" class="numbered-list" start="1"><li>  <strong>OPTAB </strong>- Operator code Table - <p id="2a9c5d19-e111-4497-8fe1-f729e81e7988" class="">This is used to look up mnemonic operation codes and translate them into equivalent machine language .</p></li></ol><ol id="5fcf24b9-e25a-474a-b9a6-a0b54de4265e" class="numbered-list" start="2"><li><strong>SYMTAB </strong>- Symbol Table - This is used to store addresses assigned to labels</li></ol><ol id="6df54a1e-81e2-42f0-8bde-dc116385dd79" class="numbered-list" start="3"><li><strong>LOCCTR </strong>- Location Counter - This is used for assignment of addresses.</li></ol><ol id="9e4d80e1-eb48-4adb-833b-3f79a36500c4" class="numbered-list" start="4"><li><strong>LITTAB </strong>- Literal table </li></ol><ol id="534604e8-0784-40c1-bbc4-47da54a7ea7d" class="numbered-list" start="5"><li><strong>POOLTAB</strong> - Pool table </li></ol><ol id="155b197c-cee7-4d84-963c-3d8a170957c8" class="numbered-list" start="6"><li><strong>IRTAB </strong>- IR table </li></ol></details></li></ul><ul id="8650ed09-10fc-4127-a8e3-a08abdfff8c4" class="toggle"><li><details open=""><summary><strong>Data-structure (Macro)</strong></summary><ul id="e72b584c-5670-46e4-a432-e33b744dd095" class="bulleted-list"><li>Macro Name Table Pointer ( MNTP )</li></ul><ul id="161eaadf-721a-4e8a-b6c6-421016bcb912" class="bulleted-list"><li>Macro Definition Table Pointer ( MDTP )</li></ul><ul id="cf987efa-5d56-43d7-8b2c-68f8fbe0c535" class="bulleted-list"><li>Macro Name Table<ol id="9ff89f0b-0e8c-4f9a-95a8-d0ab794db826" class="numbered-list" start="1"><li>Macro number (pointer referenced from mntp)</li></ol><ol id="5962f682-1f55-4a6f-bdf7-5b14c3e441d7" class="numbered-list" start="2"><li>Name of macros</li></ol><ol id="30598abd-a1fb-4bdc-913e-78b6883a7cc4" class="numbered-list" start="3"><li>MDTP ( Points to start positions to MDT ).</li></ol></li></ul><ul id="5f880d45-6c88-4bb0-b0c9-bceb67a08a0c" class="bulleted-list"><li>Macro definition table:<ol id="a3d2258d-1651-41e8-813c-463468af86d0" class="numbered-list" start="1"><li>Location counter (where MDTP points to start location of macros )</li></ol><ol id="5dc0e2ee-6d7d-4ad0-899c-d094bf063a79" class="numbered-list" start="2"><li>opcode</li></ol><ol id="befce2da-9778-49f4-b07a-650b4c4b32cc" class="numbered-list" start="3"><li>Rest ( it will contain other parts apart from opcode) </li></ol></li></ul><ul id="e8436d4c-d30d-4642-ab28-a8819831b533" class="bulleted-list"><li>Argument List<ol id="e405e360-60dd-45ac-a024-3876d43363ab" class="numbered-list" start="1"><li>Index given to parameter</li></ol><ol id="15236614-7589-48e9-b71a-f5c7cf45febd" class="numbered-list" start="2"><li>Name of parameter</li></ol></li></ul></details></li></ul><ul id="8f50d930-5368-4cf8-91f6-c0e37435bd88" class="toggle"><li><details open=""><summary><strong>Deadlock</strong> </summary><p id="d22e9e5b-0210-4219-a6ff-93d08048dbf6" class="">In an operating system, a deadlock occurs when a process or thread enters a waiting state because a requested system resource is held by another waiting process, which in turn is waiting for another resource held by another waiting process. </p><p id="741d942e-2dab-4dec-b757-3a4aa64cb349" class="">If a process is unable to change its state indefinitely because the resources requested by it are being used by another waiting process, then the system is said to be in a deadlock.</p><p id="d035ef75-4522-41ff-bec8-ec93c7783167" class="">Deadlock is a situation where a set of processes are blocked because each process is holding a resource and waiting for another resource acquired by some other process.</p></details></li></ul><ul id="a337eecb-ff58-4289-bd63-1025aea9313a" class="toggle"><li><details open=""><summary><strong>Deadlock Prevention</strong></summary><p id="33ba221a-eacf-4220-8418-143b08cf7d60" class="">
+</p><p id="358b8f3b-0bd1-4b8a-9bf3-c5d4af386566" class="">Deadlock prevention works by preventing one of the four Coffman conditions from occurring.</p><ol id="7bc3845d-660d-42be-a1d8-7d6aae71e8d8" class="numbered-list" start="1"><li>Remove <strong>Mutual Exclusion:</strong><p id="3ae43340-d6a8-4ee7-9c1f-66bc5a645310" class="">One or more than one resource are non-shareable (Only one process can use at a time)</p><p id="1f651025-5f6f-4eee-bb45-96648390bbe9" class="">Remove this by making resources available to all process and exclusion to one is removed.</p></li></ol><ol id="a5e41e01-7894-4917-bccc-87801575f441" class="numbered-list" start="2"><li>Remove <strong>Hold and Wait:</strong><p id="53c7956a-da24-4473-9d72-102e4f80cf23" class="">A process is holding at least one resource and waiting for resources.</p><p id="9f775cd3-9a4b-44c8-a4de-58933efd73f1" class="">Removing this by making the program define which resources it need before execution so that it will be executed only when everything is available.</p></li></ol><ol id="ab6b8bcb-6189-4b95-9569-37d57b0495e8" class="numbered-list" start="3"><li><strong>No Preemption:</strong><p id="71f1856b-fd76-4d4a-b365-902bde3792e8" class="">A resource cannot be taken from a process unless the process releases the resource.</p></li></ol><ol id="9535e349-c590-4f1b-b669-69f0d81397d8" class="numbered-list" start="4"><li><strong>Circular Wait:</strong><p id="2567aeb7-26c9-43d4-a05c-0beac3a653ca" class="">A set of processes are waiting for each other in circular form.</p><p id="9f947f64-2bc8-49ab-b0e0-f5ba853494a1" class="">
+</p></li></ol></details></li></ul><ul id="55684f4f-3c90-439c-af8e-0d9994d01bd6" class="toggle"><li><details open=""><summary><strong>Deadlock Detection</strong></summary><p id="d3bfe0cd-ed88-4ee7-8a90-b61d6f778c52" class="">Deadlock detection is the process of actually determining that a deadlock exists and identifying the processes and resources involved in the deadlock</p></details></li></ul><ul id="87226466-f83d-466d-8bb8-1e3a0c27422f" class="toggle"><li><details open=""><summary><strong>Declaration Statement</strong></summary><p id="95ccb8a5-a9fc-4fc9-84b0-70e75d9ef360" class="">DC ( Define Constant )          01</p><p id="06ae25a6-50c1-40f2-af14-921f5b6b2b6c" class="">DS ( Define Storage )            02</p></details></li></ul><ul id="9dcc1a05-3c1b-468f-b4dc-dab5a9f24258" class="toggle"><li><details open=""><summary><strong>Disk scheduling : </strong>I/o requests for disk</summary><p id="d14bdae6-599c-4f40-8311-417ce8214cb5" class="">Disk scheduling is done by OS to schedule I/O requests arriving for the disk.</p><p id="723f4988-03c3-4269-a324-60e54fca015a" class="">Disk scheduling is also known as I/O scheduling</p></details></li></ul><ul id="aeb330ae-cfb2-40db-9b5a-0bc97d6891da" class="toggle"><li><details open=""><summary><strong>compiler</strong></summary><ul id="8b17904c-6919-4696-9cce-dfcfd07dd54d" class="bulleted-list"><li>A compiler is a special program that processes statements in any programming language and converts it into machine language or code that the processors understand.</li></ul><ul id="9bb7bf08-df8f-44ab-bf4f-f7aee1577fae" class="bulleted-list"><li>Phases of compiler:<ol id="3e4134b5-24f3-4088-90c6-8d5d128756db" class="numbered-list" start="1"><li>Lexical analysis</li></ol><ol id="b4a4bc2e-26de-4c4f-bcf5-ed8f5097cd03" class="numbered-list" start="2"><li>Syntax analysis</li></ol><ol id="37dfa028-8e9e-4f99-ae00-adb22716f645" class="numbered-list" start="3"><li>Semantic analysis</li></ol><ol id="3b1bf813-62b9-4cd9-8188-b917d5bbc82c" class="numbered-list" start="4"><li>Intermediate code generator</li></ol><ol id="87a86384-552d-44db-8f42-13f9347afd56" class="numbered-list" start="5"><li>code optimizer</li></ol><ol id="f0250195-3adf-4c36-9f8d-f4913c5614f4" class="numbered-list" start="6"><li>code generator</li></ol></li></ul></details></li></ul><ul id="7bf1aadd-cdb9-4d86-88f9-3274de75109c" class="toggle"><li><details open=""><summary><strong>Errors in passes</strong></summary><ul id="247d4a5a-307f-49d6-af6a-5e597db79120" class="bulleted-list"><li><strong>Pass 1</strong><p id="fa449ca1-ea84-4c38-88d9-839f11b67f69" class="">location counter exceeded</p><p id="8ba3328d-f013-4ebc-87cf-5f768340e4d3" class="">Wrong op code entry</p><p id="657fb091-42dc-4a8e-9bfb-d9276eefdf31" class="">Missing START / END statement</p></li></ul><ul id="9e5b82b3-5492-4f6d-8a58-85adbe6b5a4d" class="bulleted-list"><li><strong>pass 2</strong><ul id="33df3858-27f8-4c84-a3e5-8980579afb17" class="bulleted-list"><li>operand not found</li></ul><ul id="787e29c5-9af4-4583-b208-61382367bd7c" class="bulleted-list"><li>invalid operand</li></ul><ul id="a83a6b92-fd12-40cb-993d-a6205c674203" class="bulleted-list"><li>immediate addressing not allowed</li></ul><ul id="d2e758b5-862f-4cae-b264-f674ff513f7b" class="bulleted-list"><li>invalid shift amount</li></ul><ul id="3845f89d-8c97-4d33-8160-a75ce13c09c3" class="bulleted-list"><li>invalid register ID</li></ul><ul id="74c04d50-2d97-4d19-993e-0b5c6f9e8e41" class="bulleted-list"><li>Indirect addressing not allowed</li></ul></li></ul></details></li></ul><ul id="0df235ac-947d-4208-b8a4-5682e4ea7018" class="toggle"><li><details open=""><summary><strong>Forward reference</strong></summary><p id="c11de3a7-4f09-4879-a911-261d01e7622a" class="">When a symbol is referenced/used before it is defined it is called as forward reference.
+e,g :- when a label is used as an operand, for example as a branch target, earlier in the code than the definition of the label
+Forward references are not handled.</p><p id="4e5a9668-290b-4f89-af29-23284f2ef256" class="">Backward reference is a reference to an earlier defined symbol.
+Backward references are handled quite well.</p></details></li></ul><ul id="25de8625-e18a-4c02-ace7-bab86e69ea85" class="toggle"><li><details open=""><summary><strong>Intermediate Code generation : </strong>It is used when we don&#x27;t want to make the code machine dependent. </summary><ol id="07607e3f-1b2c-4f66-93df-ffd996f1d02d" class="numbered-list" start="1"><li>Source code → Machine code.<p id="5a876184-47d5-459d-8f5e-e4dd6c3b1178" class="">In such systems for each new machine environment/architecture new compiler is required.</p></li></ol><ol id="79450936-fc37-4b35-89ce-4f284775c063" class="numbered-list" start="2"><li>Source code → Intermediate code → Machine code.<p id="36d0d5ce-3512-4cb5-a498-64830a68f2f1" class="">Here intermediate code is generated which isn&#x27;t machine dependent hence the analyzing part is already calculated and w.r.t different machine machine code is generated.</p></li></ol><ol id="5b513bff-2323-4480-b09b-a07a4bd56e3a" class="numbered-list" start="3"><li><strong>variants ( Yeh pata nhi sahi hai ki nhi)</strong><ol id="4db14e1e-0367-434a-b024-80ed6cd67dd2" class="numbered-list" start="1"><li>Three address codes</li></ol><ol id="1de4d1ae-91ca-40a3-93f3-28f873ca0782" class="numbered-list" start="2"><li>Syntax trees</li></ol><ol id="9a993c82-b632-4c5b-ab57-48a21280c941" class="numbered-list" start="3"><li>Language specific (Byte code) and language independent</li></ol><p id="4282b49d-33a9-4044-9a95-96d9a5e79736" class="">
+</p></li></ol></details></li></ul><ul id="68cbd626-f07b-4fc0-8c68-85d7e67f8f02" class="toggle"><li><details open=""><summary><strong>I/O of pass-II macro</strong></summary><figure id="038b2001-2006-466f-a956-c28983510d5f" class="image"><a href="Spos%20038b20012006466fa956c28983510d5f/Untitled.png"><img style="width:1280px" src="Spos%20038b20012006466fa956c28983510d5f/Untitled.png"/></a></figure><figure id="a9a283eb-60ac-4a6d-8152-4c40ac1f89e8" class="image"><a href="Spos%20038b20012006466fa956c28983510d5f/Untitled%201.png"><img style="width:1280px" src="Spos%20038b20012006466fa956c28983510d5f/Untitled%201.png"/></a></figure></details></li></ul><ul id="f5eba03c-0ef3-4bf2-bf3d-8c48fe3cde77" class="toggle"><li><details open=""><summary><strong>Linker</strong></summary><p id="8ddbc6bb-7099-450c-ade3-afcd5a1d2a54" class="">Linker takes the object code provided by the assembler and combines with other dependencies , such as external libraries to make a executable file.</p><p id="d1416305-29c1-408e-8e6a-7b51cfcbfb72" class="">Types of Linker:</p><ul id="31090bf2-3fae-48d6-a2ed-de1480492a8d" class="bulleted-list"><li>Static Linker (Linking is performed before execution)</li></ul><ul id="06049718-d943-4398-bb13-b74e136a883d" class="bulleted-list"><li>Dynamic Linker (Linking is performed while execution)</li></ul></details></li></ul><ul id="faa86ab0-0420-4d06-978c-2d6e6c2f9734" class="toggle"><li><details open=""><summary><strong>Loader</strong></summary><p id="1d2e8042-c69a-48b7-a1ab-c6e743f2a17f" class="">Loaders takes the executable module from the linker and loads it into the main memory</p><p id="95111b42-0597-4921-aa62-fca21375c301" class="">Loader allocates space to an executable module in main memory.</p><p id="fc6f4c24-5497-47e9-8a59-783f78ad34a1" class="">The loader is special program that takes input of object code from linker, loads it to main memory, and prepares this code for execution by computer. Loader allocates memory space to program</p><p id="479803d2-9a1c-4bca-b07e-1419a4da4d7f" class=""><strong>Types of Loader:</strong></p><ul id="54f23865-8b84-4320-8aa9-cff3d57a22cd" class="bulleted-list"><li>Absolute loading</li></ul><ul id="3cfbd944-77f8-467d-aa8f-c6f72976ca57" class="bulleted-list"><li>Relocatable loading</li></ul><ul id="97f08acd-1351-4b76-a2a8-676665919401" class="bulleted-list"><li>Dynamic run-time loading</li></ul></details></li></ul><ul id="8f70ebfe-c6be-47fd-abf0-1bb700a0455b" class="toggle"><li><details open=""><summary><strong>Macros : </strong>macros are sub-routines</summary><p id="9c95a072-7075-4388-9037-b7bb1dff1950" class="">Macros enables <strong>modular</strong> or <strong>re-usability</strong> in assembly programming<div class="indented"><ol id="87775227-4871-44f1-a21e-24b706faed0f" class="numbered-list" start="1"><li>A macro is a sequence of instructions, assigned by a name and could be used anywhere in the program.</li></ol><ol id="86df18d7-ccf9-441d-96ce-c9c942893932" class="numbered-list" start="2"><li>The macro is invoked by using the macro name along with the necessary parameters.</li></ol><ol id="132b820a-c4f5-49b8-b4c8-6bd7b73ed46e" class="numbered-list" start="3"><li>macros are used when certain set of instructions are used repetitively.</li></ol><ol id="9207b7f5-427b-418a-83a8-453b31d9b3a0" class="numbered-list" start="4"><li><em><strong>Why use macros</strong></em>?<p id="8c25f9e3-c787-43f4-9ec3-025fd43d8fba" class="">· To simplify and reduce the amount of repetitive coding</p><p id="777bbeb8-05a6-4e51-b254-65260c7827c1" class="">· To reduce errors caused by repetitive coding</p><p id="dac92e0b-f2e3-4260-a6ff-e3b2d0681d7b" class="">· To make an assembly program more readable.</p></li></ol><ol id="15be743c-99d8-4786-aac1-cfa94ce2f41d" class="numbered-list" start="5"><li>Example : </li></ol><pre id="f9a07100-ed4f-46ff-a5f9-cbbbc07f386f" class="code"><code>%macro macro_name no_of_arguments
+	&lt;macro body&gt;
+%endmacro</code></pre></div></p></details></li></ul><ul id="b1c19a03-ed39-4152-8bfb-2a36f8012808" class="toggle"><li><details open=""><summary><strong>Macro Expansion</strong> </summary><ol id="400d09f9-3d59-4c4a-832f-a89f4b327dca" class="numbered-list" start="1"><li>A macro call leads to macro expansion.</li></ol><p id="e9afb775-7d0c-40fd-8bc5-05a029e77dd4" class="">  2.  During macro expansion, the macro statement is replaced by sequence of assembly
+       statements.</p><p id="f8cdf246-1c15-41a3-be88-de512a60b081" class="">  3. <em><strong>Conditional Macro Expansion</strong></em> :<div class="indented"><ol id="a72a5f1f-30c3-42c9-a5ba-c117aba8adb6" class="numbered-list" start="1"><li><em><strong>def</strong></em> : It is a mechanisms that allows a single version of the source code to be used to 
+        generate multiple versions of the executable [Machine code].</li></ol><ul id="74095189-256f-4739-aeba-fa1e0004a208" class="toggle"><li><details open=""><summary><em><strong>Types : </strong></em></summary><ul id="15499d2d-1a9e-4a62-90f2-3d7da24608ea" class="toggle"><li><details open=""><summary><strong>AIF </strong></summary><ul id="0e314dce-fd75-4013-bc1a-059086665c63" class="bulleted-list"><li>If condition is satisfied the label is executed else it continue with the next execution.</li></ul><ul id="e154600c-bf74-49be-9c42-703a6b5de311" class="bulleted-list"><li>It performs an arithmetic test and branches only if tested condition is true.</li></ul></details></li></ul><ul id="fb9d76ea-1b68-4cac-9fdd-37c4523e4233" class="toggle"><li><details open=""><summary><strong>AGO</strong></summary><ul id="cef0c0d2-4678-415a-a2b9-469e2d8b0fe6" class="bulleted-list"><li>t specifies the label appearing on some other statement in the macro instruction definition.</li></ul><ul id="dc6cbaf3-add8-4748-b0a9-874884e34590" class="bulleted-list"><li>The macro processor continues the sequential processing of instructions with the indicated statement.</li></ul></details></li></ul><ul id="7c0f80d4-2034-4461-8734-71b9be7d42e2" class="toggle"><li><details open=""><summary><strong>LCL</strong></summary></details></li></ul><ul id="79537d2c-c6b8-4329-989b-ca9e7462542b" class="toggle"><li><details open=""><summary><strong>SET</strong></summary></details></li></ul><ul id="d3ec310c-f2df-4fd5-9268-5cc253a9d265" class="toggle"><li><details open=""><summary><strong>ANOP</strong></summary></details></li></ul><ul id="cd16322a-fb2d-42dc-89d6-baa40071946e" class="toggle"><li><details open=""><summary>link : <a href="https://www.ques10.com/p/8907/explain-different-pseudo-ops-used-for-conditiona-2/">https://www.ques10.com/p/8907/explain-different-pseudo-ops-used-for-conditiona-2/</a></summary></details></li></ul><p id="fc621a13-9109-449e-b8ef-f73c2a514a16" class="">
+</p></details></li></ul></div></p><pre id="123302c2-67e2-4351-883f-02214e458a65" class="code"><code>define max(a,b) a&gt;b?a:b
+
+Main(){
+	int x , y;
+	x=4; y=6;
+	z = max(x, y);  /* Macro call */
+      }
+
+/// ------- Behind  the hood----///
+
+Main(){ 
+	int x , y;
+	x=4; y=6;
+	z = x&gt;y?x:y; /* Macro call is replaced */
+      }</code></pre></details></li></ul><ul id="6d643e2f-fe93-4769-8ddc-a8c583d05f38" class="toggle"><li><details open=""><summary><strong>Nested macro :</strong></summary><ol id="7014e725-36f3-411a-95f9-0e3fc7af9d13" class="numbered-list" start="1"><li>Nested macros are those cases where<em> </em><strong><em>definition of one macro is contained within the definition another</em></strong>.</li></ol><ol id="b06c5962-15be-4e3f-a16d-3e1316582a87" class="numbered-list" start="2"><li>Macro containing the nested call is <em><strong>outer macro</strong></em> and the called macro is the <em><strong>inner macro</strong></em>.</li></ol><ol id="a140d58b-9c25-4dc7-a5b9-1d46a914d9d6" class="numbered-list" start="3"><li>Nested macro follows <em><strong>LIFO</strong></em> structure . (Stack of plates) which means the recently called macro  or the inner macro is executed first.</li></ol><pre id="8ad6dcdf-e51d-4197-a60a-1da9f8ebef7c" class="code"><code></code></pre></details></li></ul><ul id="b61c6099-e70d-4c2e-a89f-0d28c773ed98" class="toggle"><li><details open=""><summary><strong>OS </strong></summary><p id="fcbe025d-6dd9-434f-9db8-28d4c60a9cd7" class="">An Operating System (OS) is a software that acts as an interface between computer hardware components and the user.</p><p id="a5dddd92-93df-437c-8269-3291b9935763" class="">Types of OS:</p><ul id="7994fc41-6b38-44cb-a5c0-26aade296134" class="bulleted-list"><li>Batch Operating System (Payroll System, Bank Statements)</li></ul><ul id="956ec207-57c8-42dd-b6a2-c41857a81519" class="bulleted-list"><li>Multitasking/Time Sharing OS   (Multics, Unix)</li></ul><ul id="6d5a66be-963b-41ad-a647-b22d2a57de30" class="bulleted-list"><li>Multiprocessing OS  (Windows NT, 2000, XP, and Unix)</li></ul><ul id="1cdf112d-1a82-4aec-8891-9eb94b63bf2f" class="bulleted-list"><li>Real Time OS  (robots, air traffic control systems)</li></ul><ul id="4b407917-5aaa-4ce3-a732-ddb61ff5b58c" class="bulleted-list"><li>Distributed OS   (LOCUS)</li></ul><ul id="43e8079d-f281-4ad9-8d33-546e6127c914" class="bulleted-list"><li>Network OS</li></ul><ul id="ca3bae7e-dd42-450f-8971-9e22e96e3dce" class="bulleted-list"><li>Mobile OS   (Android , ios)</li></ul><p id="3fd0479b-7288-402b-a596-73abe87fc040" class=""><strong>Function of OS</strong>:</p><p id="f07977d7-a7fe-4fc3-a5dd-da400094118e" class="">(1) manage the computer&#x27;s resources, such as the central processing unit, memory, disk drives, and printers.
+(2) establish a user interface.
+(3) execute and provide services for applications software.</p></details></li></ul><ul id="851aea8c-2c49-428b-8622-c433f8b0220c" class="toggle"><li><details open=""><summary><strong>Pass : </strong>Each read of the src code is called pass.</summary><p id="ad4ef82a-cc69-40a9-b55f-9963e467a641" class="">The assembler reads the assembly language source code twice before it outputs object code. Each read of the source code is called a pass.</p><p id="b637f469-feb8-4bcb-b34b-936c7f8a5576" class=""><strong>Pass I : </strong><div class="indented"><ol id="97498518-c0fc-4fed-938b-f5d7ba9551e2" class="numbered-list" start="1"><li>Define symbols and literals and store them in symbol tables.</li></ol><ol id="a1ed3315-2d1b-4ee9-8f2b-a70f08f42ae4" class="numbered-list" start="2"><li>Keep track of location counter.</li></ol><ol id="1afc6d87-9f25-4a88-b468-0482500402e0" class="numbered-list" start="3"><li>Process  Assembly directives or psuedo-opcode.</li></ol><ol id="f5f6cf73-5652-405a-bad6-4705af7c81a1" class="numbered-list" start="4"><li></li></ol></div></p><p id="01d15051-55fa-45a8-b868-e97a68ca08f3" class=""><strong>Pass II</strong> :<div class="indented"><ol id="f531f025-e507-4205-976e-6fa6df06f9c1" class="numbered-list" start="1"><li>Generate machine code by converting mnemonic code to numeric code.</li></ol><ol id="867c5cdc-5845-409a-ac56-f3cd3a7d8e09" class="numbered-list" start="2"><li>Generate data for literals and look for values of symbols</li></ol><ol id="36fff838-3123-40cc-8e7b-e7ba9e709fd0" class="numbered-list" start="3"><li></li></ol></div></p></details></li></ul><ul id="d593e443-0ec7-47e0-92d8-745d0c6bcbc9" class="toggle"><li><details open=""><summary><strong>Page</strong></summary><p id="4e077a8b-97ce-41fc-bc7b-99b3a39bf322" class="">Virtual memory are divided into logical spaces called pages.</p><p id="200d5e03-95d8-48e8-8eda-6d30c0edc477" class="">A page is a fixed-length contiguous block of virtual memory, described by a single entry in the page table.</p><p id="fa32103d-1061-4ab1-beca-9bbde34c7662" class="">It is the smallest unit of data for memory management in a virtual memory operating system</p></details></li></ul><ul id="dd5ed271-0640-4fac-90e7-abbee976a521" class="toggle"><li><details open=""><summary><strong>Parameters in Macro</strong></summary><p id="a5dbf12e-b8ed-4edb-b16a-7057d5790a18" class=""><strong>Positional Parameters </strong>; You can use positional parameters to assign values based on their position in the macro definition and at invocation. The order that you use to specify the values must match the order in which they are listed in the %MACRO statement.</p><p id="6fbf90b1-3a0e-4183-b4c3-24be977e0511" class=""><strong>Keyword Parameters </strong>: These are symbolic parameters that can be specified in any order when the macro is called. The parameter will be replaced within the macro body by the value specified when the macro is called. These parameters can be given a default value.</p></details></li></ul><ul id="8109f04d-6e4c-41dd-810b-cfb684c6508f" class="toggle"><li><details open=""><summary><strong>Paging</strong></summary><p id="970cf659-b5c2-4d56-9d88-fb9dcad55dd9" class="">Memory paging is a memory management scheme by which a computer stores and retrieves data from secondary storage for use in main memory.</p><p id="453aac8f-b068-4406-ab3b-c85eb2022157" class="">Paging is a memory management scheme that eliminates the need for contiguous allocation of physical memory.</p><p id="a1a9a8a1-6373-4fa1-8aeb-de3c8bb21538" class=""><strong>Demand Paging:</strong><div class="indented"><p id="b8ae81d0-9fb5-4fef-9046-14bb848c6f33" class="">It suggests keeping all pages of the frames in the secondary memory until they are required. In other words, it says that do not load any page in the main memory until it is required.</p></div></p></details></li></ul><ul id="b0c72f4c-9cab-486d-bdb3-96f9c78aa85e" class="toggle"><li><details open=""><summary><strong>Page Fault</strong></summary><p id="72b5d7dc-dd3f-4e42-a468-77c63b4487aa" class="">If the referred page is not present in the main memory then there will be a miss and the concept is called Page miss or page fault.</p><p id="4174dc10-29fe-4d8b-9ce1-1fde3c199452" class="">Explanation:<div class="indented"><p id="b587bf39-8734-4a73-a536-53d452f0db8e" class="">The referred page points to an actual memory location and if that actual memory location is not present than it will raise a page fault.</p></div></p></details></li></ul><ul id="7520934d-8804-4df3-a91b-e9fe0b26e697" class="toggle"><li><details open=""><summary><strong>Page replacement</strong></summary><p id="4f205021-3f59-4e68-833e-2c12bf519759" class="">In operating systems, whenever a new page is referred and not present in memory, page fault occurs and Operating System replaces one of the existing pages with newly needed page. Different page replacement algorithms suggest different ways to decide which page to replace. The target for all algorithms is to reduce number of page faults.</p><ol id="aa525dcb-a962-4624-94e6-1631a26f5fa5" class="numbered-list" start="1"><li><strong>LRU (Least recently used page replacement algo)</strong> is greedy algorithm for page replacement where the page to be replaced is least recently used.</li></ol><ol id="19ac6af1-9481-45c1-84d7-742f0ba21a6a" class="numbered-list" start="2"><li><strong>Optimal</strong> page replacement algorithm :- OS replaces the page that will not be used for the longest period of time in future</li></ol></details></li></ul><ul id="b00ad87b-0ed5-4f4e-83ce-1060c6e7b4b0" class="toggle"><li><details open=""><summary><strong>Preemptive and Non preemptive</strong></summary><p id="c1122936-3e5a-40e2-bcb1-20c7ca972f63" class="">Preemptive scheduling is process scheduling technique in which CPU time  is divided into slots and each process is provided with a certain slot of time only. If the process doesn&#x27;t complete in the provided timeframe it is sent to the ready queue and waits for the next chance.
+E.g :- Round-robin , priority ,SRTF</p><p id="9ffb4e45-ad93-40d4-8658-7f5951799235" class="">Non-preemptive scheduling is a scheduling technique in which a process takes the CPU resource and holds it until the process is completely done. A process mid execution cannot be stopped.
+E.g : non-pre-emptive , priority and SJF</p></details></li></ul><ul id="c982a24e-f655-4d07-bdfd-d822256ea6b8" class="toggle"><li><details open=""><summary><strong>Physical Memory v/s Virtual Memory</strong></summary><p id="cd7a5ecc-711b-420d-bd1c-cdc34837de4e" class="">1) Physical memory : <div class="indented"><p id="c17402bf-4ad2-440a-883f-fce5b359e90b" class="">Physical memory is the actual memory i.e ( RAM)  connected to the processor .</p><p id="12fb8b12-1ecf-4058-8885-98183126aa41" class="">It is in the from of sticks that are connected to the mother-board.</p></div></p><p id="43f7cc33-5128-44f8-bbb2-5bb06d441595" class="">2) Virtual memory : <div class="indented"><p id="d776578d-9eb9-4716-b657-a36c4586d623" class="">Virtual memory is a memory management technique which provides abstraction or mapping of the actual memory present in the system.</p><p id="f4478bcc-0b9a-47cb-be70-82028e2a59d9" class=""><strong>A computer can address more memory than the amount physically installed on the system. This extra memory is actually called virtual memory and it is a section of a hard disk that&#x27;s set up to emulate the computer&#x27;s RAMThe ARM® assembler reads the assembly language source code twice before it outputs object code. Each read of the source code is called a pass.</strong></p><p id="a5ae403e-cb8b-4cb0-9182-56cd77bab98f" class="">Virtual memory helps in hiding the fragmented storage system in the main memory.</p><hr id="6a349ee6-b15d-4fdd-af94-61d3f678f329"/><p id="4fe34aa6-be9b-47f3-b10f-91245717f8fd" class="">
+</p><p id="f76f98b7-3e8f-4e7b-82c9-c4cd851d40b7" class="">Explanation :<div class="indented"><p id="f95e1ef9-0043-43a0-b211-6d04a106eac5" class="">Virtual memory are divided into logical spaces called pages. this is analogous to physical memory divided into spaces called addresses.</p><p id="5b2c779f-e9f4-485f-a56b-00af58285b6e" class="">The pages are stored in a table called page table , which is a two-column mapping of pages to actual addresses.</p><p id="54e9c6d5-18d8-448c-bcea-d07abf41d149" class="">Now  , programs refer to these pages rather than actual addresses. The page points to the actual address.</p><p id="9f714609-7698-4558-8723-1ada2d41f1d0" class="">The advantage this provides is hiding the actual memory size and the memory contents from programs.</p><p id="3dbb5c2e-7ce3-45b2-8286-f9249e7fae7d" class="">Also it helps in making the memory look-like contagious memory rather than fragmented one by using consecutive pages .  These can than refer to non-continous addresses but it will trick the program into thinking it is contiguous.</p></div></p></div></p></details></li></ul><ul id="47e357ab-105b-4021-a5b4-00603eaf32bf" class="toggle"><li><details open=""><summary><strong>Safe state and Unsafe state</strong></summary><ol id="59c99f21-309b-4771-92a3-d71f439a05a4" class="numbered-list" start="1"><li>A state is <strong>safe</strong> if the system can allocate resources to each process (up to its maximum) in some order and still avoid a deadlock</li></ol><ol id="9ed356aa-144f-4b42-bc90-11f01c62e451" class="numbered-list" start="2"><li>If the system can’t allocate resources to the process safely, then the system is in an unsafe state.</li></ol><ol id="54f1f8c4-8acf-4c4d-80c3-f4e2cb1a52b1" class="numbered-list" start="3"><li>All safe states are deadlock free.</li></ol><ol id="edfdffcf-fe37-4a8b-a9c2-1dcfce1abdfd" class="numbered-list" start="4"><li>All unsafe state do not necessarily to unsafe state.</li></ol></details></li></ul><ul id="7a935c18-0e5e-4df0-98d9-f5058df636a9" class="toggle"><li><details open=""><summary><strong>System Call</strong></summary><ol id="6dae7f15-097b-4526-984f-7a93a0f13d3b" class="numbered-list" start="1"><li>A system call is a request made by a program to the operating system to access services through the kernel on which it is running.</li></ol><ol id="b296a0af-8bb8-4a8b-a606-c9585e5a78a1" class="numbered-list" start="2"><li>The services requested are system-level operations , like , accessing hard-disk , read &amp; write, creation and execution of new processes.</li></ol><ol id="a5440cb4-d891-4380-935f-e52d9165153d" class="numbered-list" start="3"><li>It allows an application to access functions and commands from the operating system&#x27;s API.</li></ol></details></li></ul><ul id="4ddd8ed8-a631-4b58-8cdb-fde5d8c615d7" class="toggle"><li><details open=""><summary><strong>Symbol Table :  </strong>stores opcode and mnemonics in the input for object file</summary><figure id="fa164e2c-4196-4be8-a0ef-1abd7b7ff217" class="image"><a href="Spos%20038b20012006466fa956c28983510d5f/Untitled%202.png"><img style="width:960px" src="Spos%20038b20012006466fa956c28983510d5f/Untitled%202.png"/></a></figure></details></li></ul><ul id="f88b21aa-e0a6-4919-9645-fde48083241c" class="toggle"><li><details open=""><summary><strong>Scheduling : </strong>assigns tasks to hardware</summary><ul id="d5482f00-eb6c-4173-8f18-efad335025b5" class="bulleted-list"><li>Scheduling is the method by which <strong>tasks are assigned and managed</strong> between <strong>hardware resources</strong> (such as CPU , peripheral-devices , memory devices, network devices) .</li></ul><ul id="4075ccd8-763d-480e-8aa0-563c938f22f1" class="toggle"><li><details open=""><summary><strong>Types/algorithms of scheduling</strong> : 6</summary><ol id="327c698d-6004-4a8a-a111-546fbf4f672a" class="numbered-list" start="1"><li><strong>First Come First Serve</strong> : FIFO simply queues processes in the order they arrived from
+                                       the ready queue.</li></ol><ol id="3fc9ecb8-b04f-4e56-aa28-961fa8c65e8d" class="numbered-list" start="2"><li><strong>Shortest Remaining Time</strong> : The processes which has lowest time until completion is
+                                             executed first .</li></ol><ol id="87b45d41-66b2-4e55-8914-d05bb6e5e8c0" class="numbered-list" start="3"><li><strong>Priority Based Scheduling</strong> : Each task is assigned a deadline or priority . Based on
+                                             this priority tasks are executed.</li></ol><ol id="40d52461-41cc-40cf-81dc-c4cfbf3d4dca" class="numbered-list" start="4"><li><strong>Round - Robin </strong>: The scheduler assigns the resources to each process for a unit time and
+                          then moves on to the next process . It does so in a cycle until processes
+                          are completed.</li></ol><ol id="e0ae4976-407d-4f6b-94b1-de2523b4de1e" class="numbered-list" start="5"><li><strong>Shortest Job First</strong> :  The job/process with shortest execution time is executed first.</li></ol><ol id="1446d9df-106d-4231-aa91-ca35664c977b" class="numbered-list" start="6"><li><strong>Multi-Level queues </strong> : Ready queue is divided into different queues based on property
+                                    such as priority , memory size , etc.</li></ol></details></li></ul><ul id="d8abd883-c002-4e47-96b2-c6ffc9c9257d" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid"><strong>Scheduler</strong></span> :  It is a OS module that selects the next jobs to be performed and processes to
+                    run. Scheduler is what carries out the scheduling.</summary></details></li></ul><ul id="caf36d54-402d-4f25-8e7d-9b958ddaddae" class="toggle"><li><details open=""><summary><strong>Types of scheduler : 3</strong></summary><ol id="f09a434c-73ae-4d07-94dd-532909e667b7" class="numbered-list" start="1"><li>Process scheduler : Decides which processes are to be executed.</li></ol><ol id="a707218c-80b0-4a04-9f06-98d55c9797c0" class="numbered-list" start="2"><li>Long term scheduler : Decides which jobs/process should be admitted to ready
+                                    queue ( ready for execution)</li></ol><ol id="b28c2db5-a414-429d-8d93-fa0d5bb8f08a" class="numbered-list" start="3"><li>Medium/mid term scheduler : Swaps inactive processes out of main memory and 
+                                                 into second memory and vice-versa. </li></ol><ol id="f75a5a68-b762-4384-a433-12f2928a26e2" class="numbered-list" start="4"><li>Short-term scheduler :  Executes processes present in ready queue</li></ol><ol id="e3c0fd64-1088-4fae-a6f8-3726eca3194c" class="numbered-list" start="5"><li>Dispatcher :  Dispatcher is a component of scheduler which gives access of the CPU
+                     to the process selected by the short-term scheduler.</li></ol></details></li></ul><p id="c2bfb640-f11a-4110-91bd-866220baecdd" class="">
+</p></details></li></ul><ul id="46d84c68-d6c3-48e3-8753-5bebb49c34f5" class="toggle"><li><details open=""><summary><strong>Scheduling Criteria</strong> : </summary><p id="cf87cec0-64d7-4f26-b721-60636caa3c7f" class="">Maximize :<div class="indented"><ol id="c03e525c-c170-4af1-961c-6c123c94fc5b" class="numbered-list" start="1"><li>CPU Utilization : Ensuring CPU is busy as much as possible.</li></ol><ol id="40267e2d-398f-43e6-800e-d1389dd52839" class="numbered-list" start="2"><li>Throughput : Jobs/Processes completed per unit time.</li></ol></div></p><p id="2ee22e78-874d-46bc-93bf-1221bd964edf" class="">Minimize:<div class="indented"><ol id="cbd42495-e014-4620-8c3d-0b379d014cf1" class="numbered-list" start="1"><li>Waiting Time :  The time that a process has to wait in a queue</li></ol><ol id="6b1bd9f5-ad0c-4c9b-bab4-cde056e69a16" class="numbered-list" start="2"><li> Response time : The time interval between request and response between process and 
+                           scheduler/CPU</li></ol><ol id="f6f34296-10c3-4afe-9ed4-f802e9149484" class="numbered-list" start="3"><li> Turn-around time : The time interval between dispatching resources to a process until
+                                 it&#x27;s completion.</li></ol></div></p></details></li></ul><ul id="3b201e8d-bebf-45e7-8ea9-9c3cd61e56d4" class="toggle"><li><details open=""><summary><strong>Thrashing :</strong></summary><p id="1d7a1e1f-2c15-46fd-ab17-ef998e13cfad" class="">Thrashing occurs when computer&#x27;s virtual memory are overuses which leads to constant state of paging and page faults. This slows down application processes.</p><p id="da5eaa5b-233e-4fb8-a317-94023cb64c6f" class="">This can continue indefinitely if resource extensive programs are not closed or virtual memory is freed up.</p></details></li></ul><ul id="91c6831d-705e-4afa-b223-46e743a3b96a" class="toggle"><li><details open=""><summary><strong>YACC</strong> (yet another compiler compiler)</summary></details></li></ul></div></article></body></html>
