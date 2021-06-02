@@ -1,0 +1,650 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Java</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="647571d6-8c99-4427-9978-493c87383ff8" class="page sans"><header><h1 class="page-title">Java</h1></header><div class="page-body"><ol id="c81e5a3b-64e4-4632-a3a7-be89e20ede19" class="numbered-list" start="1"><li>Array-List v/s Vector:<p id="84a4acc0-d8ec-42e3-981b-c37d631e5bf7" class="">Arraylist is non-synchronized. (Multiple operations at a single time)</p><p id="75ea9ef3-68e9-45cc-8abb-26e0a56b0a6d" class="">Vector is synchronized. (Single operation at a time)</p><p id="a1bc7f3e-2b0d-4e02-bdd2-f5778c332acc" class="">When resized arraylist is increased by 50%.</p><p id="e98a3af2-518d-4bec-8ab6-261360a65b57" class="">Vector gets doubled.</p><p id="42811c1f-27f8-4782-802c-789fe45c87ce" class="">Arraylist is fast as there is no lock system.</p><p id="8e019aa9-35fa-421f-b5c6-6b5611a915da" class="">Vector gets locked when operations are performed which makes it slower.</p><p id="654d92a1-81f8-4f51-bbe3-0a68c843c887" class="">Vectors are legacy arraylist are not.</p><p id="86dfd328-c57e-4c40-90c1-3b06e9041968" class=""><a href="https://beginnersbook.com/2013/12/difference-between-arraylist-and-vector-in-java/">https://beginnersbook.com/2013/12/difference-between-arraylist-and-vector-in-java/</a></p></li></ol><ol id="4607538b-a0a2-4057-9789-41ed95b924de" class="numbered-list" start="2"><li>Java Iterator:<p id="b7daca63-b1c6-4b3f-adee-6d62034685fa" class="">Iterators are used for traversing or looping over collections.</p><p id="5cda1d3d-c0d7-498f-a795-f7c5e95f7e4d" class="">Iterator replaced Enumerators which were used to iterate over legacy classes such as vecors.</p><p id="81ac0ccd-e540-49fd-b743-698c9b7fda92" class="">Iterator allows performing operation over collection while iteration.</p><p id="f7101893-1ced-4072-91cc-c9d9f8f9a23c" class="">Replaces various functions present in enumerator.</p><p id="888d665c-bc32-4ab2-9ad0-b369547783d3" class="">Import iterators from java.util package.</p></li></ol><ol id="76ad297d-ecd3-4826-945c-e9649daf71d3" class="numbered-list" start="3"><li>Dictionary:<p id="f140b555-105f-43fa-94d3-ed2ffc3dab30" class="">Dictionary is an abstract class that stores key-value pairs.</p><p id="163f3e97-8ab8-4233-aff6-59c4582ee43b" class="">Once value is store you can use it using the key. It operates much like hash-map.</p></li></ol><ol id="ba49ef92-0368-46cc-a758-9bfe7c79a31c" class="numbered-list" start="4"><li>Java is a platform independent language which means that once you&#x27;ve written the code it can run anywhere provided JVM (Java virtual machine) environment is present.</li></ol><ol id="6e944490-37f1-4761-a0fd-08491d2781b3" class="numbered-list" start="5"><li>The Java Generics allows us to create a single class, interface, and method that can be used with different types of data (objects).
+Generic classes are classes which generalizes the function to all data-types.<p id="73665161-d374-4002-91e9-234a910eba1b" class="">It provides compile time error detection.</p><p id="4c34d443-4f13-4b06-a156-948852999c6c" class="">We use angle bracket to specify  the type of parameter.</p><p id="cd21d1ec-9b41-4b84-a820-5e44e7abb3f9" class="">So for e.g a sorting function can sort all datatypes.</p></li></ol><ol id="50b04547-f016-4e68-9be1-43af398f8c7e" class="numbered-list" start="6"><li>Generic methods:<p id="1dae2b97-ef27-4a61-919b-dc35a94b4e04" class="">Sometimes we don&#x27;t want to parameterize the whole class hence by using generic method property we can generalize certain methods.</p><p id="8d071ffe-a61f-42b2-af7c-e3ca8ef6095e" class="">Constructor can be generalized to as it is a special type of function.</p><p id="2a2a6b1d-f8ce-4b65-839a-f66080a4fdac" class="">Largest number</p><p id="7c1862c2-5a5a-4a39-9ba5-03642c9a3372" class="">
+</p></li></ol><ol id="b1381a0e-e2f9-41f4-9970-6d1e39a7df47" class="numbered-list" start="7"><li>asd</li></ol><ol id="196c7233-0e2d-43c4-bb29-70e8d441edd9" class="numbered-list" start="8"><li>ads</li></ol><ol id="1422ceff-c065-4116-bf56-8dc32d24e1b6" class="numbered-list" start="9"><li>Socket programming:<ul id="6cccb4cc-7e38-4026-9bd3-76442942c190" class="bulleted-list"><li>Socket programming is used for communication between the applications running om different JRE.</li></ul><ul id="624a949e-b869-46b2-ad41-4bcc01d22445" class="bulleted-list"><li>JSP can be connection-oriented or conection-less.</li></ul><ul id="044d4502-6289-4d89-9bc8-a21f9d4dcd5b" class="bulleted-list"><li>Socket and ServerSocket are used  connection-oriented whereas DatagramSocket is used for connection-less.</li></ul></li></ol><ol id="05f43677-66fb-455c-a98b-704ce85ead0b" class="numbered-list" start="10"><li> The client in socket programming must know two information:<ul id="52499e59-9a93-448e-8f7e-d2bd83a9eb8c" class="bulleted-list"><li>IP Address of Server</li></ul><ul id="bc9076d5-c6a6-44bb-b29d-d1b84d96d476" class="bulleted-list"><li>Port number.</li></ul></li></ol><ol id="a50b2cf0-edfb-43ee-9ebd-4d05cda619c2" class="numbered-list" start="11"><li> <strong>JDBC</strong>:<ul id="f3ee9e62-dadc-4e84-a1d0-e7b4d07b9a18" class="bulleted-list"><li>Java DataBase Connectivity is a java api that connects client with the database.</li></ul><ul id="9ec4c2c3-8e4d-4865-af1d-6744eeef1428" class="bulleted-list"><li>With the help of jdbc we can execute queries and commands for database.
+It is part of Java (SE).</li></ul><ul id="0ac4b9cd-901c-4cd8-b8a6-0040ced7551c" class="bulleted-list"><li>Jdbc drivers are on client machine and convert java to dbms code.</li></ul><p id="6c3801e1-ce69-4282-a1f7-41e0101ffddf" class="">Steps:<div class="indented"><ul id="91e4ec55-a13a-43f5-9d35-defdc5e8dd9d" class="bulleted-list"><li>Register the Driver class</li></ul><ul id="7cd5d175-7b6f-4c10-a44c-02a49662b3bd" class="bulleted-list"><li>Create connection</li></ul><ul id="b7ef7398-16c5-46a4-9b3e-78caede9632c" class="bulleted-list"><li>Create statement</li></ul><ul id="c65c4295-56ab-4ad2-a9cc-14e2a8f8fc6a" class="bulleted-list"><li>Execute queries</li></ul><ul id="e63aafa6-6629-4cdb-a8c3-acb97ec81049" class="bulleted-list"><li>Close connection</li></ul></div></p></li></ol><ol id="b9f7d9b9-2049-443b-ab44-3ea6ae3f1119" class="numbered-list" start="12"><li><strong>JDBC</strong><ul id="8649992b-f821-43ec-8465-e2b2f8aa50e4" class="bulleted-list"><li>public Statement createStatement(): creates a statement object that can be used to execute SQL queries.</li></ul><ul id="fd0b6202-bca9-4fc0-a0f1-10220fcf2644" class="bulleted-list"><li>public Statement createStatement(int resultSetType,int resultSetConcurrency): Creates a Statement object that will generate ResultSet objects with the given type and concurrency.</li></ul><ul id="4ffc6d86-64c3-4da5-ac03-e5d11301e081" class="bulleted-list"><li>public void setAutoCommit(boolean status): is used to set the commit <a href="http://status.by/">status.By</a> default it is true.</li></ul><ul id="5419c79d-2846-4fa8-b267-b843fa748190" class="bulleted-list"><li>public void commit(): saves the changes made since the previous commit/rollback permanent.</li></ul><ul id="41a4dcf8-17c1-497c-b575-b1940a319f0a" class="bulleted-list"><li>public void rollback(): Drops all changes made since the previous commit/rollback.</li></ul><ul id="d1efb531-7955-497f-a509-ad592566eb53" class="bulleted-list"><li>public void close(): closes the connection and Releases a JDBC resources immediately</li></ul></li></ol><ol id="e6bd6182-87f5-4985-af2e-4cc9d2e8eab0" class="numbered-list" start="13"><li> <strong>AWT and swing</strong><ul id="11198ae2-5bd9-4d8c-a819-44f19498a5ac" class="bulleted-list"><li>These both are used to make gui applications.</li></ul><ul id="a66f9969-afd0-43ec-9bd9-26f53424d505" class="bulleted-list"><li>Java abstract web toolkit is old and deprecated , swing extends the functionalities of  AWT and is it&#x27;s successor. The most recent is javafx.</li></ul><ul id="e6063764-1758-4529-b73b-12b3b20bdbae" class="bulleted-list"><li>AWT is heavy weight whereas swing is lightweight.</li></ul><ul id="56a18d5f-5899-4427-bc3e-58f0d872af35" class="bulleted-list"><li>AWT has lot of inbuilt classes for UI components.</li></ul><ul id="465902f4-934d-4aec-b894-e8d52367f2eb" class="bulleted-list"><li>Awt is platform-dependent whereas Swing is platform-independent.</li></ul><ul id="2d5b37fb-da6a-4f9f-8ea0-b12370bfa29b" class="bulleted-list"><li>JWT&lt;less speed and functionality as compared to swing.</li></ul><ul id="1d0ce5e1-af5d-4ee9-94c0-ee625a627fe2" class="bulleted-list"><li>JWT is heavy because it uses os&#x27;s widget which is heavy. </li></ul></li></ol><ol id="19e9252e-4662-4268-b196-439d3278a16a" class="numbered-list" start="14"><li><strong>AWT</strong>:<p id="171ab67f-753e-4979-a419-4d17114f8ae2" class="">AWT stands for Abstract Window Toolkit. It is a platform dependent API for creating Graphical User Interface (GUI) for java programs.</p><p id="5efcb2f2-1108-4598-a8d2-d5a90b1f868b" class="">AWT tells OS to create components rather painting it itself which proves to be quiet resource heavy.</p><p id="76c3cc9b-fec3-47db-89c7-6c35a0e064db" class="">Also AWT look different on different platforms.</p></li></ol><ol id="14e44a7f-5f22-4af9-9218-b7c16a1dc0a1" class="numbered-list" start="15"><li><strong>Applets</strong>:<p id="458cc497-eba0-4073-b78e-fab65d2873d8" class="">Applets are java programs run on browser.</p><p id="20afcbb3-0da5-449a-aa85-818e135e336a" class="">Html doesn&#x27;t provide logic or functions hence java programming is required to make your website interactive.</p><p id="72a5b35d-2614-4592-8e33-06e390217f38" class="">But browsers can&#x27;t run java programs on their own hence applets are small programs which run java program for the browser.</p></li></ol><ol id="8839b22a-16a5-4438-99c6-5590686e151a" class="numbered-list" start="16"><li><strong>Serialization/Deserialization</strong> :<ul id="98f16cd1-e7ae-4950-91ea-5f9c95600000" class="bulleted-list"><li>Serialization is the process of converting code to byte stream for them to be stored on disk drives.</li></ul><ul id="9ff9a81a-4791-4939-92af-f5eccf8cf733" class="bulleted-list"><li>Deserialization is the reverse process.</li></ul><ul id="fd79f5e1-7a0c-408a-8f1c-f7cfb4c979a7" class="bulleted-list"><li>It is machine independent .</li></ul></li></ol><ol id="3c3e1e9c-14c2-40ed-a535-5f1857d16d8d" class="numbered-list" start="17"><li> <strong>Executor Service</strong>:<ul id="f5cece88-5f5b-4b11-a892-dd8b5a97c6b4" class="bulleted-list"><li>Threads are small tasks of a program. This will take 1 core of a cpu to run.</li></ul><ul id="dafe5c32-7669-42ba-9672-5beb8260027d" class="bulleted-list"><li>Executor services is a like task runner which utilizes multiple cores to run multiple tasks.</li></ul><ul id="0994fc41-223e-4d69-a001-34a88be89c76" class="bulleted-list"><li>ES will assign threads to tasks and give priority and manage those tasks.</li></ul><pre id="59543f09-75b8-49ed-9334-f3cd411bc847" class="code"><code># thread pool of ten threads:
+import java.util.concurrent package
+ExecutorService executor = Executors.newFixedThreadPool(10);</code></pre></li></ol><ol id="dedfa863-29ae-478a-87b0-f2ac40a87903" class="numbered-list" start="18"><li><strong>Thread Poo</strong>l: <ol id="f3ef1018-5964-431a-8133-baf25305b2c0" class="numbered-list" start="1"><li>Normally declaring and inititalizing a thread creares a lot of overheads.</li></ol><ol id="96a856de-2439-49da-a1cb-1ea3a1f3fd87" class="numbered-list" start="2"><li>it reuses threads already created. </li></ol><ol id="c2ec1342-723e-4d23-be3d-24f0a179f27a" class="numbered-list" start="3"><li>Thread pools group of threads that are waiting for the job.</li></ol><ol id="076273f0-6433-473b-bd62-e8d44110c589" class="numbered-list" start="4"><li>Executor service doesn&#x27;t let the thread pool end the thread.</li></ol><ol id="d2ca6769-dd11-426d-bcaf-2aa7b43fe5a8" class="numbered-list" start="5"><li> you can tune/control the number of threads to ensure you have optimal performance.</li></ol></li></ol><ol id="d2260a75-c80a-4865-8e0d-ab2fa4a149fb" class="numbered-list" start="19"><li><strong>Dalvik Virtual machine :</strong><ol id="2e722944-d314-4553-b8bd-af9fa5cab507" class="numbered-list" start="1"><li>It is a virtual machine android which optimizes the performance.</li></ol><ol id="4488e0fc-1de2-40a6-ada7-15f4aab3a296" class="numbered-list" start="2"><li>Java compiler converts code into byte-code (.class) , Dex complier converts .class into dex byte code;</li></ol></li></ol><ol id="1755b264-5386-4978-b68e-2ac4a3b547b9" class="numbered-list" start="20"><li><strong>Android architecture</strong>:<ul id="f59c68c9-0658-4886-bdf9-67cc66aa264d" class="bulleted-list"><li><strong>Activity Manager:</strong> The method in this class uses testing and debugging methods.</li></ul><ul id="946f93c5-f22f-4f0b-91e2-fb5caeadda04" class="bulleted-list"><li><strong>Content provider:</strong> It provides data from application to other layers.</li></ul><ul id="8fc90d22-95d9-4050-8f61-a1e5c7030512" class="bulleted-list"><li><strong>Resource Manager:</strong> It provides access to non-code resources.</li></ul><ul id="e3e20ab5-1894-46ac-aad0-32955cde1805" class="bulleted-list"><li><strong>Notification Manager:</strong> The users get notification about all the actions happening in the background.</li></ul><ul id="387ae697-c2a1-49ca-8940-204341ab3499" class="bulleted-list"><li><strong>View System:</strong> It acts as a base class for widgets and is responsible for event handling.</li></ul><p id="5bd8d5a4-0921-4f54-8527-294adf1c29b3" class=""><a href="https://www.guru99.com/android-architecture.html#3">https://www.guru99.com/android-architecture.html#3</a></p><figure id="3349fe76-c9a3-4bed-838b-9edea308223e" class="image"><a href="Java%203349fe76c9a34bed838b9edea308223e/Untitled.png"><img style="width:1024px" src="Java%203349fe76c9a34bed838b9edea308223e/Untitled.png"/></a></figure></li></ol><ol id="40e4bfe3-92d2-4e73-81e3-d282870f5168" class="numbered-list" start="21"><li>Usb debugging</li></ol><ol id="b5a5181c-bc8e-4f55-bfc6-75b7cb82aa97" class="numbered-list" start="22"><li><strong>AVD functionality</strong>:<ol id="825dae5f-ab2a-4b4c-b3d4-42aeb155c19d" class="numbered-list" start="1"><li>The Android virtual device simulates Android devices on your computer so that you can test your application on a variety of devices and Android API levels without needing to have each physical device. </li></ol><ol id="560bb3a5-6e94-4e08-b370-08ae1ac6390e" class="numbered-list" start="2"><li>The emulator provides almost all of the capabilities of a real Android device</li></ol></li></ol><ol id="5d4e8b1b-09c2-4827-9bbb-1e8a0ba91a61" class="numbered-list" start="23"><li><strong>AVD speed</strong>:<ul id="1f8ca3cb-aefe-4529-ac76-1b48f34174e9" class="bulleted-list"><li>The Android Emulator is very slow. </li></ul><ul id="b6b25624-61da-4631-8843-f54cd65073b9" class="bulleted-list"><li>The main reason is because it is emulating the ARM CPU &amp; GPU, unlike the iOS Simulator, which runs x86 code instead of the ARM code that runs on the actual hardware.</li></ul></li></ol><ol id="7665e963-9c9a-4c96-b4c8-fcf831b38844" class="numbered-list" start="24"><li><strong>Layout types</strong>:<ul id="bd6108ed-f779-4743-aed6-b82ce148fee7" class="bulleted-list"><li>Linear Layout : Provides view to elements in consecutive location either horizontally or vertically.</li></ul><ul id="949a19f5-8c0b-436d-a63d-1fa36ed1815b" class="bulleted-list"><li>Relative Layout  : Provides view relative to the parent/siblings of the current group. such as right of parent left of parent and so on.
+layout_alignParentTop, layout_below , layout_toRightOf</li></ul><ul id="aea6fbb3-b2db-40c2-a398-c3745fe81d12" class="bulleted-list"><li>Constraint Layout : A ConstraintLayout is similar to a RelativeLayout, but having more power.</li></ul><ul id="db6ce7f2-a5de-4a81-b0de-34333eadc9cb" class="bulleted-list"><li>Table Layout  : Provides a view in which group of views are  arranged in the form of rows and columns.</li></ul><ul id="be92039b-2759-4aff-8fc9-e64036d4e0f5" class="bulleted-list"><li>Frame Layout : used to specify the position of View elements it contains on the top of each other to display only a single View inside the FrameLayout.</li></ul><ul id="c4739177-9d9c-4de2-9523-e83f3cebdfc8" class="bulleted-list"><li>List View :  Elements are in listitem form.</li></ul><ul id="4ba5a8a5-bc06-4313-b614-b0431c84d0d9" class="bulleted-list"><li>Grid View :  Elements are in grid form with rows and columns.</li></ul><ul id="dfdb91eb-72e5-409f-a311-c38e79fb42b2" class="bulleted-list"><li>Absolute Layout :  Absolute in px from the boundaries.</li></ul><ul id="1e6fe4f5-c08e-4b18-80b2-e6ecb61f6fd3" class="bulleted-list"><li>WebView : WebView is a browser that is used to display the web pages in our activity layout.</li></ul></li></ol><ol id="944248b6-61c9-47d4-9ab2-8353399a5b27" class="numbered-list" start="25"><li><strong>Manifest file</strong>:<ol id="ab167fdb-0f35-4664-8d89-fa9ca0cc3dc7" class="numbered-list" start="1"><li>Every application must have a manifest file in it&#x27;s root directory.</li></ol><ol id="678582e7-2477-407d-a5ab-4fd72af2e08a" class="numbered-list" start="2"><li>Manifest files has essential information required to run the application like version of  android API , starting or landing page, the permissions application requires, based on permissions which app can interact.</li></ol><ol id="e0ae59dc-ae03-4d7d-ad53-be379a4589b8" class="numbered-list" start="3"><li>It also stores launcher icons , app logo , theme , activities such as login screen.</li></ol><ol id="449a154b-1986-43fb-92bf-86574e4d269f" class="numbered-list" start="4"><li>It lists the libraries that the application must be linked</li></ol></li></ol><ol id="a2bcb7c9-75e2-4b06-abd4-c5dd23a35678" class="numbered-list" start="26"><li> <strong>Drawable folder</strong>: <ul id="a887cd36-2764-4fdb-8bc5-3f60ac5efdbf" class="bulleted-list"><li>Drawable folder  contains all the static images and drawable element (elements which are  painted on screen).</li></ul><ul id="6475ed8b-c01e-4963-8950-180c53bbb996" class="bulleted-list"><li>The various subclasses help with specific image scenarios, and you can extend them to define your own drawable objects that behave in unique ways.</li></ul><ul id="28b16a31-af23-42ec-9665-b2b520549770" class="bulleted-list"><li>It can also contain xml code where we can draw different shapes.</li></ul><ul id="63d92846-e420-4b33-a125-f2ba68547b12" class="bulleted-list"><li>/drawable-ldpi For low density screens</li></ul><ul id="8463c077-e7d6-4527-9438-b7b220c93220" class="bulleted-list"><li>/drawable-mdpi For medium density screens</li></ul><ul id="2f0c8c02-a0df-47b9-8d85-d5c6d13ac2fc" class="bulleted-list"><li>/drawable-hdpi For high resolution screens</li></ul><ul id="356e8fc7-3c5e-463c-ba7d-ab3dbf73748e" class="bulleted-list"><li>/drawable-xhdpi For extra high resolution screens.</li></ul><ul id="a4947177-8969-4104-9936-eb592dd9a3b1" class="bulleted-list"><li> <mark class="highlight-blue_background">android:src=&quot;@drawable/my_image&quot; </mark></li></ul></li></ol><ol id="392224ab-92e1-4bb7-9b17-6648dbef3b92" class="numbered-list" start="27"><li>Parameters of <strong>findviewbyID</strong>:<ol id="6208f55f-132d-4d67-bfb8-60fd8760878c" class="numbered-list" start="1"><li>(R.id.something)  : R contains all the ids in the program.</li></ol><ol id="da41b0d8-cf84-4324-90c4-c3c2fe644ac0" class="numbered-list" start="2"><li>This function returns the view having that value. It is usually stored in a variable.</li></ol><ol id="9a1ca920-95d7-47cd-a348-264eeb64465e" class="numbered-list" start="3"><li>So for e.g :-</li></ol><pre id="6a5ffc0a-daea-45ba-a7e3-8dd94a2d7866" class="code"><code>&lt;textview&gt;
+android:id=&quot;@+id/daytext&quot;
+&lt;/textView&gt;
+
+private TextView datedisplay;
+
+datedisplay = findviewbyID(R.id.daytext);
+datedisplay.setText(date)</code></pre></li></ol><ol id="79b8f8c9-58fa-45b9-92e8-aed58172ca48" class="numbered-list" start="28"><li>asd</li></ol><ol id="695ce204-b9e7-488e-bfb6-1db4593cc1ec" class="numbered-list" start="29"><li>What is gradle?<p id="e0743091-6a56-4438-8f54-dc74d14d606d" class="">Android code is made of many raw files and resources which requires many steps to integrate everything and make them into a single executable file. This process is quite tedious. Hence build systems are introduced.</p><p id="96c385b7-8ac3-4dc1-b1bb-2bf64d2599d1" class="">Ant is one such system which compiles everything into a single file.</p><p id="b7cda3ad-c27b-4194-8395-3ab63559b286" class="">Maven introduces using dependencies(libraries-reusable code). Instead of downloading everything just add the dependency.</p><p id="63f6a735-f68e-4446-b907-e2a5c1357261" class="">Gradle combines these two to make a build systme that speeds up the build process. </p></li></ol><ol id="faa17f2a-5775-425b-b369-b8a6a258f30a" class="numbered-list" start="30"><li>asda</li></ol><ol id="c4f30527-5763-4dc0-a476-379ab4e15edd" class="numbered-list" start="31"><li>Bluetooth adapter class: <p id="a2d46153-95f7-4943-aca1-a7fb406512bb" class="">Bluetooth is short-range wireless connection  technology that pairs two devices.</p><p id="e31ec6fe-7c18-4054-8567-b9c098ba784b" class="">Android provides API to manage bluetooth.</p><p id="3c813352-c47c-4081-a42e-037c7851e074" class="">Bluetoothserverclass has 4 constants:<div class="indented"><ul id="1e553a90-0a38-4b76-9eda-0233eb23c680" class="bulleted-list"><li>String ACTION_REQUEST_ENABLE</li></ul><ul id="60030886-2f17-41c7-8e45-78ed56267abb" class="bulleted-list"><li>String ACTION_REQUEST_DISCOVERABLE</li></ul><ul id="3f746da5-fbab-49b7-9bff-45683a24c453" class="bulleted-list"><li>String ACTION_DISCOVERY_STARTED</li></ul><ul id="0dd01799-79e2-40ba-a803-d33f32b0c125" class="bulleted-list"><li>String ACTION_DISCOVERY_FINISHED</li></ul></div></p></li></ol><ol id="abb9984b-1506-421a-9c22-d398baefa6c5" class="numbered-list" start="32"><li>What is JSON:<ol id="74e114e1-cc2f-480e-b935-24093929f810" class="numbered-list" start="1"><li>Javascript object notation is a data interchange/serialization format which helps in transferring code(objects) over network.</li></ol><ol id="6b03626e-70cf-4d13-acc2-a0f98b85971e" class="numbered-list" start="2"><li>JSON converts object into string as only strings can transferred over network or written onto a file. This is then deserialized on the other end to turn it back into object.</li></ol><ol id="6f06104e-231e-4645-a455-a0baad998c0d" class="numbered-list" start="3"><li>JSON follows js syntax but is not just constricted to js.</li></ol><ol id="f3b2ffe1-d88e-4cbf-aac9-e65785bece12" class="numbered-list" start="4"><li>XML follows html format hence is a lot verbose (start tag ,end tag).</li></ol><ol id="2b30fcad-ed25-437b-bc86-d66313f5bbd6" class="numbered-list" start="5"><li>Json is more readable whereas XML is not that readable.</li></ol><ol id="a322b250-546e-495b-87f5-ac0fd5b9bbc4" class="numbered-list" start="6"><li>Xml offers wide variety of data types.</li></ol></li></ol><ol id="15121cf8-5a3f-4c73-a150-cce777320cdb" class="numbered-list" start="33"><li>Attributes of linear layout:<p id="0e9a6485-2ea5-4728-9827-de53da6d87c7" class=""><a href="https://www.geeksforgeeks.org/linearlayout-and-its-important-attributes-with-examples-in-android/">https://www.geeksforgeeks.org/linearlayout-and-its-important-attributes-with-examples-in-android/</a></p></li></ol><ol id="63f5ae46-6ba9-4249-ba80-cb386800d21d" class="numbered-list" start="34"><li>Intent<p id="67be132b-769c-4e57-83f3-a2fd4e753522" class="">Intent is just a way to tell the OS that you have the intention to do something.</p><p id="01ae9776-a247-44be-a997-c18ffdf3d8f8" class="">An intent is basically a way for an activity of your app to start another activity</p><p id="704425f0-ed73-4813-bec3-2872706d8e39" class="">Intents are asynchronous messages which allow application components to request functionality from other Android components. Intents allow you to interact with components from the own and other applications. For example an activity can start an external activity for taking a picture.</p><p id="7b8af0b7-1566-4409-9c4d-f85b7df5d6e5" class="">Explicit and implicit intent.</p><p id="239b5783-71f1-4bf8-8739-d534c6c38943" class="">In implicit only action or data is passed and corresponding component isn&#x27;t.</p><p id="27bee2b1-8933-4bd4-a90b-a601a98281ba" class="">Like passing link to the os and letting it figure which application to use to open the link.</p><p id="30f511e4-46cd-439f-9a0f-027ede6edd04" class="">In explicit , the target class is specified like in shopping the cart button leads to your cart.</p></li></ol><ol id="59ae7a40-326e-44e0-bf41-05285c241fef" class="numbered-list" start="35"><li>A Fragment represents a reusable portion of your app&#x27;s UI. A fragment defines and manages its own layout, has its own lifecycle, and can handle its own input events. Fragments cannot live on their own--they must be hosted by an activity or another fragment.<p id="08b2a17d-3ba7-4a83-a1e4-d498e5fb3697" class="">A fragment represents a modular portion of the user interface within an activity. A fragment has its own lifecycle, receives its own input events, and you can add or remove fragments while the containing activity is running.</p><p id="0c6e307c-918a-4527-86d8-068fe65627d8" class="">Fragment allows reuse-ability  like when music is playing we can switch to task-manager whereas intent doesn&#x27;t allow this.</p><pre id="4fd9e4a8-a025-4158-8f04-d49f45461f31" class="code"><code>class ExampleFragment extends Fragment {
+    public ExampleFragment() {
+        super(R.layout.example_fragment);
+    }</code></pre></li></ol><ol id="a74eb37a-4c3c-4599-b618-1bd86c7c545b" class="numbered-list" start="36"><li> Navigation drawer:<p id="5480e4c7-9ea9-4aab-aa0a-bd7fd0469b88" class="">It is the sidebar/bottom that appears one the left of the screen. It has important functionalities  or main pages of the app on it .</p><p id="8b38b9b5-1cfe-40b6-b870-0cc52e365d2e" class="">They can be on the screen permanently such as on the bottom or appear on clicking on the burger menu.</p><p id="c3bfe643-d094-4e20-8130-eba601a61da0" class="">
+</p></li></ol><ol id="2b1ca659-fc8c-4f90-9cfa-3a020d99ef61" class="numbered-list" start="37"><li>Access database:<p id="e50aae58-bee3-4302-8ca5-0d69be9c1468" class="">We can retrieve anything from database using an object of the Cursor class. We will call a method of this class called rawQuery and it will return a resultset with the cursor pointing to the table. We can move the cursor forward and retrieve the data.</p><pre id="f9527672-98a1-438a-be9a-963f763ad647" class="code"><code>Mysqllite mydatabase = openOrCreateDatabase(&quot;your database name&quot;,MODE_PRIVATE,null);
+
+Cursor resultset = mydatabase.rawQuery(&quot;select * from relation&quot;,null)
+resultSet.moveToFirst(); //moving cursor</code></pre><p id="fc2be258-338b-4d70-8052-2804f37ae1f1" class=""><a href="https://www.tutorialspoint.com/android/android_sqlite_database.htm">https://www.tutorialspoint.com/android/android_sqlite_database.htm</a></p></li></ol><ol id="a5f5125b-11f1-4423-98b4-ca840780b093" class="numbered-list" start="38"><li>A ContentProvider manages access to a structured set of data. It encapsulates the data and provide mechanisms for defining data security. ContentProvider is the standard interface that connects data in one process with code running in another process.</li></ol><ol id="8af288fb-93ed-4914-b25a-01d27df43da7" class="numbered-list" start="39"><li><ol id="9a5c8a27-191c-4fbe-96ee-fb9bb0ad0122" class="numbered-list" start="1"><li>start() :This method starts the animation.</li></ol><ol id="2c030079-17aa-43db-8124-35e1eec06cea" class="numbered-list" start="2"><li> setDuration(long duration): This method sets the duration of an animation.</li></ol><ol id="af876a15-eda3-46ce-819e-952a6c1ff4a1" class="numbered-list" start="3"><li> getDuration(): This method gets the duration which is set by above method</li></ol><ol id="87c2d592-f378-4e65-9d32-29d4e31aa118" class="numbered-list" start="4"><li> end():  This method ends the animation.</li></ol><ol id="66699426-0bc9-4f37-ac65-e0f186874891" class="numbered-list" start="5"><li>cancel(): This method cancels the animation.</li></ol></li></ol><ol id="9b4dfd89-fbc4-4b6b-a923-09ff386a9fc3" class="numbered-list" start="40"><li>Aniamtion:<p id="81593fcf-97bf-4340-97f6-17a28fff3253" class="">2D<div class="indented"><p id="2fad4af3-73b1-4175-90ab-a7a723ac2df4" class="">Drawable:- BitmapDrawable, ShapeDrawable, PictureDrawable, LayerDrawable,</p><p id="23d81718-329a-4eda-b7e2-86fec0814cd7" class="">Animation package:</p></div></p><p id="6b3c574e-8097-4f6a-bd7c-3c32849dd00e" class="">3D :-<div class="indented"><p id="988f38eb-045c-4fd3-9ffe-255fd06e6e3f" class="">Texture view</p><p id="3ad97bf6-3975-4815-9dce-61c3433d76de" class="">OpenGL
+</p></div></p></li></ol><p id="e0a356c0-bbb2-415d-831b-6383eed0a715" class="">
+</p></div></article></body></html>
