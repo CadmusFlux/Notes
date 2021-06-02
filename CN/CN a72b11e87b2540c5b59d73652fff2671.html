@@ -1,0 +1,663 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>CN</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e9feb9c8-f0bd-4eab-a075-173fa8dc2bd5" class="page sans"><header><h1 class="page-title">CN</h1></header><div class="page-body"><hr id="f5e8d4c1-238e-41e6-8b8f-c0463ea14258"/><ul id="02041f1b-a9a0-45dc-9b87-a2f0a07eba18" class="toggle"><li><details open=""><summary><strong>10Base-T</strong></summary><p id="223541fa-2058-4f71-b9d0-52ee45da088d" class="">The 10 refers to the data transfer rate. In this case, it is 10Mbps. </p><p id="ade1f816-653e-423c-a79c-46002b31e408" class="">The word Base refers to baseband, as opposed to broadband</p></details></li></ul><ul id="c86d51c8-7a72-4f8c-8e6d-5838ba4fdc7b" class="toggle"><li><details open=""><summary><strong>Assignments</strong></summary><ol id="10a69696-12e3-4430-9083-36dac2f7bb47" class="numbered-list" start="1"><li>Part a : <strong>Setup a wired LAN using Layer 2 Switch and then IP switch of minimum four computers</strong>. It includes preparation of cable, testing of cable using line tester, configuration machine using IP addresses, testing using PING utility and demonstrate the PING packets captured traces using Wireshark Packet Analyzer Tool.</li></ol><ol id="abdee161-5f12-491e-9348-8f38a4386fde" class="numbered-list" start="2"><li>ass1 part B: <strong>LAN Setup Wired</strong></li></ol><ol id="bd3770e0-a220-4f82-a7ef-cd595e30f7a1" class="numbered-list" start="3"><li>Write a program for error correction for 7/8 bits ASCII codes using Hamming Codes</li></ol><ol id="5d1e61cb-3349-4ec2-851c-5b2fafe7ebc4" class="numbered-list" start="4"><li>a ) Write a program for error Detection Cyclic Redundancy Check(CRC). [c/c++] <p id="4e39e82b-508f-4e51-9bb0-59f4a192ba1b" class="">b) Write a program to simulate Selective Repeat Modes of Sliding Window Protocol.
+     [python/java]</p></li></ol><ol id="64586e60-ee2a-4d15-9c2d-ae9b5138d375" class="numbered-list" start="5"><li>Write a program to simulate Go back N Modes of Sliding Window Protocol.</li></ol><ol id="b39ceb6f-0c55-4597-8fde-8214a50d8caa" class="numbered-list" start="6"><li>Write a program for DNS lookup. Given an IP address input, it should return URL and vice-versa . [Java]</li></ol><ol id="924fba19-2384-4806-98ff-fff3ffd01287" class="numbered-list" start="7"><li>Write a program for DNS lookup. Given an IP address input, it should return URL and vice-versa . [Python]</li></ol><ol id="d2a45f02-4c29-4a18-8920-206f7857c208" class="numbered-list" start="8"><li>Write a program using TCP socket for wired network for Calculator (Arithmetic).</li></ol><ol id="b35ca84f-59ec-4c4e-993b-cbb61f79a45a" class="numbered-list" start="9"><li>Write a program using TCP sockets for wired network to implement
+- Peer to Peer Chat
+- Multiuser Chat</li></ol><ol id="d6828403-ae0b-49ca-a0d3-4f44e411182e" class="numbered-list" start="10"><li> Write a program using UDP sockets for wired network to implement
+- Peer to Peer Chat
+- Multiuser Chat</li></ol><ol id="a5c797b4-73a0-4aac-a1f0-dac8ce13ea30" class="numbered-list" start="11"><li>Use network simulator NS2 to implement:
+- Monitoring traffic for the given topology.
+- Network Routing: Shortest path routing, AODV.</li></ol><ol id="ec51431f-f522-4b2d-bd8c-ade3ee7ea64c" class="numbered-list" start="12"><li>Configure RIP/OSPF/BGP using packet Tracer.</li></ol><ol id="a66e382a-c7ca-4d3f-a1ed-5ae0bb164a5b" class="numbered-list" start="13"><li>Write a program for finding the First Address and last address in Subnet.</li></ol></details></li></ul><ul id="a5854382-debb-4e98-b1ab-50c055813281" class="toggle"><li><details open=""><summary><strong>ARQ</strong> (Automatic repeat request)</summary></details></li></ul><ul id="2f3eeae2-fd55-471c-9ddf-e351b2aaa83e" class="toggle"><li><details open=""><summary><strong>Autonomous Systems </strong>(AS)</summary><p id="a544802f-d86f-4bb4-9985-5f8e7b50102c" class="">Autonomous systems are large group of network that have <strong>unified routing policy</strong>.</p><p id="0e19c780-9e7c-4770-82e3-cb2f1e4cf0bf" class="">Examples of autonomous systems are ISP&#x27;s : Hathway , jio fiber  , Airtel internet.</p></details></li></ul><ul id="31adbe67-a1e3-40af-9425-546c8dc552e8" class="toggle"><li><details open=""><summary><strong>BGP </strong>- Border Gateway Protocol</summary><ul id="75a011d4-545d-4909-8b06-ffbfb898c6e8" class="bulleted-list"><li>BGP is responsible for routing data packets between autonomous sytems.</li></ul><ul id="a8f52950-9296-441f-a016-d007a5f272e4" class="bulleted-list"><li>Autonomous systems announce their routing policy to other AS&#x27;es or routers through BGP.</li></ul></details></li></ul><ul id="93f5190b-d8a1-4add-96e6-50024cdff5a0" class="toggle"><li><details open=""><summary><strong>Computer Networks</strong>:</summary><p id="4623f0bb-7baf-44fa-9f4a-9f36e74792ab" class="">computer network is a group of computers which have  certain protocol on how to transmit resources.</p></details></li></ul><ul id="69d25798-8c2e-4f3f-8b0b-6189b7e84cbc" class="toggle"><li><details open=""><summary><strong>Command</strong></summary><p id="295124f8-3865-4f32-8433-c44ca28f69f2" class="">Ping ip : check connection</p><p id="68abe4c7-c17e-41c7-8a94-9e7ed1cf8c97" class="">IPconfig : get IP</p><p id="5a6a9aba-173d-4a26-acd9-5415956cc062" class="">Netstat -e : Network summary for diagnosis</p><p id="e028941d-f835-42a4-92f6-e5e1bf89567f" class="">
+</p></details></li></ul><ul id="f5f9071f-4804-46dd-a514-d26df0751b28" class="toggle"><li><details open=""><summary><strong>CSMA</strong> - Carrier sense multiple access [collision detection v/s collision avoidance]</summary><p id="8de231fd-f04c-4de2-8a3f-a3a676e55a6e" class="">CD: transmission happens → collision detected → wait for random amount of time → retransmit</p><p id="d8b1462c-bf21-4b31-831c-f286d2c91793" class="">CA : check signal → if signal present wait → check again → if not present →transmit</p><p id="27b0c01c-5060-4740-a850-f7fa61743608" class="">CD resends data frame , CA pings the server for availability and then sends data</p><p id="0fc11b45-bf68-46c4-9179-44ad72e8136e" class="">CD for wired network , CA for wireless network</p></details></li></ul><ul id="26f89eef-a914-4e51-86fe-18e9f37b9612" class="toggle"><li><details open=""><summary><strong>Classes</strong></summary><p id="862f7682-ca6d-4d7a-a59b-53f5dcfed94f" class="">
+</p><figure id="a72b11e8-7b25-40c5-b59d-73652fff2671" class="image"><a href="CN%20a72b11e87b2540c5b59d73652fff2671/Untitled.png"><img style="width:400px" src="CN%20a72b11e87b2540c5b59d73652fff2671/Untitled.png"/></a></figure><p id="d5c38349-21f7-4954-a33f-11eca0cfb14b" class="">
+</p><figure id="e223b052-4f18-4e4d-ae3c-55f0d0bd8f9b" class="image"><a href="CN%20a72b11e87b2540c5b59d73652fff2671/Untitled%201.png"><img style="width:455px" src="CN%20a72b11e87b2540c5b59d73652fff2671/Untitled%201.png"/></a></figure><p id="c2a2baae-2fe5-42ff-b820-c0860ca543f0" class="">
+</p></details></li></ul><ul id="7e0195ca-a8a7-4a5f-a36b-90b212287b1c" class="toggle"><li><details open=""><summary><strong>Data encapsulation</strong></summary><p id="a1d60919-976f-412b-bf44-798ae5d05de7" class="">Breaking information into packets</p><p id="d7e28a05-e418-49ed-b161-40e535e18f76" class="">Storing source,dest,length,checksum[2byte] into Header part</p></details></li></ul><ul id="c5f5419e-0119-416a-8830-7954c6d54ae2" class="toggle"><li><details open=""><summary><strong>DNS </strong>- Domain Name System</summary><p id="e76c3e26-340e-46c0-b930-059ae3476c97" class="">Domain name system is a naming system that returns IP address (numerical) when an URL input is given. </p><p id="8b4e2ee6-89bb-4bf9-b7ef-2f2a0a7bfada" class="">This address is then returned to the router which can pass the request tot he web server.</p><p id="1b28d69a-a352-4dbe-8051-fdbaec10b206" class="">Without DNS you would have to memorize IP address of each site.</p></details></li></ul><ul id="414aad23-85b3-4033-95de-a0f10756d43d" class="toggle"><li><details open=""><summary><strong>DNS lookup</strong></summary><pre id="796f3e78-1c03-485f-b7ad-e11e44a9578f" class="code"><code>import socket
+n = 0
+while n != 3:
+
+	print(&quot;\n Menu: \n 1. DNS 2. Reverse DNS 3. Exit \n&quot;)
+	n = int(input(&quot;\n ENter your choice&quot;))
+	
+	if n== 1:
+		print(&#x27;Welcome to DNS to IP Adress&#x27;)
+		URL = input(&#x27;Enter URL: &#x27;)
+		addr1 = socket.gethostbyname(URL)
+		print(addr1)
+	elif n == 2:
+		print(&#x27;Welcome IP address to DNS&#x27;)
+		IP = input(&#x27;Enter IP adress: &#x27;)
+		addr6 = socket.gethostbyaddr(IP)
+		print(addr6)</code></pre></details></li></ul><ul id="7b2a967d-5278-4dc5-a38e-ea8d270a9980" class="toggle"><li><details open=""><summary><strong>DNS Resolver</strong></summary><p id="186d5347-018e-4389-9439-b0d18b7d8da5" class="">A DNS resolver, also known as a resolver, is a server on the Internet that converts <strong>domain</strong> names into <strong>IP addresses</strong>.</p></details></li></ul><ul id="456596c3-7471-4951-965c-3686f5fe6f37" class="toggle"><li><details open=""><summary><strong>Error Control</strong></summary><p id="6351f42d-7e29-4f12-b6cf-3f2b5d7d707f" class="">It is the technique of error control  for the purpose of checking if all the packets/frames have transmitted from sender to receiver with acceptable/no loss.</p><p id="58938808-a31a-45b5-b705-d5de3f066629" class="">Steps:<div class="indented"><p id="18fe3e87-0696-47ae-8f23-c645d98f695b" class="">Error detect.</p><p id="11edb5ec-1968-4eaa-846b-0085a1646776" class="">Acknoledgement : pos/neg</p><p id="220bc952-59e9-4e94-aa11-c334bfd03ca3" class="">Re-transmit</p></div></p><p id="4e8e9bf1-d089-4c16-b378-7f7f91998600" class="">Types:<div class="indented"><p id="3414c622-1561-4c45-9122-120b35dcefb6" class="">Stop and wiat Arq (automatic repeat request)</p><p id="3a554bf8-c508-4858-962b-f058871add71" class="">Sliding window ARQ<div class="indented"><p id="f52138b1-2b41-4ab9-ba5c-f7994a00df38" class="">go back N</p><p id="c2cd38df-768e-45ba-9e51-64db3f8b8f06" class="">selected repeat</p></div></p></div></p></details></li></ul><ul id="c9ccc860-023a-4f3c-8651-68bb3a1fc2c3" class="toggle"><li><details open=""><summary><strong>FHSS </strong>- Frequency Hopping Spread Spectrum</summary></details></li></ul><ul id="101959a9-5a58-46b6-91f1-6b6683888830" class="toggle"><li><details open=""><summary><strong>Flow Control</strong>:</summary><p id="16fdbd64-1a78-49c2-99b0-8b1571891205" class="">Flow control is technique that maintains the rate of transfer between sender -receiver. 
+So that a sender with high bandwidth cannot overwhelm the receiver which has high traffic or low bandwidth.</p><p id="ad0f3b42-d524-4843-83b1-26180b3efc3c" class="">Techniques:<div class="indented"><p id="c568ad9d-1384-4870-98af-65d6a6e19893" class=""><strong>Stop and wait</strong> Flow control</p><p id="49b4ba03-709e-4a91-9173-43f733d5ed3f" class=""><strong>Sliding Window</strong> Flow control</p></div></p></details></li></ul><ul id="11f1185d-4ab4-4666-9b26-dbc6c925d188" class="toggle"><li><details open=""><summary><strong>Hubs v/s Switch:</strong></summary><ul id="c27909f4-24fc-4b0c-983c-efe92dba8831" class="toggle"><li><details open=""><summary>Hubs</summary><ul id="f532e8d6-d019-43cb-9540-36e3273fe9e7" class="bulleted-list"><li><strong>Hubs are common connection devices that connect all devices to one point</strong>.</li></ul><ul id="3ba3ba55-dc24-4160-b260-038b9cc59b36" class="bulleted-list"><li>The data transmitted by 1 pc will be transmitted to all the device on the HUB .</li></ul><ul id="75f4f2ff-1700-42ab-aecf-1b95ec152967" class="bulleted-list"><li>A hub is a box that takes a signal in one port and sends it out all the other ports.</li></ul><ul id="21f08472-16c2-48f3-aa15-0ce4e6175961" class="bulleted-list"><li>E.g : Walkie-Talkie.</li></ul></details></li></ul><ul id="4d4ac085-0f7b-4586-a08a-d282c46344f6" class="toggle"><li><details open=""><summary>Switch:</summary><ul id="c16880ab-ccd9-4e1b-9166-e574633228da" class="bulleted-list"><li><strong>A switch is a box that takes in a signal in on one port and sends it out to only relevant ports based on MAC address</strong>.</li></ul><ul id="88572597-519d-4c3f-9238-e5eee3d58dbd" class="bulleted-list"><li>Switch is similar to Hub just it is more intelligent in the sense that it can transmit to specific devices.</li></ul><ul id="0c44b99f-1ffa-48f4-bc82-545f0031ab97" class="bulleted-list"><li>These devices are each given ports. So when a packet arrives for a specific devices it is routed to the port corresponding to that device.</li></ul><ul id="6de6667a-5029-44b4-9b86-9e39970ad9ed" class="bulleted-list"><li>MAC addresses of pc are used to give ports.</li></ul></details></li></ul><ul id="f2a5ea59-c6e9-44c9-8dc0-44bd606b61ac" class="bulleted-list"><li><a href="https://www.reddit.com/r/explainlikeimfive/comments/3krxey/eli5what_is_the_difference_between_a_switch_an/">https://www.reddit.com/r/explainlikeimfive/comments/3krxey/eli5what_is_the_difference_between_a_switch_an/</a></li></ul><hr id="0c5fd225-2729-4c34-b0a9-6ae4ba58775e"/></details></li></ul><ul id="657a343a-8838-4cee-909a-44c9650e3390" class="toggle"><li><details open=""><summary><strong>Hamming Code</strong></summary><p id="a89a5d2d-cfda-4468-9b33-f39bb5308e9a" class="">Hamming code is a linear error detecting code which can detect upto Two-bit errors or correct one-bit errors without detection of uncorrected error.</p></details></li></ul><ul id="595cec85-6ef6-4425-b4a6-e2896e6a23c0" class="toggle"><li><details open=""><summary><strong>IP address -</strong> Internet protocol address</summary><p id="d6753da3-9f58-41fb-be3b-1685aa9df06c" class="">Every device that is connected to the internet and uses Internet protocol for communication has an IP address.</p><p id="45a3769c-9b7f-4bbb-883c-3dd279a5b6cf" class="">IP address were earlier 32 bit (IPv4) but now most of them are exhausted hence IPv6 is used (128 bits).</p><p id="d3bd8df4-b9e7-4b0d-a988-cd6450338be5" class="">IP address 192.168.0.1 → each octet ranges from 0 to 255.</p></details></li></ul><ul id="b1cec5cd-6de9-4c49-b954-74932540f614" class="toggle"><li><details open=""><summary><strong>IP classes</strong></summary><p id="480a96a0-e571-4d3b-b5ab-bab646af0d52" class="">Every IP address has 2 parts : first determines the network it is on and the second determines the devices on that network.</p><p id="41f8cf08-85b5-4662-9ac3-9394748b0bb3" class="">The length of the first part changes based on IP classes:</p><p id="10efe71e-4494-4acb-b1b8-c18cafad2738" class="">IP address:  A.B.C.D (OR) 192.168.0.1</p><p id="008f8d2d-0547-442d-81ef-3340f942d1fc" class=""><strong>Class A (1-127)</strong> : Everything before the first period indicates the network, and everything after it 
+              specifies the device within that network</p><p id="d2a3d3d6-28b6-48f3-bc5f-b0c818db365e" class=""><strong>Class B (128-191):</strong> Everything before the second period indicates the network. .</p><p id="70ac9e3e-f0eb-4d73-aa76-239bbde9d395" class=""><strong>Class C (192-223.):</strong> For Class C networks, everything  before the third period indicates the network.</p><p id="933faac2-ff02-4918-8281-ae93ac7d2348" class=""><strong>Class D (224-239)</strong></p><p id="187d7b45-90ed-406a-a0b7-edf649e3969a" class=""><strong>Class E (240-254)</strong></p></details></li></ul><ul id="5912bfa6-fab0-4d0d-8260-3e1aa86f89c7" class="toggle"><li><details open=""><summary><strong>IPv4</strong></summary><figure id="c1e80c5f-6120-43ea-a749-931f0415b54c" class="image"><a href="CN%20a72b11e87b2540c5b59d73652fff2671/Untitled%202.png"><img style="width:432px" src="CN%20a72b11e87b2540c5b59d73652fff2671/Untitled%202.png"/></a></figure><figure id="0e47a14b-8254-40e7-8fa9-78163974fc80" class="image"><a href="CN%20a72b11e87b2540c5b59d73652fff2671/Untitled%203.png"><img style="width:432px" src="CN%20a72b11e87b2540c5b59d73652fff2671/Untitled%203.png"/></a></figure><p id="1e2f9477-7b24-4d06-b933-9fa648293aaa" class="">
+</p></details></li></ul><ul id="29fd0cf5-1ed7-4a0c-8a58-32cdf16baaf3" class="toggle"><li><details open=""><summary><strong>IPv4 v/s IPv6 </strong>- 32bits v/s 128bits</summary><ol id="6a68e84e-e013-4826-b085-c085bb1d20dd" class="numbered-list" start="1"><li>Addressable space is more in Ipv6</li></ol><ol id="2ec285d0-0c8d-4a4c-9130-259ab3139264" class="numbered-list" start="2"><li>IPv4 can address <strong>4 billion </strong>devices whereas Ipv6 can address <strong>2^128 devices.</strong></li></ol><ol id="91094ea6-9b65-4515-bcaf-fddb9d264291" class="numbered-list" start="3"><li>IPv4 has format 192.168.0.1 where each octet can be 0-255 values.</li></ol><ol id="fe56e340-6a70-4d1a-94f3-a1da9ece2ce6" class="numbered-list" start="4"><li>111111111.00000000.11111111.00000000</li></ol></details></li></ul><ul id="5287143a-ffb9-4830-bca1-aec6d5a7c83b" class="toggle"><li><details open=""><summary><strong>LAN, WAN , MAN ,PAN , CAN</strong></summary><p id="b3fb7dc3-41c7-4dfc-ae8a-a29dac837083" class="">PAN : Personal Area Network (&lt;10 m) [Bluetooth,NFC,Infra-red]</p><p id="946f1358-651e-4ba8-9cbc-9f4e4b88c2f0" class="">CAN  : Campus area network [ 1km]</p><p id="8a4aab4d-7027-42cb-aec2-e3b2d4148f81" class="">LAN: Local Area Network (100-1000m) [Servers , Gaming competitions]</p><p id="944fee80-a3df-47e4-9104-cd0895122f25" class="">MAN: Metropolitan Area Network (100km) [City]</p><p id="8791ec59-1362-438f-8cb0-1ff4229ce606" class="">WAN: Wide Are Network (100,000km or greater) [country or continent or world]</p></details></li></ul><ul id="69d86273-90e1-4795-9235-515da12f1f18" class="toggle"><li><details open=""><summary><strong>Lookback</strong></summary><p id="d35d937e-2834-4a66-845f-6d736503965d" class="">127.0.0.1</p><p id="99cf6fcf-1ebf-4547-9a89-8cf37822a119" class="">A loopback address is a special IP address, 127.0. 0.1, reserved by InterNIC for use in testing network cards. This IP address corresponds to the software loopback interface of the network card, which does not have hardware associated with it, and does not require a physical connection to a network</p></details></li></ul><ul id="7872b8af-8feb-424c-8e1d-6bc199f9f564" class="toggle"><li><details open=""><summary><strong>MAC</strong> <strong>address</strong> - Media access control</summary><p id="72d234e2-09d3-460c-b37a-8b6b0b1f46d0" class="">It is the physical address assigned to each NIC (Network Inteface Controller).</p><p id="974fd6b1-cfc1-4dce-bbbf-40999bb447e6" class="">It distinguishes different devices on a network.</p><p id="58f43bd4-190a-46b3-a804-c83c80fdb3dd" class="">MAC Addresses are 6 bytes (or 48 bits long)</p><p id="90886ba0-1604-490b-bca5-327a9f43c04b" class="">eg:00:1B:44:11:3A:B7</p></details></li></ul><ul id="3071c209-f240-410f-b448-4470096272ba" class="toggle"><li><details open=""><summary><strong>NIC</strong> - Network Interface controller</summary><p id="5fb2f71d-b197-4261-b353-a3055e21e20f" class="">Connects PC to network.</p><p id="3f9b88f4-1765-44cf-a38c-35bc3eecd73b" class="">Internal : Peripeheral Componenet interconnect [PCI bus]</p><p id="1841c205-dff8-4f2c-9792-621b3afd7904" class="">External : USb or wireless</p></details></li></ul><ul id="255028a7-1ed0-4f99-9be6-bf96c8073bb6" class="toggle"><li><details open=""><summary><strong>OSI - </strong>Open Systems Interconnection</summary><p id="68d1bd0d-02c7-4d9c-9f23-833d3c9c70db" class=""> It is a conceptual reference for how computers communicate over network.</p><p id="b8c1cddf-5684-4905-8e06-71a062d5c21c" class="">There are seven layers:</p><ol id="68a367bb-4306-458c-98a7-f2e94a082e91" class="numbered-list" start="1"><li>Physical layer - Electrical signals to bits  [ HUB, 100BaseTX, wires , cables ]</li></ol><ol id="d7a143e1-ea4c-41f8-89e8-e7c37c552849" class="numbered-list" start="2"><li>Data Link layer (frames) - [SWITCH, PPP, Frame Relay, ATM, Fiber Cable, etc.]</li></ol><ol id="a97b0600-2243-4161-938e-f006563e9651" class="numbered-list" start="3"><li>Network Layer (packets)-  To move packets from source to destination. [Router/IP]</li></ol><ol id="bbf48677-f12d-42f4-83c0-92e34b3c3528" class="numbered-list" start="4"><li>Transport Layer (segments)- applies protocol on network layer to trnsfr data . [ TCP/UDP]</li></ol><ol id="9e23d47a-2e6f-4a29-a470-3a6dedc8f54b" class="numbered-list" start="5"><li>Session -  To establish, manage, and terminate the session. [NetBIOS, SAP]</li></ol><ol id="3fda7d71-ece3-4479-9636-2eeb1f25e3b8" class="numbered-list" start="6"><li>presentation -  To translate, encrypt and compress data. [MPEG, ASCH, SSL, TLS]</li></ol><ol id="92718005-3a76-450c-a6cc-11f4984683b4" class="numbered-list" start="7"><li>Application -  To allow access to network resources.  [SMTP, HTTP, FTP, POP3, SNMP]</li></ol></details></li></ul><ul id="1b4058cc-890d-45d7-b02d-82720db90053" class="toggle"><li><details open=""><summary><strong>OSFP </strong>- Open shortest path first</summary><p id="3e1c7a87-1bd4-44fb-b710-e4b81d163a3c" class="">Uses shortest path algorithm (djikstra) to find shortest path to a IP  in a autonomous network.</p><p id="cd0a74a1-f7ad-4c96-9f2d-d4445386d1ec" class="">Divides AS into routers and nodes and then finds shortest path.</p></details></li></ul><ul id="c40ccca1-7653-4213-b413-b4eb711345c0" class="toggle"><li><details open=""><summary><strong>Port</strong></summary><p id="923cb43e-cb20-44eb-a3fd-3a47c394fdb1" class="">Port is a logical construct that defines a endpoint or a device ona network.</p><p id="230c7a16-c109-4b2e-abb7-a4e90893cd22" class="">20 : File trnsfr (FTP) data transfer</p><p id="cc4690d6-2d3c-4e44-ad56-8c4ebb39e793" class="">21 : FTP command control</p><p id="847d5ba1-e0d1-4f42-b475-efcb56f53919" class="">22 : SSL  (Secure Shell)</p><p id="f2a4f15f-6dba-4dbd-976b-b7f8ada69353" class="">23 : Telnet</p><p id="ba94bdf5-2371-45c0-a53a-3c460005bae5" class="">25 : SMTP    (simple mail transfer).</p><p id="71f50c75-b486-410d-bdfc-e89faa346d4b" class="">53 : DNS      (domain name system)</p><p id="c2c0a5f9-dee7-4de5-a278-21ad48efb135" class="">80  : HTTP    (Hyper text trnsfr proto)</p><p id="d8569f17-6323-48d0-a0b8-9a88c2f83858" class="">110 : POP3  (Post office protocol)</p><p id="678b1bc5-9e9f-40e0-b42b-e906c8cf9f85" class="">119 : NNTP (Network News Transfer Protocol)</p><p id="0ae081c5-dd4f-4c78-b3cb-f4c774994287" class="">123 : NTP (Network Time protocol)</p><p id="410ce02d-5446-4314-a21d-0b299d681230" class="">143 : IMAP ( Internet Message Access Protocol)</p><p id="d6bd3ed0-ceee-4262-bdec-4acc8ea92ac7" class="">161 : SNMP Simple Network Management Protocol </p><p id="b74dcdbf-1b23-47b1-994a-6a1f03d2aa42" class="">194 : Internet Relay Chat (IRC)</p><p id="5c830b01-2599-465f-809b-85cdeb78628f" class="">443 : (HTTPS) </p></details></li></ul><ul id="6448f001-940c-4d2d-bd3e-f164f0ec4df1" class="toggle"><li><details open=""><summary><strong>Private IP&#x27;s</strong></summary><p id="507bd2b0-afbc-4a38-9b40-bd51a9da2379" class="">Private IP&#x27;s are used in internal network and cannot be routed to external networks.</p><p id="0359157b-c58f-475d-8c3a-768d81d21f71" class="">Hence same IP&#x27;s addresses can be used in different internal network as it is not connected. </p></details></li></ul><ul id="a88bf24a-4aca-402d-9693-cd4ff472008e" class="toggle"><li><details open=""><summary><strong>PSMA</strong>  : Preamble sense Multiple Access</summary></details></li></ul><ul id="f3e542aa-702b-410d-9e51-c2fc765fb1e7" class="toggle"><li><details open=""><summary><strong>RIP</strong> - Routing Information Protocol</summary><p id="3a8e6961-eeb0-4898-8413-dfeb465364ad" class="">This routes information from network to network.</p><p id="f483ef14-6393-49e2-9c8c-df8a8248a066" class="">Shares routing information from router to routers. So if one router knows how to get to knew network it shares it with other routers which add this path to their routing database.</p><p id="ab1ef4bc-a3dc-448f-9724-b91b021229a4" class="">RIP uses bellman ford algorithm.</p></details></li></ul><ul id="bc24ae21-0bf8-46e0-bfef-535bfa24121a" class="toggle"><li><details open=""><summary><strong>Router</strong></summary><p id="c241996d-831b-45ad-95e0-0208514b9d7a" class="">The router is a physical or virtual internetworking device that is designed to receive, analyze, and forward data packets between computer networks.</p></details></li></ul><ul id="4b4a1fb3-acb9-40eb-a6e5-dc9ed8ea070e" class="toggle"><li><details open=""><summary><strong>Resolver</strong></summary><p id="a3dede1c-5d9e-49d8-ac50-527d8a246484" class="">A DNS resolver, also known as a resolver, is a server on the Internet that converts <strong>domain</strong> names into <strong>IP addresses</strong>.</p><p id="9794f48c-2c68-4f49-936c-0a5bfe395c47" class="">
+</p><p id="3fe6718f-9553-48ad-9c84-0f242b121382" class=""><strong>Resolver is iterative because</strong> it is tasked to find Ip address from Url . hence it will first look in its local cache or of the os of the device . If match match is found query is resolved.</p><p id="a311de98-959c-4fd9-a4dd-91822c0bfc28" class="">If not then it will contact a DNS server and look for the TLD ,  then matches the ip ,  if match is found query is resolved.</p><p id="8197bff8-4049-4272-9471-6bbc902b76d1" class=""><del>Iteration is the repetition of a process in order to generate an outcome.</del></p></details></li></ul><ul id="9f67fe85-b31f-4629-8f22-07191779fef0" class="toggle"><li><details open=""><summary><strong>SIP </strong>- Session Initiation Protocol</summary><p id="5d236cc8-18af-488c-8803-a955bce076ff" class="">These are used for Initiating, maintaining , terminating real time sessions like voice/video calls , messages</p></details></li></ul><ul id="39f81431-6751-46a7-96a8-8a3d9e12b356" class="toggle"><li><details open=""><summary><strong>Switch v/s Bridge</strong></summary><div id="583195ad-416e-4b7d-881b-41c9bdff0bcc" class="collection-content"><h4 class="collection-title"></h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber"><path d="M4.46191,0 C3.8667,0 3.38428,0.482422 3.38428,1.07751 L3.38428,3.38425 L1.07764,3.38425 C0.482422,3.38425 0,3.86667 0,4.46179 C0,5.05688 0.482422,5.53931 1.07764,5.53931 L3.38428,5.53931 L3.38428,8.46063 L1.07764,8.46063 C0.482422,8.46063 0,8.94308 0,9.53818 C0,10.1333 0.482422,10.6157 1.07764,10.6157 L3.38428,10.6157 L3.38428,12.9224 C3.38428,13.5175 3.8667,13.9999 4.46191,13.9999 C5.05664,13.9999 5.53906,13.5175 5.53906,12.9224 L5.53906,10.6157 L8.46045,10.6157 L8.46045,12.9224 C8.46045,13.5175 8.94287,13.9999 9.53809,13.9999 C10.1333,13.9999 10.6157,13.5175 10.6157,12.9224 L10.6157,10.6157 L12.9224,10.6157 C13.5176,10.6157 14,10.1333 14,9.53818 C14,8.94308 13.5176,8.46063 12.9224,8.46063 L10.6157,8.46063 L10.6157,5.53931 L12.9224,5.53931 C13.5176,5.53931 14,5.05688 14,4.46179 C14,3.86667 13.5176,3.38425 12.9224,3.38425 L10.6157,3.38425 L10.6157,1.07751 C10.6157,0.482422 10.1333,0 9.53809,0 C8.94287,0 8.46045,0.482422 8.46045,1.07751 L8.46045,3.38425 L5.53906,3.38425 L5.53906,1.07751 C5.53906,0.482422 5.05664,0 4.46191,0 Z M5.53906,8.46063 L5.53906,5.53931 L8.46045,5.53931 L8.46045,8.46063 L5.53906,8.46063 Z"></path></svg></span>no.</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Switch</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Bridge</th></tr></thead><tbody><tr id="480f7f2c-812f-47cd-b48e-015a91e34154"><td class="cell-VWQ\">1</td><td class="cell-title"><a href="https://www.notion.so/A-switch-can-have-a-lot-of-ports-480f7f2c812f47cdb48e015a91e34154">A switch can have a lot of ports.</a></td><td class="cell-JMO&gt;">A bridge can have 2 or 4 ports only.</td></tr><tr id="7c67f61b-6017-4d45-9bd0-9d1f33caa40f"><td class="cell-VWQ\">2</td><td class="cell-title"><a href="https://www.notion.so/It-is-a-device-which-is-responsible-for-channeling-the-data-that-is-coming-into-the-various-input-po-7c67f61b60174d459bd09d1f33caa40f">It is a device which is responsible for channeling the data that is coming into the various input ports to a particular output port which will further take the data to the desired destination.</a></td><td class="cell-JMO&gt;">It is basically a device which is responsible for dividing a single network into various network segments.</td></tr><tr id="915e4e40-221d-423b-9c16-1607c6156646"><td class="cell-VWQ\">3</td><td class="cell-title"><a href="https://www.notion.so/The-switch-performs-the-packet-forwarding-by-using-hardwares-such-as-ASICS-hence-it-is-hardware-bas-915e4e40221d423b9c161607c6156646">The switch performs the packet forwarding by using hardwares such as ASICS hence, it is hardware based.</a></td><td class="cell-JMO&gt;">The bridge performs the packet forwarding by using softwares so it is software based.</td></tr><tr id="a80d99f2-bb93-45be-a4f2-c9d6e388a202"><td class="cell-VWQ\">4</td><td class="cell-title"><a href="https://www.notion.so/The-switching-method-in-case-of-a-switch-can-thus-be-store-forward-fragment-free-or-cut-through-a80d99f2bb9345bea4f2c9d6e388a202">The switching method in case of a switch can thus be store, forward, fragment free or cut through.</a></td><td class="cell-JMO&gt;">The switching method in case of a bridge is store and forward.</td></tr><tr id="bfab4960-f885-4b67-8d3c-a75ff1ae8857"><td class="cell-VWQ\">5</td><td class="cell-title"><a href="https://www.notion.so/The-task-of-error-checking-is-performed-by-a-switch-bfab4960f8854b678d3ca75ff1ae8857">The task of error checking is performed by a switch.</a></td><td class="cell-JMO&gt;">A bridge cannot perform the error checking.</td></tr><tr id="ec25b822-2c42-47e4-b6b6-6fc6a02ffab5"><td class="cell-VWQ\">6</td><td class="cell-title"><a href="https://www.notion.so/A-switch-has-buffers-ec25b8222c4247e4b6b66fc6a02ffab5">A switch has buffers.</a></td><td class="cell-JMO&gt;">A bridge may not have a buffer</td></tr></tbody></table></div><hr id="8b71da02-95c1-4ddd-996d-2b3e95347cc4"/></details></li></ul><ul id="b3c16dd5-6df3-4c2b-bd1a-cec0a9d8b5c7" class="toggle"><li><details open=""><summary><strong>Sliding Window</strong></summary><p id="bd8c09c9-4818-4c09-abad-c498e6a7a71b" class="">A sliding window protocol is a feature of packet-based data transmission protocols. Sliding window protocols are used where reliable in-order delivery of packets is required, such as in the data link layer as well as in the Transmission Control Protocol </p><p id="be8d08c8-2555-4826-a366-0f7e2d5c6b54" class="">Go back n  : set of frame ko retransmit</p><p id="56e8fab2-a657-4ef1-8639-ea18918e86ca" class="">selective repeat  :only corrupt frames re transmit</p></details></li></ul><ul id="a394b5be-dc63-49bd-ba25-e7e651153487" class="toggle"><li><details open=""><summary><strong>Subnet</strong></summary><p id="6176b566-22a2-452c-934e-36239e007bc2" class="">Subnets are networks inside network. Dividing networks increases efficiency as networks are better organized.</p></details></li></ul><ul id="aa6750e3-fbea-412a-af6a-545f732984c9" class="toggle"><li><details open=""><summary><strong>Subnet Mask</strong></summary><p id="7c3345ae-36f3-4cdc-9705-badafdefea8f" class="">Subnet mask is combined with an IP address to identify two parts: <div class="indented"><ol id="fe03e70b-a142-468a-b9d9-8f4ea735cae1" class="numbered-list" start="1"><li>the extended network address </li></ol><ol id="b943dc5e-a5b4-4128-a495-7f3090cadce3" class="numbered-list" start="2"><li>the host address. </li></ol></div></p><p id="44fe02cc-ab17-4023-b6b8-9ffa1b84c471" class="">Like an IP address, a subnet mask is made up of 32 bits.</p></details></li></ul><ul id="68d8302f-c935-45cf-ae7a-a75ef06870d5" class="toggle"><li><details open=""><summary><strong>Topology</strong></summary><p id="704b81c7-a8e3-40e9-ad23-98e1a28fe967" class="">Topology defines the structure of the network</p><ul id="d9947331-d4aa-4374-9a92-2a61ecfa3081" class="bulleted-list"><li><strong>Mesh</strong> Topology : every device is connected to another device via the particular channel</li></ul><ul id="3baaaed6-3231-4e10-bb86-29b587b8f16b" class="bulleted-list"><li><strong>Star</strong> Topology : In star topology, all the devices are connected to a single hub through a cable.</li></ul><ul id="bd94b917-7992-4adb-969a-f3ee3ea3812e" class="bulleted-list"><li><strong>Bus</strong> Topology :Bus topology is a network type in which every computer and network device is connected to a single cable.</li></ul><ul id="15bded7a-8738-48f6-a04a-c101dfdbb3fa" class="bulleted-list"><li><strong>Ring</strong> Topology: Every device has exactly two neighboring devices for communication purpose</li></ul><ul id="936bd42c-eda1-47b9-adcd-8b37dc62ea3c" class="bulleted-list"><li>Peer to Peer (<strong>P2P</strong>)  : The network consists of a direct link between two computers</li></ul></details></li></ul><ul id="5451d8ae-a67a-473b-871a-7e7d6faeb074" class="toggle"><li><details open=""><summary><strong>Top Level Domains</strong></summary><p id="ff8a4d4d-f7ce-4436-88b8-81c9e0fe69fb" class="">Top level refers to the last segment of a URL or Domain name</p><p id="081af695-5bf2-4abb-b98e-df1838443144" class="">.com, .net , .org , .biz , .gov , .in , .me , etc</p></details></li></ul><ul id="e74eaa48-02c0-459e-9dae-1195a0c45ce9" class="toggle"><li><details open=""><summary><strong>TCP - </strong>(Transmission control protocol) <strong>v/s UDP </strong>(User data-gram protocol)</summary><ul id="ac300c6b-89f8-4f3c-96af-d64450246952" class="bulleted-list"><li>Transmission control protocol  pings that it is sending data, sends data and then rechecks if you got the data. If some data is not sent it resends it.</li></ul><ul id="86139ca8-cc89-4d6c-9e50-db7b6558b144" class="bulleted-list"><li>User datagram protocol just sends data without checking anything. If there is loss it doesn&#x27;t matter. </li></ul><ul id="e730c492-d5bd-442c-a063-0bdf20f015b3" class="bulleted-list"><li>UDP header [source[2byte], Destination[2byte],length[2byte],checksum[2byte]
+UDP data.</li></ul><ul id="b9c9d12c-3e15-48f0-aa78-13e05fe768cf" class="bulleted-list"><li>IP addresses just identify the network or device , but individual port are identified by transfer protocols.</li></ul></details></li></ul><ul id="9bcca3c4-18ce-4292-89bd-5da9de8d061c" class="toggle"><li><details open=""><summary><strong>TCP/IP - </strong>Transmission control protocol</summary><p id="f6d1e99a-9f7c-400c-b9f7-00d931c240c2" class="">This model defines  how a computer should be connected to a network and how data should be transmitted between them.</p><p id="1666ce4a-31a4-44fa-9585-8139cf912a1e" class="">Layers:</p><ol id="f9608515-0a4c-4453-a7eb-7fc5ea4a5f9b" class="numbered-list" start="1"><li>Application</li></ol><ol id="11a96d4d-01e7-4acf-b256-52249fcc129c" class="numbered-list" start="2"><li>Transport</li></ol><ol id="1ce2d8f8-1fe1-42a5-8901-ddf32b838f62" class="numbered-list" start="3"><li>Internet</li></ol><ol id="0e449bfc-491a-465e-9eef-d5ca43faba1e" class="numbered-list" start="4"><li>Network interface</li></ol></details></li></ul><p id="ac350243-7da7-4ffe-9f67-44f850c47c61" class="">
+</p><p id="02804692-1080-49c4-a03a-03042e9cba46" class="">
+</p><p id="962e40c9-6a7d-4622-9ee7-c462ceb607a8" class="">
+</p></div></article></body></html>
