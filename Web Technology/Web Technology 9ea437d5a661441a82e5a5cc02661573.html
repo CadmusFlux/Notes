@@ -1,0 +1,695 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Web Technology</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8a0f7c36-816a-4458-9b9e-72edf6de9e6b" class="page sans"><header><h1 class="page-title">Web Technology</h1></header><div class="page-body"><ul id="414f29b5-57a4-4b59-ac7e-2bba90e3fddd" class="toggle"><li><details open=""><summary><strong>AJAX :</strong> (Asynchronous JavaScript And XML)</summary><p id="002137ce-a600-4ed9-9e1e-ee9efd1630bd" class="">Ajax is web-development technique using which asynchronous web applications can be made.</p><p id="5b791b9b-50c3-4ab9-b061-142c8ce5316b" class="">These application send and receive data from a server asynchronously without interfering with the display and behavior of the existing page</p><p id="7bbc0928-2cab-4b96-baa3-0acea53c29ca" class=""><strong>Advantages:</strong></p><ul id="c7bd8eff-8573-4ddd-bb77-9ef27f9753db" class="bulleted-list"><li>Update a web page without reloading the page</li></ul><ul id="b2d8e523-7c04-48e4-8729-d78339dd78c3" class="bulleted-list"><li>Request data from a server - after the page has loaded</li></ul><ul id="ad667c4d-96b4-4f5b-87d0-2a66aac63089" class="bulleted-list"><li>Receive data from a server - after the page has loaded</li></ul><ul id="38b99d19-a784-4eea-8d80-c2932b03569f" class="bulleted-list"><li>Send data to a server - in the background</li></ul><pre id="eed01d3b-ac25-4aae-b44d-f196105a9779" class="code"><code>var ajax = new AJaxobject(paths)
+
+# path is the url to be called asynchronously . url must be same as domain name.</code></pre></details></li></ul><ul id="bbdbf83e-c742-42e7-94c9-dc37d5bac080" class="toggle"><li><details open=""><summary><strong>Assignments</strong></summary><ol id="c291b2e1-6dd5-4e88-a0cc-47092a4c08ac" class="numbered-list" start="1"><li>Install TOMCAT server</li></ol><ol id="3ef0632a-3d97-4190-a37b-cfc8ed0a457b" class="numbered-list" start="2"><li>Registration form using HTML and CSS</li></ol><ol id="3ab6d0de-77b6-4688-9c28-2bec7d4c3099" class="numbered-list" start="3"><li>create a book catalogue using XML  , then  Transform XML to HTML  using XSLT</li></ol><ul id="aefe4c8a-fa96-44be-bc48-e37d96d11375" class="toggle"><li><details open=""><summary>4. Create student registration form using HTML and CSS then use JS to validate fields.</summary><p id="5b125c51-788d-4b0a-9259-85cd6da0c3ed" class="">Use label and input to create form. Then use onclick to check each field by looping and checking non null . For email check (@,.,com) and for phone numbers check integer only</p></details></li></ul><p id="92e2b4b3-4fde-43d0-9de5-a8901a65a4cd" class=""> 5.   Create dynamic web-page using JSP , servlet, MySQL</p><p id="fb59dc50-e3a1-4fba-a465-79b0792cc07d" class=""> 6.   Create dynamic web-page using PHP and MySQL</p><p id="8964a4a8-ad5c-4c80-be01-f5d098f1ccd4" class=""> 7.  Create dynamic web-page using Angular JS</p></details></li></ul><ul id="c36c8146-c462-4c79-ac1a-0f589e7500a7" class="toggle"><li><details open=""><summary><strong>AngularJS  : </strong>Front-end framework to make dynamic web-apps</summary><ol id="28e702cb-603a-4ac3-a2c8-988ea262715b" class="numbered-list" start="1"><li>It is a JS-based front-end framework for dynamic web apps. </li></ol><ol id="c7704855-ca86-4fe4-9fbc-4153109bc455" class="numbered-list" start="2"><li>It lets you use HTML as your template language and lets you extend HTML’s syntax to express your application’s components clearly and succinctly. </li></ol><ul id="60938578-ca8d-4818-bac1-89c94a611009" class="bulleted-list"><li><strong>Advantages of AngularJS </strong><ol id="f9204774-ae58-4e54-b842-6f582f33f2d7" class="numbered-list" start="1"><li>It provides the capability to create Single Page Application in a very clean and maintainable way.</li></ol><ol id="7b59d6fe-9fab-47aa-933b-794d46de8d23" class="numbered-list" start="2"><li> It provides data binding capability to HTML. ... AngularJS code is unit testable. AngularJS uses dependency injection and make use of separation of concerns. </li></ol><ol id="ac75f4cd-6cb0-46ee-83a8-386945392e81" class="numbered-list" start="3"><li>AngularJS provides reusable components</li></ol></li></ul></details></li></ul><ul id="391c3889-fd88-4fee-adc3-ac983480bf30" class="toggle"><li><details open=""><summary><strong>Advantages of angular</strong></summary><ol id="6dfe86c1-4a15-4e99-9ea2-5790a4ec0a8d" class="numbered-list" start="1"><li>Creating Single page application is easy and maintanable</li></ol><ol id="be6c1757-f02f-4b46-bf92-c734e4aa0155" class="numbered-list" start="2"><li>Unit testable</li></ol><ol id="32af0494-3e5b-4cf1-ba6a-c2d4ec2434d9" class="numbered-list" start="3"><li>Data binding gives user a rich and responsive experience. ( binding between model and view. Model becomes single source of info hence a change in model instantly changes view)</li></ol><ol id="ed68835b-bbd8-4748-8dca-15ab6280806a" class="numbered-list" start="4"><li>Provides reusable components</li></ol><ol id="be15f91f-fc26-4164-a279-240ea30e96f8" class="numbered-list" start="5"><li>In mvc , view is completely html , controllers are in written  js for processing.</li></ol></details></li></ul><ul id="1ad5d1ce-3dc6-4b3b-8b9f-fb74daa9dd2a" class="toggle"><li><details open=""><summary><strong>Advantages of PHP</strong></summary><p id="05f8a384-a0b6-4cce-b56e-7eb3e0150e65" class="">Open- source</p><p id="4158ae68-fa8c-47f5-b8ac-af5501b9b7cc" class="">Fast and efficient</p><p id="5d6495b6-6498-49bb-ab3e-580fb38a15f5" class="">Easy to use</p><p id="3f9b2475-c922-4289-8c8a-f7e7245d71a1" class="">db connection</p><p id="df5e936a-8781-43d8-a6e4-8d76d2794283" class="">stable</p><p id="a24b6ef2-d9eb-4011-a64a-bd3b011c49a9" class="">powerful library</p></details></li></ul><ul id="22985695-7943-4f85-bc68-6f4ff40baf82" class="toggle"><li><details open=""><summary><strong>Advantages of jsp</strong></summary><p id="f957293f-ef82-47ff-a117-94e3e63fa05e" class="">Has all the functionaalities of java</p><p id="ccb481ff-4098-4903-9c24-536f7d6624a2" class="">View and controller are sperated.</p><p id="3d58bb40-92b8-4b26-87e2-ee20d3e05862" class="">JDBC driver</p><p id="6600cf5c-b94c-4438-9b81-dfb1010d2248" class="">Strcuturing or ui easy</p><p id="5320a7f3-4497-4a81-94b8-dcaf9ca99aca" class="">Easy to modify HTML</p><p id="9e2f6339-fd75-4e75-b5a4-1403c698a259" class="">Platform independent</p></details></li></ul><ul id="1cf6e000-cf16-4652-83c4-f74798cd1459" class="toggle"><li><details open=""><summary><strong>AJAX v/s JS v/s Jquery</strong></summary><p id="604ea72a-116a-4587-b0af-b28f14e51404" class="">js is clientside scripting lang used for performing operation</p><p id="7750e378-94ef-4993-9c54-d7bb6ebca462" class="">AJAX is a method  used for request  and response. using this we can create web pages tht don&#x27;t refresh evertime a response is sent from server. Asynchronous.</p><p id="3c65e6f2-47a3-4dae-8e3d-d524a1e51fef" class="">Jquery is framework built on js . It has commonly used js operations as functions.</p><p id="fed70800-5d42-4309-a383-fb20bccd0ccc" class="">us</p></details></li></ul><ul id="778bcf26-43b4-44d3-aa60-feb6ed6320b8" class="toggle"><li><details open=""><summary><strong>Buisness Logic : </strong>(Code that represents the main/central logic other than pipeline )</summary><p id="39fbe31b-569d-4a03-9b31-03fd66b5357b" class="">Buisness logic is the main code or part of the program that that encodes the real-world business rules that determine how data can be created, stored, and changed.</p><p id="6f60c6f1-3621-4420-aa15-bca30aef7610" class="">The non-buisness logic are all the other programs such as connecting to database , user interface, creating components of website.</p></details></li></ul><ul id="de4a4afd-2ad6-419d-ac73-05784c9f380f" class="toggle"><li><details open=""><summary><strong>CMS : </strong>(Content management system)</summary><p id="2716404d-93df-42f0-9841-d7804b9c642c" class="">A content management system (CMS) is an application that is used to <strong>manage web content</strong>, allowing multiple <strong>contributors to create, edit and publish</strong>. Content in a CMS is typically <strong>stored in a database </strong>and displayed in a presentation layer based on a set of templates.</p></details></li></ul><ul id="92c7de2e-4369-48e3-bd93-1f0b5df973dc" class="toggle"><li><details open=""><summary><strong>CSS </strong>: style sheet language used for describing the presentation of a document</summary><p id="de91bf8f-1da3-4e1a-8c35-d4bd303cc37a" class="">CSS is the language we use to style an HTML document.</p><p id="7c9f0168-fca5-4dbf-9661-e7aa0e7d75f0" class="">CSS describes how HTML elements should be displayed.</p><p id="b08d4d62-9ba3-4dd1-a468-b4c26abd24e4" class=""><strong>Types of CSS:</strong></p><ul id="ed64ff07-319f-42c6-888a-9c0285175530" class="bulleted-list"><li><strong>Inline CSS</strong>: Inline CSS contains the CSS property in the body section attached with element is known as inline CSS. This kind of style is specified within an HTML tag using the style attribute.</li></ul><ul id="f912f4c9-2933-46a2-a407-d06f7f09081b" class="bulleted-list"><li><strong>Internal CSS</strong>: This can be used when a single HTML document must be styled uniquely.</li></ul><ul id="de6752ce-8ae2-415e-880d-9545dcde5e45" class="bulleted-list"><li><strong>External CSS</strong>: External CSS contains separate CSS file which contains only style property with the help of tag attributes (For example class, id, heading, … etc). CSS property written in a separate file with .css extension and should be linked to the HTML document using link tag. This means that for each element, style can be set only once and that will be applied across web pages.</li></ul></details></li></ul><ul id="1faedd3a-d2e0-4837-9943-de786537fdfc" class="toggle"><li><details open=""><summary><strong>CSS Selector</strong></summary><p id="be49eb4a-d6b2-4f81-a3c2-eaaa425ece20" class="">CSS selectors are used to &quot;find&quot; (or select) the HTML elements you want to style.</p><p id="7d78e215-34bc-47ce-a5a9-9e89885023c2" class="">Types : ID , Class , Elements , descendents.</p></details></li></ul><ul id="e40d5867-ba3f-4b4c-a647-f8f14a03d2b5" class="toggle"><li><details open=""><summary><strong>CSS Components</strong></summary><p id="f0055aae-244e-458c-8e16-fd4586f979f8" class="">•<strong> Selector</strong>: HTML element name, id name, class name.
+• <strong>Property</strong>: It&#x27;s like an attribute such as background color, font-size, position, text align, color, border etc.
+• <strong>Values:</strong> which defines property or values allocate for properties</p></details></li></ul><ul id="354ce864-103f-4e24-aebe-b660a972aaf6" class="toggle"><li><details open=""><summary><strong>CDATA v/s PCDATA</strong></summary><p id="33b5ce11-744a-4918-9994-b52a505890cf" class="">CDATA stands for unparsed character data. The tags inside a CDATA tag are not considered as markup and are a whole entity,</p><p id="bfc77fd4-02c4-428c-bda7-dbeb83fccd67" class="">PCDATA stands for Parsed character data . The tags inside PCDATA will be considered as markup and parsed by XML parsers.</p><pre id="34aaf787-8dca-4e36-968e-c442f9f46fd0" class="code"><code>CDATA: 
+
+	&lt;employee&gt;  
+	&lt;![CDATA[  
+	  &lt;firstname&gt;vimal&lt;/firstname&gt; 
+	  &lt;lastname&gt;jaiswal&lt;/lastname&gt; 
+	  &lt;email&gt;vimal@javatpoint.com&lt;/email&gt; 
+	]]&gt;   
+	&lt;/employee&gt;
+
+output : &lt;firstname&gt;vimal&lt;/firstname&gt; &lt;lastname&gt;jaiswal&lt;/lastname&gt; &lt;email&gt;vimal@javatpoint.com&lt;/email&gt;
+
+PCDATA:
+ 
+	&lt;employee&gt;  
+	&lt;![CDATA[  
+	  &lt;firstname&gt;vimal&lt;/firstname&gt; 
+	  &lt;lastname&gt;jaiswal&lt;/lastname&gt; 
+	  &lt;email&gt;vimal@javatpoint.com&lt;/email&gt; 
+	]]&gt;   
+	&lt;/employee&gt;
+
+Output : Vimal Jaiswal vimal@dasdad.com</code></pre></details></li></ul><ul id="bae84850-309a-41de-9ead-65f36e77f5d8" class="toggle"><li><details open=""><summary><strong>Div tag</strong></summary><p id="b3293134-3573-495f-a859-f7e3ace095a0" class="">Div tag is used for creating containers for html elements which is then styled using css and manipulated suing js.</p></details></li></ul><ul id="14ab74ea-2d5f-43d4-b1f7-5cbb5364a67e" class="toggle"><li><details open=""><summary><strong>DOM (Document Object Model) (programming interface)</strong></summary><p id="55f4d173-9b24-49b5-baf6-268c42d5fe1b" class="">Document Object Model (DOM) is a platform and language-neutral interface that allows programs and scripts to dynamically access and update the content, structure, and style of a document.</p><p id="757e604d-3073-4886-9fc6-87be73f86927" class=""><em><strong>OR</strong></em></p><ul id="4ce16ebe-2205-4b87-b119-e2ce516c3b28" class="bulleted-list"><li>The Document Object Model (DOM) is a programming interface for HTML and XML documents. </li></ul><ul id="2162bb4f-87c7-4c1b-9d69-1365096a2ed6" class="bulleted-list"><li>It represents the page so that programs can change the document structure, style, and content. </li></ul><ul id="613ce060-c36a-4009-ac80-efd77cb35057" class="bulleted-list"><li>The DOM represents the document as nodes and objects. That way, programming languages can connect to the page.</li></ul></details></li></ul><ul id="cc56f1d5-1145-4409-a83b-19be58414c5d" class="toggle"><li><details open=""><summary><strong>Dynamic and static website</strong></summary><p id="b051dc94-4fb8-4994-b88b-5684293ad3cc" class="">Static websites are those which show same content to all the users and provide no interaction.</p><p id="d2201d61-e9b9-4e7c-825f-a9ae14832bbe" class="">Dynamic website is one that can display different content and provide user interaction.</p></details></li></ul><ul id="211d3a15-6b06-45d8-93de-9fced383f47a" class="toggle"><li><details open=""><summary><strong>Dependency Injection</strong></summary><p id="b316ee4a-3e77-4077-a3e8-050c46a20e6e" class="">Dependency injection, or DI, is a design pattern in which a class requests dependencies from external sources rather than creating them</p><p id="301ed20a-284f-41d3-832d-6daefbc1a4e7" class="">It is the process of adding functionality to components at runtime.</p></details></li></ul><ul id="aedf8284-baf9-4cb2-8799-0062a63e6fe1" class="toggle"><li><details open=""><summary><strong>External style-sheet</strong></summary><p id="37eef945-ebab-49ea-bdc8-803193972ac4" class="">An external stylesheet is a <strong>standalone . css</strong> file linked from a web page. Using external 
+stylesheets, you can <strong>apply rules to multiple web pages</strong>. If you ever need to make widespread 
+changes to your website design, <strong>a single change in the stylesheet can be applied to all linked 
+pages</strong>, saving lots of time and effort</p></details></li></ul><ul id="70e4d957-9efd-4ea0-a7da-6f441e23940f" class="toggle"><li><details open=""><summary><strong>EJB( Enterprise Java Beans)</strong></summary><p id="81654613-82c0-4336-aa1f-9f5105d90513" class="">EJB is a server-side component that encapsulates the buisness logic of web application.</p><p id="90f543aa-a96d-44c1-aa09-31c9b2c4de9a" class="">It is used to <strong>develop secured, robust and scalable distributed applications</strong>.</p><p id="e06b6f99-5175-4b1f-a4c0-1f5f3ee228ad" class=""><strong>It performs</strong>:</p><ol id="592368e0-9de9-4305-be46-7faab913dee1" class="numbered-list" start="1"><li>life cycle management,</li></ol><ol id="05927c7f-c3e5-4440-9fb3-0aae205e0216" class="numbered-list" start="2"><li>security,</li></ol><ol id="89766024-08ef-43f0-a311-202e70598453" class="numbered-list" start="3"><li>transaction management, and</li></ol><ol id="6a9fc522-c029-4df7-b87f-350a6f328ff0" class="numbered-list" start="4"><li>object pooling.</li></ol><p id="b04aaa1f-e597-4063-aa0c-1434bb2e43f0" class="">EJB application is deployed on the server, so it is called <strong>server side component</strong> also.</p></details></li></ul><ul id="c9138b79-5c6f-4392-9733-9482fae70aca" class="toggle"><li><details open=""><summary><strong>events</strong></summary><figure id="9ea437d5-a661-441a-82e5-a5cc02661573" class="image"><a href="Web%20Technology%209ea437d5a661441a82e5a5cc02661573/Untitled.png"><img style="width:175px" src="Web%20Technology%209ea437d5a661441a82e5a5cc02661573/Untitled.png"/></a></figure></details></li></ul><ul id="cdecfc02-95ca-4948-8361-ae5d40311235" class="toggle"><li><details open=""><summary><strong>Form attributes and methods</strong></summary><p id="44a44d89-fc71-4497-aeba-c14ffe4e53ed" class="">action </p><p id="e9050fde-a2d7-4d13-9148-abf0673a7f2d" class="">method</p><p id="133c9810-5c0e-4a2f-a5dc-d5800333bba9" class="">name</p><p id="b3fbd4bc-baa1-4ba6-b82b-dc9a2b3200a7" class="">target</p><p id="8a75d231-a349-461b-86cd-4dd861fb20af" class="">
+</p></details></li></ul><ul id="76a913c9-5cb1-41da-9612-dc5e3a712101" class="toggle"><li><details open=""><summary><strong>GET v/s Post</strong></summary><p id="2ae1a085-bd7a-4294-b047-e2666fc13e9b" class="">GEt and post are both htttp method used for information transfer from client to server.</p><p id="c0ce1556-3a80-4462-a85a-1d93d4249497" class="">The main differenc eis that get is defined in head whereas post in body. Hence get is visible in url and post is not</p><p id="ac614a16-993c-427a-949f-613b9742bc85" class="">Get is fast due to just appending in url whereas post requires time.</p><p id="35bee851-5c9d-4bef-8278-f287fcf126df" class="">Get can be bookmarked psot cannot.</p><p id="7c9b872f-89f6-4855-bfef-5319daa20f54" class="">Get can be 255 character long , post is unlimited.</p></details></li></ul><ul id="9c807940-e4a3-41ca-951e-a07e5ccac664" class="toggle"><li><details open=""><summary><strong>JAVA SE/EE</strong></summary><p id="e67b9298-2761-43f1-8f46-d18542bfd2d8" class="">SE (Standard edition) :  Used for developing desktop application.</p><p id="88711999-a4a1-46e1-a143-999708c1fcca" class="">EE (Enterprise edition) : Used for developing web applications (serverside)</p></details></li></ul><ul id="704aa5af-07fb-42cc-b701-dd956eab7487" class="toggle"><li><details open=""><summary><strong>JavaScript</strong> : makes web-pages interactive.</summary><p id="b414d6fa-03d5-4c63-a204-fab54a413c9f" class="">JS is a scripting or programming language that allows you to implement complex features on web pages. </p><p id="065e1d9d-24be-4da9-a0a2-a7a12a03588a" class="">JS is client-side scripting language</p><p id="b9acb9a8-67b5-40f5-b9f4-0ba3e4558e67" class=""><strong>Data Types:</strong> Number , Strings , Boolean, Array , object ,undefined , NULL,etc</p><p id="aa964555-e3ee-418f-bd46-5731c161e5b5" class="">Internals JS :<div class="indented"><pre id="75e3de36-db69-405c-b768-50ae00af6207" class="code"><code>&lt;script&gt;
+&lt;/script&gt;</code></pre></div></p><p id="ce73a1d9-adc3-454a-bc6e-005993054d27" class="">External JS:<div class="indented"><pre id="624a4d0f-d002-4098-91d8-2dfdb83e3e54" class="code"><code>&lt;script src=&quot;script.js&quot; type = &quot;text/javascript&quot;&gt;&lt;/script&gt;</code></pre></div></p><p id="1932338e-7eb0-4f91-9ff9-095959b7d701" class="">
+</p></details></li></ul><ul id="927fb9b6-8100-4f6a-84d3-52032093b001" class="toggle"><li><details open=""><summary><strong>JS v/s PHP</strong></summary><ol id="bea8cd5c-c73f-4156-a884-5010d95cfa2c" class="numbered-list" start="1"><li>JS is client-side scripting language whereas PHP is server side.  i.e JS runs on browser whereas PHP runs on web-server hardware.</li></ol><ol id="e848cc11-3a81-41e7-999e-4d4162b1282b" class="numbered-list" start="2"><li>PHP allows connection to DB whereas JS doesn&#x27;t.</li></ol><ol id="6a5f0e5e-eb14-472d-95d0-da3d91e4c6f9" class="numbered-list" start="3"><li>Can perform tasks as send and receive cookies, build custom web content , evaluate forms received</li></ol><ol id="49aef483-799a-4398-ae66-f438ec1add37" class="numbered-list" start="4"><li>Databses : MYSQL , Oracle, PostgreSQL</li></ol></details></li></ul><ul id="12d4afd2-a525-4afd-8c51-5d34ec3358bb" class="toggle"><li><details open=""><summary><strong>JSON( Java-script Object Notation ) : </strong>lightweight format for storing and transporting     w3</summary><p id="42ca6fd3-3c91-4713-a222-ac3557fbc76c" class="">JSON example can be created by object and array. Each object can have different data such as text, number, boolean etc.</p><p id="0a0a0ec4-7cc0-4095-b559-a44e7aad74fe" class="">A JSON object contains data in the form of key/value pair. </p><p id="c7db8d5c-026c-46f6-a01b-ed7c0caf839e" class="">The keys are strings and the values are the JSON types. Keys and values are separated by colon. Each entry (key/value pair) is separated by comma.</p><p id="b19d47b2-110c-4fa9-b823-b8851d391dbf" class="">Keys must be strings, and values must be a valid JSON data type (string, number, object, array, boolean or null)</p><pre id="605b7435-8d39-4b20-87a6-d6288013caf3" class="code"><code>{  
+    &quot;employee&quot;: {  
+        &quot;name&quot;:       &quot;sonoo&quot;,   
+        &quot;salary&quot;:      56000,   
+        &quot;married&quot;:    true  
+    }  
+}</code></pre><p id="3d1dfeca-9854-456d-ac1b-47d41e4e21c5" class="">
+</p></details></li></ul><ul id="cdc27c64-d01b-461c-9e86-83c0481024e7" class="toggle"><li><details open=""><summary><strong>JSON v/s XML</strong></summary><ul id="2acab251-cfd0-4602-9473-44e02b186a8d" class="bulleted-list"><li>JSON object has a type whereas XML data is typeless.</li></ul><ul id="006ba02e-7422-4fb5-90fb-006ff8238d80" class="bulleted-list"><li>JSON does not provide namespace support while XML provides namespaces support.</li></ul><ul id="5d2dc208-db4e-46f2-bb7b-5d012e7d90c2" class="bulleted-list"><li>JSON has no display capabilities whereas XML offers the capability to display data.</li></ul><ul id="15a78f94-feb4-4f51-b543-156ccf80aff8" class="bulleted-list"><li>JSON is less secured whereas XML is more secure compared to JSON.</li></ul><ul id="068a06f5-89a4-48af-bd39-3a98b8a38987" class="bulleted-list"><li>JSON supports only UTF-8 encoding whereas XML supports various encoding formats.</li></ul></details></li></ul><ul id="7a23108b-4a42-4cf7-b766-a1c0c8a6892c" class="toggle"><li><details open=""><summary><strong>JSP (Java Server Page) (used to create dynamic webpages)</strong></summary><p id="02f86883-002f-4410-afe2-0530be2a44e1" class="">It is a server-side technology used to create dynamic web-pages.</p><p id="ef8d5733-ab64-427d-ab44-9b04253dc240" class="">A JSP element is a type of Java servlet that is designed to accomplish the role of user interface in a java web application</p><p id="a5cbbe9c-503f-42af-9518-62c572044471" class=""><strong>Life Cycle of JSP: </strong></p><ul id="5c4da131-ec00-4972-a364-abe92a96e656" class="bulleted-list"><li>Translation of JSP Page</li></ul><ul id="b1c46de8-5f02-4d93-8e85-f000fab8a606" class="bulleted-list"><li>Compilation of JSP Page</li></ul><ul id="faa7ea53-7f23-4538-8897-cd46011bdc0e" class="bulleted-list"><li>Classloading (the classloader loads class file)</li></ul><ul id="2d8c938b-22ae-452f-aea5-797dd9805a50" class="bulleted-list"><li>Instantiation (Object of the Generated Servlet is created).</li></ul><ul id="bbec9414-3256-4332-bdd0-9b83992bef3f" class="bulleted-list"><li>Initialization ( the container invokes jspInit() method).</li></ul><ul id="0f822a2f-d596-4510-a98d-d63667a426d6" class="bulleted-list"><li>Request processing ( the container invokes _jspService() method).</li></ul><ul id="b688add7-46c8-4d8a-a1aa-f298015e9981" class="bulleted-list"><li>Destroy ( the container invokes jspDestroy() method).</li></ul><p id="d7639ddc-ba94-4fed-b1e6-211077041ce6" class=""><strong>JSP Implicit Objects:</strong></p><ul id="d3bb46a8-3bc9-4066-82d0-d1e13298bb1b" class="bulleted-list"><li>out</li></ul><ul id="97e04728-5b60-4d86-9fc0-a84217cf3543" class="bulleted-list"><li>request</li></ul><ul id="246a8a90-2d0a-4e71-b4c2-3c2a64a86bae" class="bulleted-list"><li>response</li></ul><ul id="5eb74f90-1757-4447-8034-9794ac4c68ec" class="bulleted-list"><li>config</li></ul><ul id="64824e96-ac85-4ea6-a0e4-272a9d2cb23d" class="bulleted-list"><li>application </li></ul><ul id="eafd1068-a373-4ed0-a026-30c0422cc40a" class="bulleted-list"><li>session</li></ul><ul id="9b347383-836f-4aba-9b1e-43d80390009d" class="bulleted-list"><li>PageContext</li></ul><ul id="7ae0f9b4-5fdc-4f06-be3f-b49d834d656d" class="bulleted-list"><li>Page</li></ul><ul id="d13d53c8-c6fd-42d2-a619-e9fe69a90468" class="bulleted-list"><li>Exception</li></ul></details></li></ul><ul id="bf48e31c-cfa4-47a1-869f-efef72f4b01e" class="toggle"><li><details open=""><summary><strong>JSP to DB</strong></summary><p id="6ce4362e-9496-4210-9953-44f91b4c0157" class="">Driver : com.mysql.jdbc.Driver</p><p id="e3eb592e-4de2-4eac-805f-05e6be429ea3" class="">URl : connection url is : jdbc:mysql://localhost:3306/db_name</p><p id="5483b11d-b18d-44aa-a1bf-0b292b5697e1" class="">username : default root</p><p id="04433635-2d78-4bc4-b9c0-14d0d2048b7e" class="">passowrd : &quot;string&quot;</p><pre id="251bebd6-c5ee-484d-a57e-bf979bfd554e" class="code code-wrap"><code>Connection con=DriverManager.getConnection(  
+&quot;jdbc:mysql://localhost:3306/sonoo&quot;,&quot;root&quot;,&quot;root&quot;);</code></pre></details></li></ul><ul id="d35e083c-e022-4a44-af98-6489b165090e" class="toggle"><li><details open=""><summary><strong>JSP v/s Servlets</strong></summary><p id="0d16f213-f0c9-4aee-ba4e-62799bcb34c7" class="">JSP is slower execute. Jsp provides view whereas servlet provides the logic. </p><p id="0f5cf9ac-c4ab-43d9-802d-d35a782546f4" class="">In jsp bussiness logic and view is seperated whereas in servlet everything is connected.</p><p id="1b1d4abc-ab40-4848-840b-0d5641ab4c0d" class="">JSP is used for less computation heavy program whereas servlets are used for pages with heavy computation.</p></details></li></ul><ul id="cebd5879-d28f-42dc-8ed7-ce5673bea92e" class="toggle"><li><details open=""><summary><strong>jQuery</strong></summary><ul id="20587a3e-acd4-4ffe-9a4b-c04c9205a51c" class="bulleted-list"><li>jQuery is a fast, small, and feature-rich JavaScript library.</li></ul><ul id="960dc6c3-2620-46ce-ad67-8c853b0ae9d8" class="bulleted-list"><li>jQuery takes a lot of common tasks that require many lines of JavaScript code to accomplish, and wraps them into methods that you can call with a single line of code.</li></ul><ul id="c41e2fdc-123e-47c6-969a-1ab278634516" class="bulleted-list"><li>USE of JQuery:<ul id="8cc83f7e-d264-4936-99b1-27ee354edd41" class="bulleted-list"><li>DOM manipulation and traversal</li></ul><ul id="08615e81-a072-4aba-b8f7-18699cf0bfd8" class="bulleted-list"><li>CSS manipulation</li></ul><ul id="41960ce2-a5ff-4431-a846-c490bc92a008" class="bulleted-list"><li>HTML Event handling</li></ul><ul id="c26e5dd7-fea3-4268-8f74-c2e2908c0539" class="bulleted-list"><li>Effects and animations</li></ul><ul id="1b3fc702-8033-4ec2-83b1-b623e9d4634d" class="bulleted-list"><li>AJAX</li></ul><ul id="8b3b1869-77ce-4216-899b-97aa4b06b8ca" class="bulleted-list"><li>Utilities</li></ul></li></ul></details></li></ul><ul id="d0269502-6407-497b-b145-184942d0818d" class="toggle"><li><details open=""><summary><strong>Html Elements vs Html Tags</strong></summary><p id="5d84ffb5-4430-4d45-aef6-d9a2fdcc67aa" class=""><strong>Tags</strong> are the starting and ending parts of an HTML element. They begin with &lt; symbol and end with &gt; symbol. Whatever written inside &lt; and &gt; are called tags.</p><p id="a0beb0d2-cb28-4b23-901e-65e6fab7c663" class=""><strong>Elements</strong> enclose the contents in between the tags. They consist of some kind of structure or expression. It generally consists of a start tag, content and an end tag.</p></details></li></ul><ul id="0a721dbe-35b9-41f2-ae26-60032a0abfe0" class="toggle"><li><details open=""><summary><strong>HTML v/s HTML5</strong></summary><div id="97ce3498-0c26-4c71-9403-6541cc77fbab" class="collection-content"><h4 class="collection-title"></h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>HTML</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>HTML5</th></tr></thead><tbody><tr id="e44c7879-91df-4396-b0d7-fe4be3ca2c3f"><td class="cell-title"><a href="https://www.notion.so/e44c787991df4396b0d7fe4be3ca2c3f">Untitled</a></td><td class="cell-E&lt;\j"></td></tr><tr id="af5f51ea-7d77-4cc4-9d61-ff58af406c3b"><td class="cell-title"><a href="https://www.notion.so/af5f51ea7d774cc49d61ff58af406c3b">Untitled</a></td><td class="cell-E&lt;\j"></td></tr><tr id="fdd3bc07-1e39-469d-b5ff-aa9717027ca5"><td class="cell-title"><a href="https://www.notion.so/fdd3bc071e39469db5ffaa9717027ca5">Untitled</a></td><td class="cell-E&lt;\j"></td></tr></tbody></table></div></details></li></ul><ul id="26953d3a-f148-480e-a868-36bd7d74f236" class="toggle"><li><details open=""><summary><strong>HTMl vs XML</strong></summary><p id="97f20965-c825-4e6f-95a0-518d11af09c2" class="">fullform</p><p id="c08b683c-fc67-4b4d-98bc-0a414b630b04" class="">presentation v/s data storage and transport</p><p id="3ab5a509-9df0-4e69-b0a9-4080c6f7afc0" class="">case insensitive v/s case sensitive</p><p id="199bb26e-e1d4-4f1d-8642-1f82568515c0" class="">closing tag not compu v&#x27;/s compulsory</p><p id="f27b026a-a7ab-4e29-b695-8bb104a34bb1" class="">tags are predefined and limited v/s not limited and not predefined.</p><p id="0872bc8f-3bbb-4c30-ace2-25255e458da3" class="">no namespace v/s namespace.</p></details></li></ul><ul id="b4e4fa1e-dd03-4a6e-bb1a-20c9dc0d2def" class="toggle"><li><details open=""><summary><strong>MVC(Model-view-Controller)</strong></summary><ul id="06373e44-fde2-4f56-bc6f-8f4d89a273d1" class="bulleted-list"><li>Definition<p id="ca7c199f-ca6b-4e8c-8dc9-f3d3da3c6130" class=""> Model–view–controller is a software design pattern commonly used for developing user interfaces that divides the related program logic into three interconnected elements.</p><p id="8bc7a782-816e-4458-891a-d10eae6918b3" class="">This is done to seperate internal representation of information from the way it is presented to the user and accepted from the user.</p></li></ul><ul id="de9f608c-c5f5-48ab-b8e2-11f0d78e9b4a" class="bulleted-list"><li>Types : <p id="1fa2a4f0-d60a-4123-ad1e-65749c06253c" class=""><strong>Model </strong>: It is responsibile for managing data of the application.</p><p id="736c705a-7087-42f7-b3ce-810950d0c0c8" class=""><strong>View </strong>: The view renders presentation of the model in a particular format.</p><p id="91cf25e1-deae-48a1-b5a1-be7759594565" class=""><strong>Controller </strong>: The controller receives the input, optionally validates it and then passes the input to the model.</p></li></ul><ul id="0213c273-5710-417e-8513-d770113d8d93" class="bulleted-list"><li>Framework :<p id="921475f2-0290-4c2c-b241-5fdf924b8499" class="">ASP NET , JQuery , AngularJS , Laravel , Bootstrap , Codeogniter , Vue.js</p></li></ul></details></li></ul><ul id="f7b16d54-5f55-4077-b2ca-d9828f35147f" class="toggle"><li><details open=""><summary><strong>META tag</strong></summary><p id="fb6bcdcf-506c-4548-b190-9293f84d8557" class="">The &lt;meta&gt; tag defines metadata about an HTML document. Metadata is data (information) about data.</p><p id="58c180f1-5eb3-457c-842d-4b93ed020439" class="">viewport ,author , description ,keywords , charset = character encoding.</p></details></li></ul><ul id="afa19124-3c4f-42c0-9171-77a3ab018a79" class="toggle"><li><details open=""><summary><strong>PHP : </strong>Hypertext Pre-processor</summary><p id="04af46b8-85a6-4d3b-86fa-8e1480719b78" class="">PHP is a server-side scripting language, and a powerful tool for making dynamic and interactive Web pages.</p><p id="01848c07-a514-49f3-8c2b-400e58b7f053" class="">explanation :<div class="indented"><p id="07a41733-2d35-4167-a3a5-c45f0d1b671a" class="">Websites like wikipedia have millions of pages, it is not feasible to store each pages as a webpage, rather we can use the template design of the website same and just keep changing the text by using php.</p></div></p></details></li></ul><ul id="156ef079-c509-45de-935d-5ac490b88362" class="toggle"><li><details open=""><summary><strong>PHP</strong> <strong>Echo </strong>: used to output data to the screen</summary><p id="86d70a5a-3f69-4b94-adb5-a85bf8bf092f" class="">Echo returns nothing whereas print returns 1</p><p id="88ff0337-3dfd-4dcf-8df9-f03df5f8b8d5" class="">Can be used with or without parenthesis.</p><p id="753ad057-bd82-49d3-b72c-fdadbc332f2e" class="">Echo can have multiple arguments , print can have only one argument.</p><p id="a4026099-b67b-46d5-a3ca-24c3648fa0ef" class="">Echo is marginally faster than print</p><pre id="e6771140-8cf1-448e-ba65-59737e2c8f67" class="code"><code>&lt;?php
+	echo &quot;I&#x27;m about to learn PHP!&lt;br&gt;&quot;;
+	echo &quot;This &quot;, &quot;string &quot;, &quot;was &quot;, &quot;made &quot;, &quot;with multiple parameters.&quot;;
+?&gt;</code></pre></details></li></ul><ul id="4b721d07-3ed9-4a47-b310-5a7b68ee0e05" class="toggle"><li><details open=""><summary><strong>PHP - DB connection</strong></summary><ol id="857519d3-b6b8-459f-a9af-fafe6143477a" class="numbered-list" start="1"><li>Open localhost/PHP/MyAdmin</li></ol><ol id="64bfb5a8-64ee-4062-a10c-bc33480a478a" class="numbered-list" start="2"><li>Click on new and create to create db</li></ol><ol id="779a582f-573d-47eb-b8f6-557a9c13ea4a" class="numbered-list" start="3"><li>Create a new filder in htdocs to run php</li></ol><ol id="439e8a6b-aea2-4c5f-9e3e-920641e3efdc" class="numbered-list" start="4"><li>(Optional) create a connection file and write the following code.</li></ol><ol id="1f4477dc-18f6-4651-bb26-22b92dd08226" class="numbered-list" start="5"><li>MySQLi (improved) :<pre id="0411d175-6ea7-444f-a010-29606ac0115c" class="code"><code>&lt;?PHP&gt;
+    
+    function opencon()
+     {
+	$servername = &quot;localhost&quot;;
+	$username = &quot;username&quot;;
+	$password = &quot;password&quot;;
+	$db = &quot;dbname&quot;;
+
+	$conn = new mysqli($servername,$username,$password,$db);
+     }
+&lt;?&gt;</code></pre></li></ol><ol id="55bfd400-a12e-47f3-9e64-3cf22d100e20" class="numbered-list" start="6"><li>PDO (PHP database objects): <pre id="b4bfd325-ba67-4d2c-ba46-7a5e6915d33a" class="code"><code>&lt;?PHP&gt;
+	$servername = &quot;localhost&quot;;
+	$username = &quot;username&quot;;
+	$password = &quot;password&quot;;
+	$db = &quot;dbname&quot;;
+
+	$conn = new PDO(&quot;mysql:host=$servername;dbname=myDB&quot;, $username, $password);
+&lt;?&gt;</code></pre></li></ol></details></li></ul><ul id="624be85e-eaf9-4981-9f9c-07e99e29ec8a" class="toggle"><li><details open=""><summary><strong>pop-up JS</strong></summary><p id="38a85eb6-076d-40ba-9a10-3ee72818bcbc" class="">alert , confirm , prompt.</p></details></li></ul><ul id="eb8c1651-1543-432b-8f31-e71f5abe8e8e" class="toggle"><li><details open=""><summary><strong>Span Tag</strong></summary><p id="2f4a6c65-c8a1-4372-911b-9febe0b52688" class="">The &lt;span&gt;  tag is an inline container used to mark up (color) a part of a text, or a part 
+of a document.</p><p id="852eb7ee-1434-4972-b9e6-7acbf3a3d25a" class="">much like div but div is block whereas span is inline.
+Eg-</p><pre id="d727c581-f068-4f52-8242-7d75c6a8d63d" class="code"><code>Eg-&lt;p&gt;My mother has &lt;span style=&quot;color:blue&quot;&gt;blue&lt;/span&gt; eyes.&lt;/p&gt;</code></pre></details></li></ul><ul id="dabe0c99-c087-4588-90d3-ad36da5a9181" class="toggle"><li><details open=""><summary><strong>Servlet</strong></summary><p id="94a2fd46-dd1c-400e-b3b0-9ad5b8591b7a" class="">Servlet is a server side program used to  generate dynamic web pages. </p><p id="e3daffe1-d5b1-41a2-a6fb-543972be0df8" class="">A servlet is a small Java program that runs within a Web server. Servlets receive and respond to requests from Web clients, usually across HTTP, the Hyper Text Transfer Protocol.</p><p id="97008039-101e-4d73-bab1-94af7b1176b2" class="">Servlet LifeCycle:</p><ul id="d5777c42-3c21-4807-8000-482af99c4b96" class="bulleted-list"><li>Servlet class is loaded</li></ul><ul id="29bbb616-e82a-4bb1-95ce-12a2ce5d6c92" class="bulleted-list"><li>Servlet instance is created</li></ul><ul id="3a525d5a-c072-4522-91ba-7f51909fddfc" class="bulleted-list"><li>init() : Initial Stage</li></ul><ul id="66598b22-6603-4384-b0fd-deeba1f98222" class="bulleted-list"><li>service() </li></ul><ul id="16f7ab93-0356-4dd5-8893-293cb8bc36f1" class="bulleted-list"><li>destroy()</li></ul></details></li></ul><ul id="a6666b80-3931-40e9-bbe2-0621bed9b20f" class="toggle"><li><details open=""><summary><strong>Search-Engine</strong></summary><p id="76e9f483-e20c-47aa-be91-c7e6456f66b7" class="">Search engine is a service/website that helps in finding other websites</p></details></li></ul><ul id="d1144538-082b-4b05-ac23-0299134d45f8" class="toggle"><li><details open=""><summary><strong>Session Cookies : </strong></summary><ul id="0dd4c1ed-90ac-42f8-b02a-fa2745b9158a" class="bulleted-list"><li>Websites have no memory . Each time you visit a webpage the  website treats you like a new user . </li></ul><ul id="10963359-14df-414a-b087-d857620026ef" class="bulleted-list"><li>Session cookies enable the website you are visiting to keep track of your movement from page to page so you don&#x27;t get asked for the same information you&#x27;ve already given to the site. </li></ul><ul id="808be76f-0a7e-459c-a922-38a54afaf3d7" class="bulleted-list"><li>Cookies allow you to proceed through many pages of a site quickly and easily without having to authenticate or reprocess each new area you visit.</li></ul></details></li></ul><ul id="a53fb52c-0177-49bf-8153-056269d479bc" class="toggle"><li><details open=""><summary><strong>Session v/s cookies</strong></summary><p id="e9c1792f-549e-4e33-baa6-65f5ebb4508e" class="">Sessions are server-side ,cookies are client side.</p><p id="e4ac7242-f23b-4cf3-8eb7-6105d977dff6" class="">Cookies have limited lifetime until the user deletes it hwereas sessions can be stored forever.</p><p id="78dcce98-4a70-4f69-8e95-bd7da539d91d" class="">Cookies can just be 4kb whereas sessions can be of any size.</p><p id="a6c6ff4d-e16d-4367-a08c-85e0f205536c" class="">cookies stored session id which help later on in matching hence session are depemdetn on cookies not the other way around.</p></details></li></ul><ul id="1e391867-4049-42ec-b38b-cb5ff0ed0aba" class="toggle"><li><details open=""><summary><strong>Struts</strong></summary><p id="975d9d07-0271-4e93-b32f-5ab886cdc573" class="">Struts is  a web-application framework used to create a web applications based on servlet and JSP. Struts depend on the MVC (Model View Controller) framework.</p><p id="0e7e95f3-39b6-4704-8532-3e9aaae876e0" class=""><strong>Features of Struts:</strong></p><ul id="4549aaf2-dfc9-4d06-be4a-514b0e6c567e" class="bulleted-list"><li>Struts is almost simple, so easy to learn and use.</li></ul><ul id="8a03e82d-3aff-4eba-baf3-dcdb65ad9e19" class="bulleted-list"><li>Struts encourages good design practices and modeling because the framework is designed with “time-proven” design patterns.</li></ul><ul id="7e6f4097-0cbf-4f26-9aad-e65a47d3d1c1" class="bulleted-list"><li>input validation and internationalization.</li></ul><ul id="bc4e6d51-6dac-4784-a6b3-f190fdf305f0" class="bulleted-list"><li>It also hand over standard error handling both programmatically and declaratively.</li></ul><p id="fa21a470-6f68-485a-a203-90053e9538f1" class=""><strong>Components of Struts</strong></p><ol id="0e2c7266-e34c-4ed9-b635-8344136e10f0" class="numbered-list" start="1"><li>JSP Programs (View Layer Resources)</li></ol><ol id="2fae10ab-30ad-432b-9e3a-9bb119763e57" class="numbered-list" start="2"><li>FormBean Class(Java Class) (Controller Layer Resources)</li></ol><ol id="d03b89b9-9c43-4735-853e-5472a4350ea4" class="numbered-list" start="3"><li>Action Servlet(Built-in Controller Servlet) (Controller Layer Resources)</li></ol><ol id="ee5ca01a-c12d-4d06-bb41-0f1e7f613859" class="numbered-list" start="4"><li>Action Class (Java Class) (Controller Layer Resources)</li></ol><ol id="5105b755-936a-4aea-bc0a-f2b1ae1c5ece" class="numbered-list" start="5"><li>web.xml (Deployment Descriptor file of web application)</li></ol><ol id="5e582be2-8e88-4d11-a4ad-c17c344d8eeb" class="numbered-list" start="6"><li>Struts Configuration File (XML File) (Controller Layer Resources)</li></ol></details></li></ul><ul id="fdd3bdf2-d62d-4e88-b961-a5ce22b710a5" class="toggle"><li><details open=""><summary><strong>Tomcat</strong></summary><p id="b6927d38-9133-40bc-8c75-3fdafcbd576c" class="">Tomcat is an application server used to execute servlets and render web-pages that use Java-server page coding.</p><p id="af1db575-2e91-41a9-b16c-4c98dbfb3e57" class="">It is an open-source Java servlet container that implements many Java Enterprise Specs such as the Websites API, Java-Server Pages and last but not least, the Java Servlet.</p><p id="d8260be3-9236-404d-a117-7582834a0320" class=""><strong>Default port</strong>: 8080</p><p id="6dcc264a-c683-42a6-9fbe-62c9859ef3a3" class=""><strong>Services </strong>: tomcat6.exe , tomcat6w.exe</p></details></li></ul><ul id="ea4395ff-ee27-490a-b4a2-cd7666025f91" class="toggle"><li><details open=""><summary><strong>Tomcat directory structure (bcllwwt)</strong></summary><p id="aaacc92a-ff52-42fd-8d6c-4e48e0ec87ce" class="">bin : startup and shutdown script , binaries and other scripts.</p><p id="b98f48a8-3ea3-49d2-8584-87eb2b761a60" class="">conf: </p><p id="7e7e058e-ce5f-4ef6-b84c-9e322392856f" class="">lib: JAR files (Java archive)</p><p id="8bf310b2-cc16-4175-892b-eff3bcda490e" class="">logs : log files and error messages</p><p id="33cb9930-8df2-495e-908e-844178d7c48c" class="">webapp</p><p id="1d719c5b-2e2d-4468-8345-3eed7f0c1cbc" class="">work</p><p id="3dd84b35-efae-4fd9-8303-101675ebeb71" class="">temp</p></details></li></ul><ul id="cb293524-bcb8-49aa-b052-529f12d63ba6" class="toggle"><li><details open=""><summary><strong>Required Attribute</strong></summary><p id="5e856748-f23f-4633-8041-befc1b1550a7" class="">The required attribute is a boolean  attribute. When present, it specifies that an input field 
+must be filled out before submitting the form. Note: The required attribute works with the 
+following input types: text, search, url,  tel, email, password, date pickers, number, checkbox, 
+radio, and file</p></details></li></ul><ul id="2845f2bb-a746-4cb6-abef-a3318280de2e" class="toggle"><li><details open=""><summary><strong>Internet v/s web</strong></summary><p id="8c899629-34b0-4823-961f-58679b610066" class="">Internet is the infrastructure and web is a technology built on that infrastructure.</p><p id="3b960aee-1a82-4dc4-ab35-5ffe866647b1" class="">So for e.g , internet is the connection of computers through wires n stuff whereas web is the protocol methods used by the computers to interact with each other.</p><p id="c0d0cfc0-97ba-48b2-a798-48324f66f35d" class="">Other methods : email , IRC</p></details></li></ul><ul id="c264adc8-e231-4be1-b687-3aea21a6bdfc" class="toggle"><li><details open=""><summary><strong>Unit-Testing</strong></summary><p id="ba6d099e-d94b-4bc2-8b52-0c7159452119" class="">Unit testing is a type of software testing where individual components of  a code are tested.</p><p id="53ad424c-9f66-4861-8b31-153efc3e2840" class="">The purpose is to check if all the components are performing the tasks as intended.</p><p id="d8778e25-1932-4b75-afbb-39f164b17d22" class="">Units can be functions , procedures , project , object.</p></details></li></ul><ul id="b0e728b2-f87f-4bf5-9871-6f95935fcb4a" class="toggle"><li><details open=""><summary><strong>Webpage</strong></summary><p id="1980154f-b53e-4374-b585-3d1fc96a67f4" class="">A document that can be displayed in browser</p></details></li></ul><ul id="6268f4ca-e440-411b-94d0-e150f81e76a6" class="toggle"><li><details open=""><summary><strong>Website</strong></summary><p id="9f78bd88-f189-4050-8b22-1d0c06a8e4c8" class="">A collection of webpages is called a website</p></details></li></ul><ul id="1d3823e6-53c5-4ada-9d90-06d346dc263e" class="toggle"><li><details open=""><summary><strong>Web-Server</strong></summary><p id="6ff52e86-f945-4b41-be23-be380add2133" class="">A computer that hosts the website , so that it can be pinged and accessed by users on the internet.</p><p id="01ab6661-596a-4eb3-ab51-ff3c83232844" class="">When requested by the user , the web-server sends the corresponding webpage to the browser.</p></details></li></ul><ul id="26a88eb3-5526-493b-80a2-86f2338a14e2" class="toggle"><li><details open=""><summary><strong>XML : </strong>Extensible Markup Language designed to store and transport data</summary><p id="c045c8d2-22da-4d42-8b4b-63ae07076c0f" class="">Extensible Markup Language is a markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable</p></details></li></ul><ul id="6c13d367-76bb-4b8b-b422-f60a969a1160" class="toggle"><li><details open=""><summary><strong>XML DOM</strong></summary><p id="89bb42b8-574b-4e44-b171-6505fa371078" class="">XMl dom defines a standard way  which allows programs to access and manipulate the XML page.</p><p id="14a866ec-8abf-47b5-bf7b-f9b7f42ee0ee" class="">It represent the page in tree struccture.</p></details></li></ul><ul id="03279517-db4d-413f-b5a8-d7484a93fc06" class="toggle"><li><details open=""><summary><strong>XML Namespaces</strong></summary><p id="522fdd3e-c3cf-4541-a849-0114575e9afe" class="">XML Namespaces provide a method to avoid element name conflicts.</p><p id="25f87a7f-7eae-4a66-b961-7ca46914cad1" class="">xmlns = &quot;adadas.dasda&quot;</p></details></li></ul><ul id="f34f0b7e-01ef-453e-8320-16da25f354cd" class="toggle"><li><details open=""><summary><strong>XSLT</strong> : Extensible style-sheet language</summary><p id="d9b652ed-1d11-41d2-872f-a2e96a80609b" class="">XSL is a stylesheet language that describes the presentation of webpage  (similar to CSS) .</p><p id="72708445-d2bf-4b89-a6d1-b49c211cb024" class="">XSLT transforms the structuring document (XML) into different format . (XML → HTML)</p></details></li></ul><ul id="14c00507-5c13-4989-abbc-2881cae5d265" class="toggle"><li><details open=""><summary><strong>XPATH</strong></summary><p id="81501288-03b8-4c88-bed3-a255967443f3" class="">Xpath acts as a selector which selects different part sof xml document.</p><pre id="9ee41214-673d-4ec3-a84b-b9773a51d835" class="code"><code>/element/element[child number]</code></pre></details></li></ul><p id="ace8a414-ae57-4af9-bfa5-d88e0c7c676a" class="">
+</p></div></article></body></html>
